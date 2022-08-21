@@ -1,0 +1,51 @@
+<?php
+
+/*
+ * Template Name: Обращения физ./юр. лиц
+*/
+
+
+?>
+
+<?php get_header(); ?>
+
+<?php require_once(COMPONENTS_PATH . 'topic-bar.php'); ?>
+<?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
+<?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
+
+<?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
+<?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
+
+<?php $managers = carbon_get_post_meta(get_queried_object_id(), 'crb_manager_description'); ?>
+
+<?php
+$newspapers_taxes = get_terms(
+	array(
+		'taxonomy' => get_taxonomies(['object_type' => ['newspaper']]),
+		'hide_empty' => false
+	)
+);
+?>
+
+<main class="appeal">
+	<div class="container main-container">
+		<div class="content-wrapper">
+			<div class="main-content">
+				<?php render_topic_bar(get_the_title(), false); ?>
+				<div class="appeal__content">
+					<?php echo the_content(); ?>
+				</div>
+				<div class="appeal__form">
+					<?php echo do_shortcode(carbon_get_the_post_meta('crb_apeal_form')); ?>
+				</div>
+			</div>
+			<div class="second-content">
+				<?php render_most_read_news_template(true); ?>
+				<?php render_newspapers_template(); ?>
+			</div>
+		</div>
+		<?php render_sidebar(); ?>
+	</div>
+</main>
+
+<?php get_footer(); ?>

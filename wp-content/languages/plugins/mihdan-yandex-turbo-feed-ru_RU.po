@@ -1,0 +1,687 @@
+# Translation of Plugins - Mihdan: Yandex Turbo Feed - Stable (latest release) in Russian
+# This file is distributed under the same license as the Plugins - Mihdan: Yandex Turbo Feed - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-05-31 12:20:14+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - Mihdan: Yandex Turbo Feed - Stable (latest release)\n"
+
+#: includes/class-settings.php:445
+msgid "(more&hellip;)"
+msgstr "(далее&hellip;)"
+
+#: includes/class-settings.php:444
+msgid "More Link Text"
+msgstr "Текст ссылки \"Читать далее\""
+
+#: includes/class-settings.php:942
+msgid "Из содержимого записей будут удалены все блоки, попадающие под указанные ниже регулярные выражения (RegEx)."
+msgstr "Из содержимого записей будут удалены все блоки, попадающие под указанные ниже регулярные выражения (RegEx)."
+
+#: includes/class-settings.php:941
+msgid "Regular Expressions"
+msgstr "Регулярные выражения"
+
+#: includes/class-settings.php:926
+msgid "Из содержимого записей будут удалены все указанные ниже шорткоды."
+msgstr "Из содержимого записей будут удалены все указанные ниже шорткоды."
+
+#: includes/class-settings.php:925
+msgid "Shortcodes"
+msgstr "Шорткоды"
+
+#: includes/class-settings.php:949
+msgid "Example: <code>&lt;div>?.*&lt;/div></code>"
+msgstr "Например, <code>&lt;div>?.*&lt;/div></code>"
+
+#: includes/class-settings.php:914 includes/class-settings.php:921
+msgid "Exclude"
+msgstr "Исключения"
+
+#: includes/class-settings.php:817
+msgid "Value"
+msgstr "Значение"
+
+#: includes/class-settings.php:285
+msgid "Заголовок страницы, который можно передать в Яндекс.Метрику."
+msgstr "Заголовок страницы, который можно передать в Яндекс.Метрику."
+
+#: includes/class-settings.php:284
+msgid "Turbo Topic"
+msgstr "Turbo Topic"
+
+#: includes/class-settings.php:281
+msgid "URL страницы-источника, который можно передать в Яндекс.Метрику."
+msgstr "URL страницы-источника, который можно передать в Яндекс.Метрику."
+
+#: includes/class-settings.php:280
+msgid "Turbo Source"
+msgstr "Turbo Source"
+
+#: includes/class-settings.php:277
+msgid "Активация обработки пользовательского HTML и CSS. Обязательный параметр для использования полного набора тегов. Если не передавать этот параметр, то некоторые теги будут игнорироваться."
+msgstr "Активация обработки пользовательского HTML и CSS. Обязательный параметр для использования полного набора тегов. Если не передавать этот параметр, то некоторые теги будут игнорироваться."
+
+#: includes/class-settings.php:276
+msgid "Включить"
+msgstr "Включить"
+
+#: includes/class-settings.php:272
+msgid "Для отключения Турбо‑страницы включите галочку. Отключить Турбо-страницу можно только, если запись не исключена из RSS-ленты."
+msgstr "Для отключения Турбо‑страницы включите галочку. Отключить Турбо-страницу можно только, если запись не исключена из RSS-ленты."
+
+#: includes/class-settings.php:271
+msgid "Отключить"
+msgstr "Отключить"
+
+#: includes/class-settings.php:268
+msgid "При активации данной настройки запись НЕ будет попадать в RSS ленту."
+msgstr "При активации данной настройки запись НЕ будет попадать в RSS ленту."
+
+#: includes/class-settings.php:267
+msgid "Исключить"
+msgstr "Исключить"
+
+#: includes/class-settings.php:190
+msgctxt "Post Type General Name"
+msgid "Yandex Turbo"
+msgstr "Yandex Turbo"
+
+#: includes/class-main.php:287
+msgid "Enjoyed <strong>Yandex Turbo Feed</strong>? Please leave us a <a href=\"%s\" target=\"_blank\" title=\"Rate & review it\">★★★★★</a> rating. We really appreciate your support"
+msgstr "Если вам нравится <strong>Yandex Turbo Feed</strong>, пожалуйста, поставьте нам <a href=\"%s\" target=\"_blank\" title=\"Rate & review it\">★★★★★</a> оценку 5 звезд. Заранее благодарим!"
+
+#. translators: ссылка на голосование
+#: includes/class-notifications.php:41
+msgid "We are very pleased that you by now have been using the <strong>Mihdan Yandex Turbo Feed</strong> plugin a few days. Please <a href=\"%s\" target=\"_blank\">rate ★★★★★ plugin</a>. It will help us a lot."
+msgstr "Мы очень рады, что вы используете наш плагин <strong>Mihdan Yandex Turbo Feed</strong>. Пожалуйста, <a href=\"%s\" target=\"_blank\">оцените ★★★★★ плагин</a>. Это сделает нас чуточку счастливее и придаст мотивации для дальнейшего развития плагина. Спасибо!"
+
+#: includes/class-notifications.php:38
+msgid "Hello!"
+msgstr "Привет!"
+
+#: includes/class-site-health.php:72
+msgid "DOMDocument"
+msgstr "DOMDocument"
+
+#: includes/class-site-health.php:60
+msgid "Enable Caching"
+msgstr "Включить кэширование"
+
+#: includes/class-site-health.php:55
+msgid "Caching is not currently enabled on your site. Caching can help load your site more quickly for visitors."
+msgstr "У вас не включено кеширование. Оно помогает загружаться вашему сайту быстрее."
+
+#: includes/class-site-health.php:44
+msgid "Caching can help load your site more quickly for visitors."
+msgstr "Кеширование помогает загружаться вашему сайту быстрее."
+
+#: includes/class-site-health.php:39
+msgid "Performance"
+msgstr "Быстродействие"
+
+#: includes/class-site-health.php:36
+msgid "Caching is enabled"
+msgstr "Кеширование включено"
+
+#: includes/class-site-health.php:27
+msgid "My Caching Test"
+msgstr "Тест на кеширование"
+
+#. translators: donate link
+#: includes/class-settings.php:1003
+msgid "Проект отнимает огромное количество сил, времени и энергии. Чтобы у разработчика была мотивация продолжать разрабатывать плагин и дальше, вы всегда можете <a target=\"_blank\" href=\"%s\">помочь символической суммой</a>."
+msgstr "Проект отнимает огромное количество сил, времени и энергии. Чтобы у разработчика была мотивация продолжать разрабатывать плагин и дальше, вы всегда можете <a target=\"_blank\" href=\"%s\">помочь символической суммой</a>."
+
+#: includes/class-settings.php:1001
+msgid "Attention Donate"
+msgstr "Внимание о данатах"
+
+#: includes/class-settings.php:964
+msgid "Attention Access"
+msgstr "Внимание о доступе"
+
+#: includes/class-settings.php:885
+msgid "Provider"
+msgstr "Источник"
+
+#: includes/class-settings.php:742
+msgid "Если лента формируется в RSS-канале, то настройки ленты в Яндекс.Вебмастере не учитываются. Чтобы включить автоматическую ленту в Яндекс.Вебмастере, отключите данную возможность ниже."
+msgstr "Если лента формируется в RSS-канале, то настройки ленты в Яндекс.Вебмастере не учитываются. Чтобы включить автоматическую ленту в Яндекс.Вебмастере, отключите данную возможность ниже."
+
+#: includes/class-settings.php:741
+msgid "Attention Related Posts"
+msgstr "Внимание о похожих записях"
+
+#: includes/class-settings.php:666
+msgid "Attention Analytics"
+msgstr "Внимание об аналитике"
+
+#: includes/class-settings.php:642 includes/class-settings.php:649
+msgid "Breadcrumbs"
+msgstr "Хлебные крошки"
+
+#: includes/class-settings.php:622
+msgid "Attention Menu"
+msgstr "Внимание о меню"
+
+#: includes/class-settings.php:548
+msgid "Adds Copyright To All Photos"
+msgstr "Добавляет копирайт ко всем фото на сайте"
+
+#: includes/class-settings.php:222
+msgid "Post Type Description"
+msgstr "Описание типа записи"
+
+#: includes/class-settings.php:221
+msgid "Лента"
+msgstr "Лента"
+
+#: includes/class-settings.php:210
+msgid "Filter items list"
+msgstr "Фильтровать список элементов"
+
+#: includes/class-settings.php:209
+msgid "Items list navigation"
+msgstr "Навигация по списку элементов"
+
+#: includes/class-settings.php:208
+msgid "Items list"
+msgstr "Список элементов"
+
+#: includes/class-settings.php:207
+msgid "Not found in Trash"
+msgstr "Не найдено в корзине"
+
+#: includes/class-settings.php:206
+msgid "Not found"
+msgstr "Не найдено"
+
+#: includes/class-settings.php:205
+msgid "Search Feed"
+msgstr "Искать ленту"
+
+#: includes/class-settings.php:204
+msgid "View Items"
+msgstr "Смотреть элементы"
+
+#: includes/class-settings.php:203
+msgid "View Feed"
+msgstr "Смотреть ленту"
+
+#: includes/class-settings.php:202
+msgid "Update Item"
+msgstr "Обновить элемент"
+
+#: includes/class-settings.php:201
+msgid "Edit Feed"
+msgstr "Редатировать ленту"
+
+#: includes/class-settings.php:200
+msgid "New Item"
+msgstr "Новый элемент"
+
+#: includes/class-settings.php:199
+msgid "Add Feed"
+msgstr "Добавить ленту"
+
+#: includes/class-settings.php:198
+msgid "Add New Feed"
+msgstr "Добавить новую ленту"
+
+#: includes/class-settings.php:197
+msgid "All Feeds"
+msgstr "Все ленты"
+
+#: includes/class-settings.php:196
+msgid "Parent Item:"
+msgstr "Родительский элемент"
+
+#: includes/class-settings.php:195
+msgid "Item Attributes"
+msgstr "Атрибуты элемента"
+
+#: includes/class-settings.php:194
+msgid "Архивы"
+msgstr "Архивы"
+
+#: includes/class-settings.php:193
+msgid "Yandex Turbo Feed"
+msgstr "Ленту Yandex Turbo"
+
+#: includes/class-settings.php:191
+msgctxt "Post Type Singular Name"
+msgid "Лента"
+msgstr "Лента"
+
+#: includes/class-settings.php:138
+msgid "Yandex"
+msgstr "Yandex"
+
+#: includes/class-settings.php:133
+msgid "Yahoo"
+msgstr "Yahoo"
+
+#: includes/class-settings.php:128
+msgid "Bing"
+msgstr "Bing"
+
+#: includes/class-settings.php:123
+msgid "Site"
+msgstr "Сайт"
+
+#: includes/class-template.php:756
+msgid "Для доступа к ленте нужно ввести пароль"
+msgstr "Для доступа к ленте нужно ввести пароль"
+
+#: includes/class-settings.php:997 includes/class-main.php:343
+msgid "Donate"
+msgstr "Поддержать"
+
+#: includes/class-main.php:342
+msgid "https://www.kobzarev.com/donate/"
+msgstr "https://www.kobzarev.com/donate/"
+
+#: includes/class-settings.php:305 includes/class-main.php:337
+msgid "Settings"
+msgstr "Настройки"
+
+#: includes/class-breadcrumbs.php:803
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr "W"
+
+#: includes/class-breadcrumbs.php:775 includes/class-breadcrumbs.php:1204
+msgctxt "daily archives date format"
+msgid "j"
+msgstr "j"
+
+#: includes/class-breadcrumbs.php:774 includes/class-breadcrumbs.php:830
+#: includes/class-breadcrumbs.php:1200
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr "F"
+
+#: includes/class-breadcrumbs.php:773 includes/class-breadcrumbs.php:802
+#: includes/class-breadcrumbs.php:829 includes/class-breadcrumbs.php:856
+#: includes/class-breadcrumbs.php:1196
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: includes/class-breadcrumbs.php:757
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr "g a"
+
+#: includes/class-breadcrumbs.php:740
+msgctxt "minute archives time format"
+msgid "i"
+msgstr "i"
+
+#: includes/class-breadcrumbs.php:723
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr "g:i a"
+
+#. Translators: Weekly archive title. %s is the week date format.
+#: includes/class-breadcrumbs.php:263
+msgid "Week %s"
+msgstr "Неделя %s"
+
+#. Translators: Minute archive title. %s is the minute time format.
+#: includes/class-breadcrumbs.php:261
+msgid "Minute %s"
+msgstr "Минута %s"
+
+#. Translators: %s is the page number.
+#: includes/class-breadcrumbs.php:259
+msgid "Comment Page %s"
+msgstr "Страница комментариев %s"
+
+#. Translators: %s is the page number.
+#: includes/class-breadcrumbs.php:257
+msgid "Page %s"
+msgstr "Страница %s"
+
+#. Translators: %s is the search query.
+#: includes/class-breadcrumbs.php:255
+msgid "Search results for: %s"
+msgstr "Результаты поиска: %s"
+
+#: includes/class-breadcrumbs.php:253
+msgid "Archives"
+msgstr "Архивы"
+
+#: includes/class-breadcrumbs.php:252
+msgid "404 Not Found"
+msgstr "404 Не найдено"
+
+#: includes/class-breadcrumbs.php:251
+msgid "Home"
+msgstr "Главная"
+
+#: includes/class-breadcrumbs.php:250
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr "Хлебные крошки"
+
+#: includes/class-breadcrumbs.php:249
+msgid "Browse:"
+msgstr "Обзор:"
+
+#. Description of the plugin
+msgid "Плагин создаёт настраиваемые ленты для сервиса Яндекс Турбо"
+msgstr "Плагин создаёт настраиваемые ленты для сервиса Яндекс Турбо"
+
+#: includes/class-settings.php:985
+msgid "Password"
+msgstr "Пароль"
+
+#: includes/class-settings.php:977
+msgid "Login"
+msgstr "Имя пользователя"
+
+#: includes/class-settings.php:965
+msgid "Использовать авторизацию для доступа к файлу с данными для формирования Турбо-страниц."
+msgstr "Использовать авторизацию для доступа к файлу с данными для формирования Турбо-страниц."
+
+#: includes/class-settings.php:960 includes/class-settings.php:971
+msgid "Access"
+msgstr "Доступ"
+
+#: includes/class-settings.php:904
+msgid "Invisible Border"
+msgstr "Прозрачные границы"
+
+#: includes/class-settings.php:667
+msgid "Если информация о счетчиках передается в RSS-канале (в элементе <code>turbo:analytics</code>), то настройки счетчиков в Яндекс.Вебмастере не учитываются. Чтобы подключить счетчики в Яндекс.Вебмастере, отключите полность модуль аналитики ниже."
+msgstr "Если информация о счетчиках передается в RSS-канале (в элементе <code>turbo:analytics</code>), то настройки счетчиков в Яндекс.Вебмастере не учитываются. Чтобы подключить счетчики в Яндекс.Вебмастере, отключите полность модуль аналитики ниже."
+
+#: includes/class-settings.php:805
+msgid "Maximum"
+msgstr "Максимум"
+
+#: includes/class-settings.php:793
+msgid "Minimal"
+msgstr "Минимум"
+
+#: includes/class-settings.php:877
+msgid "Placeholder"
+msgstr "Заполнитель"
+
+#: includes/class-settings.php:755
+msgid "Infinity Feed"
+msgstr "Бесконечная лента"
+
+#: includes/class-settings.php:725
+msgid "Идентификатор проекта <code>tmsec</code> с окончанием «-<code>turbo</code>». Например, если для обычных страниц сайта установлен счетчик <code>example_total</code>, то для Турбо-страниц указывается <code>example_total-turbo</code>."
+msgstr "Идентификатор проекта <code>tmsec</code> с окончанием «-<code>turbo</code>». Например, если для обычных страниц сайта установлен счетчик <code>example_total</code>, то для Турбо-страниц указывается <code>example_total-turbo</code>."
+
+#: includes/class-settings.php:724
+msgid "Mediascope (TNS)"
+msgstr "Mediascope (TNS)"
+
+#: includes/class-settings.php:715
+msgid "Rambler Top-100"
+msgstr "Rambler ТОП-100"
+
+#: includes/class-settings.php:706
+msgid "Rating Mail.RU"
+msgstr "Rating Mail.RU"
+
+#: includes/class-settings.php:698
+msgid "Укажите идентификатор отслеживания. Например, <code>UA-12345678-9</code>."
+msgstr "Укажите идентификатор отслеживания. Например, <code>UA-12345678-9</code>."
+
+#: includes/class-settings.php:697
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: includes/class-settings.php:689
+msgid "Укажите имя именованного счётчика. Например, <code>example.com</code>."
+msgstr "Укажите имя именованного счётчика. Например, <code>example.com</code>."
+
+#: includes/class-settings.php:688
+msgid "LiveInternet"
+msgstr "LiveInternet"
+
+#: includes/class-settings.php:680 includes/class-settings.php:707
+#: includes/class-settings.php:716
+msgid "Укажите числовой идентификатор счётчика. Например, <code>12345678</code>."
+msgstr "Укажите числовой идентификатор счётчика. Например, <code>12345678</code>."
+
+#: includes/class-settings.php:681 includes/class-settings.php:690
+#: includes/class-settings.php:699 includes/class-settings.php:708
+#: includes/class-settings.php:717 includes/class-settings.php:726
+msgid "Введите ID счётчика"
+msgstr "Введите ID счётчика"
+
+#: includes/class-settings.php:679
+msgid "Yandex.Metrika"
+msgstr "Yandex.Metrika"
+
+#. translators: link to menu
+#: includes/class-settings.php:624
+msgid "For adding menu to your feed, first <a href=\"%s\">created it</a> and attach to \"Yandex.Turbo\" location"
+msgstr "Для добавления меню в вашу ленту сначала <a href=\"%s\">создайте его</a> и прикрепите к области \"Яндекс.Турбо\"."
+
+#: includes/class-settings.php:605
+msgid "Callback Agreement Link"
+msgstr "Ссылка на пользовательское соглашение"
+
+#: includes/class-settings.php:596
+msgid "Callback Agreement Company"
+msgstr "Юридическое название организации"
+
+#: includes/class-settings.php:591
+msgid "Callback Send To"
+msgstr "Адрес электронной почты"
+
+#: includes/class-settings.php:846
+msgid "Share Networks"
+msgstr "Социальные сети"
+
+#: includes/class-settings.php:565 includes/class-settings.php:584
+#: includes/class-settings.php:629 includes/class-settings.php:648
+#: includes/class-settings.php:672 includes/class-settings.php:747
+#: includes/class-settings.php:754 includes/class-settings.php:786
+#: includes/class-settings.php:839 includes/class-settings.php:870
+#: includes/class-settings.php:903 includes/class-settings.php:920
+#: includes/class-settings.php:970
+msgid "On"
+msgstr "Вкл"
+
+#: includes/class-settings.php:114
+msgid "Vkontakte"
+msgstr "ВКонтакте"
+
+#: includes/class-settings.php:113
+msgid "Telegram"
+msgstr "Telegram"
+
+#: includes/class-settings.php:112
+msgid "Odnoklassniki"
+msgstr "Одноклассники"
+
+#: includes/class-settings.php:111 includes/class-settings.php:143
+msgid "Google"
+msgstr "Google"
+
+#: includes/class-settings.php:110
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/class-settings.php:662 includes/class-settings.php:673
+msgid "Analytics"
+msgstr "Аналитика"
+
+#: includes/class-settings.php:578 includes/class-settings.php:585
+msgid "Callback"
+msgstr "Форма обратной связи"
+
+#: includes/class-settings.php:864 includes/class-settings.php:878
+msgid "Search"
+msgstr "Поиск"
+
+#: includes/class-settings.php:780 includes/class-settings.php:787
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: includes/class-settings.php:559 includes/class-settings.php:566
+msgid "Comments"
+msgstr "Комментарии"
+
+#: includes/class-settings.php:618 includes/class-settings.php:630
+msgid "Menu"
+msgstr "Меню"
+
+#: includes/class-settings.php:897
+msgid "Tables"
+msgstr "Таблицы"
+
+#: includes/class-settings.php:833 includes/class-settings.php:840
+msgid "Share"
+msgstr "Шеры"
+
+#: includes/class-settings.php:543
+msgid "Copyright"
+msgstr "Копирайт"
+
+#: includes/class-settings.php:537
+msgid "Images"
+msgstr "Изображения"
+
+#: includes/class-settings.php:737 includes/class-settings.php:748
+msgid "Related Posts"
+msgstr "Похожие записи"
+
+#: includes/class-settings.php:528
+msgid "Channel Language"
+msgstr "Язык канала"
+
+#: includes/class-settings.php:520
+msgid "Channel Description"
+msgstr "Описание канала"
+
+#: includes/class-settings.php:512
+msgid "Channel Link"
+msgstr "Ссылка канала"
+
+#: includes/class-settings.php:504
+msgid "Channel Title"
+msgstr "Заголовок канала"
+
+#: includes/class-settings.php:498
+msgid "Channel"
+msgstr "Канал"
+
+#: includes/class-settings.php:416
+msgid "Taxonomy"
+msgstr "Таксономия"
+
+#: includes/class-settings.php:389 includes/class-settings.php:762
+msgid "Total Posts"
+msgstr "По сколько записей выводить"
+
+#: includes/class-settings.php:382
+msgid "ASC"
+msgstr "По возрастанию"
+
+#: includes/class-settings.php:381
+msgid "DESC"
+msgstr "По убыванию"
+
+#: includes/class-settings.php:378
+msgid "Order"
+msgstr "Направление сортировки"
+
+#: includes/class-settings.php:371
+msgid "Menu order"
+msgstr "Menu order"
+
+#: includes/class-settings.php:370
+msgid "Relevance"
+msgstr "Релевантность"
+
+#: includes/class-settings.php:369
+msgid "Comment_count"
+msgstr "Количество комментариев"
+
+#: includes/class-settings.php:368 includes/class-settings.php:400
+msgid "Post type"
+msgstr "Тип записи"
+
+#: includes/class-settings.php:367
+msgid "Post name"
+msgstr "Ярлык записи"
+
+#: includes/class-settings.php:366
+msgid "Title"
+msgstr "Заголовок"
+
+#: includes/class-settings.php:365
+msgid "Author"
+msgstr "Автор"
+
+#: includes/class-settings.php:364
+msgid "ID"
+msgstr "ID"
+
+#: includes/class-settings.php:363
+msgid "Random"
+msgstr "Случайно"
+
+#: includes/class-settings.php:362
+msgid "Last modified date"
+msgstr "Последнее изменение"
+
+#: includes/class-settings.php:361
+msgid "Date"
+msgstr "Дата"
+
+#: includes/class-settings.php:358
+msgid "Order By"
+msgstr "Сортировать по полю"
+
+#: includes/class-settings.php:346
+msgid "Feed Charset"
+msgstr "Кодировка ленты"
+
+#: includes/class-settings.php:320
+msgid "Feed"
+msgstr "Лента"
+
+#: includes/class-settings.php:192 includes/class-settings.php:259
+#: includes/class-site-health.php:52 includes/class-site-health.php:69
+msgid "Yandex Turbo"
+msgstr "Yandex Turbo"
+
+#. Author URI of the plugin
+msgid "https://www.kobzarev.com/"
+msgstr "https://www.kobzarev.com/"
+
+#. Author of the plugin
+msgid "Mikhail Kobzarev"
+msgstr "Михаил Кобзарёв"
+
+#. Plugin URI of the plugin
+msgid "https://www.kobzarev.com/projects/yandex-turbo-feed/"
+msgstr "https://www.kobzarev.com/projects/yandex-turbo-feed/"
+
+#. Plugin Name of the plugin
+msgid "Mihdan: Yandex Turbo Feed"
+msgstr "Mihdan: Yandex Turbo Feed"
+
+#: includes/class-fields.php:657
+msgid "Choose Image"
+msgstr "Выбрать изображение"
+
+#: includes/class-fields.php:636
+msgid "Choose File"
+msgstr "Выбрать файл"
