@@ -37,14 +37,16 @@
 
 			&__preview {
 				position: relative;
+				cursor: pointer;
 
 				.card-item__preview-icon {
 					position: absolute;
 					top: 50%;
 					left: 50%;
 					transform: translate(-50%, -50%);
-					cursor: pointer;
 					z-index: 10;
+					opacity: 1;
+					transition: opacity 0.3ms linear;
 
 					span {
 						font-family: "Noto Sans";
@@ -70,7 +72,11 @@
 					height: 100%;
 				}
 			}
-
+			&__preview.video-active{
+				.card-item__preview-icon{
+					opacity: 0;
+				}
+			}
 			&__header {
 				margin-top: 5px;
 				display: flex;
@@ -170,6 +176,7 @@
 				}
 			}
 		}
+
 	}
 }
 

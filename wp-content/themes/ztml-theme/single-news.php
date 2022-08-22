@@ -48,7 +48,7 @@
 					<?php endforeach; ?>
 				<?php endif; ?>
                 <div class="loading-posts">
-                    <span class="spiner"></span>
+                    <span class="spinner"></span>
                 </div>
 			</div>
 

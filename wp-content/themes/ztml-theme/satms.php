@@ -17,8 +17,10 @@
 <?php
 $satms = new WP_Query(
 	array(
-		'post_count' => 15,
+        'posts_per_page' => 3,
 		'post_type' => 'satm',
+        'post_status' => 'publish',
+
 	)
 );
 ?>

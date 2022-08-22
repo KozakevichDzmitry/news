@@ -5,8 +5,8 @@ jQuery(function ($) {
         action: 'loadmore',
         offset: 3,
         exclude: $('.main-content').attr('id'),
+        load: 9
     }
-    let offset = 9;
 
     const observer = new IntersectionObserver(
         ([entry]) => {
@@ -20,7 +20,7 @@ jQuery(function ($) {
                     },
                     success: function (data) {
                         if (data) {
-                            dataRequest.offset += offset;
+                            dataRequest.offset += dataRequest.load;
 
                             $(lastPost).after(data);
                             observer.unobserve(lastPost);
@@ -44,7 +44,4 @@ jQuery(function ($) {
     );
 
     observer.observe(lastPost);
-
-
 });
-

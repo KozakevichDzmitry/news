@@ -99,6 +99,8 @@ function page_scripts()
 
     wp_enqueue_script('search-bar-js', get_stylesheet_directory_uri() . '/scripts/components/search-bar.js', array(), true);
 
+    wp_enqueue_script('play-preload-video-js', get_stylesheet_directory_uri() . '/scripts/components/play-preload-video.js', array(), true);
+
     global $wp_query;
 
     if (is_front_page()) {
@@ -118,7 +120,7 @@ function page_scripts()
         'ajaxurl' => admin_url('admin-ajax.php'),
         'query_vars' => json_encode($wp_query->query)
     ));
-    if( get_post_type() =="news"){
+    if (get_post_type() == "news") {
         wp_enqueue_script('loadmore', get_stylesheet_directory_uri() . '/scripts/components/loadmore.js', array('jquery'), 1.0, true);
         wp_localize_script('loadmore', 'ajax', array('ajaxurl' => admin_url('admin-ajax.php')));
     }
@@ -333,20 +335,17 @@ add_action('wp_ajax_satms_load', 'satms_load');
 
 function satms_load()
 {
-    $query_vars = json_decode(stripslashes($_POST['query_vars']), true);
-
-    $posts = new WP_Query(
-        array(
-            'post_count' => 3,
-            'post_type' => 'satm'
-        )
+    $args = array(
+        'post_status' => 'publish',
+        'posts_per_page' => $_POST['load'],
+        'post_type' => 'satm',
+        'offset' => $_POST['offset']
     );
 
-    if (!$posts->have_posts()) {
-        get_template_part('content', 'none');
-    } else {
-        while ($posts->have_posts()) {
-            $post = $posts->the_post();
+    $posts = get_posts($args);
+
+    if (!empty($posts)) {
+        foreach ($posts as $post) {
             render_satms_list_items($post);
         }
     }

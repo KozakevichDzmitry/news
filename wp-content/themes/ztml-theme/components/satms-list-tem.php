@@ -7,6 +7,7 @@ require_once(COMPONENTS_PATH . "/icons/share-icon.php");
 function render_satms_list_items($post)
 {
 ?>
+
 	<div class="card-item">
 		<div class="card-item__preview">
 			<?php $youtube_sufix = carbon_get_post_meta($post->ID, 'crb_youtube_code'); ?>
