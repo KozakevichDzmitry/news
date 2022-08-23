@@ -14,7 +14,7 @@ function render_half_post($id, $cat = NULL)
 		<div class="post-header">
 			<div class="content-exists">
 				<div class="content">
-					<?php $checked_content = apply_filters('the_content', get_the_content(), $id); ?>
+					<?php $checked_content = apply_filters('the_content', $single_post->post_content, $id); ?>
 					<?php if (check_exist_images($checked_content)) : ?>
 						<?php render_camera_icon(); ?>
 					<?php endif; ?>

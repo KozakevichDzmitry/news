@@ -332,7 +332,6 @@ add_action('wp_enqueue_scripts', 'diff_image_register');
 add_action('wp_ajax_nopriv_satms_load', 'satms_load');
 add_action('wp_ajax_satms_load', 'satms_load');
 
-
 function satms_load()
 {
     $args = array(
@@ -409,6 +408,7 @@ function load_posts()
     $args['posts_per_page'] = $_POST['load'];
     $args['offset'] = $_POST['show'];
     $posts = get_posts($args);
+
     if (!empty($posts)) {
         foreach ($posts as $pst) {
             get_template_part('./components/tpl-' . $_POST['tpl'], null, ['ID' => $pst->ID]);

@@ -43,5 +43,5 @@ jQuery(function ($) {
         }
     );
 
-    observer.observe(lastPost);
+    if(lastPost) observer.observe(lastPost);
 });
