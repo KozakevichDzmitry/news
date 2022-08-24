@@ -3542,6 +3542,10 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   margin: 0px 0px 10px 0px;
 }
 
+.content-wrapper > .wpadcenter-ad-container {
+  margin-bottom: 20px;
+}
+
 .aaq .main-content .topic-bar {
   width: 100%;
 }
