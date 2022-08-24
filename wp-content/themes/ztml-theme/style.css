@@ -447,6 +447,9 @@ main {
 .page-content table th {
   background-color: #f2f2f2;
 }
+.page-content div {
+  max-width: 100%;
+}
 
 .acc-item {
   background: #fff;
@@ -577,7 +580,7 @@ header:not(.sticky) {
 }
 
 main {
-  margin-top: 190px;
+  margin-top: 160px;
 }
 
 header.sticky {
@@ -4811,6 +4814,10 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
     gap: 10px;
   }
 }
+.post {
+  margin-bottom: 30px;
+}
+
 .footer-content {
   display: flex;
   flex-direction: row;

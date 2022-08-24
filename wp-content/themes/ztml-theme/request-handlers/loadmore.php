@@ -21,7 +21,7 @@ function loadmore_news()
     if (!empty($posts)) {
         foreach ($posts as $post) {
             update_post_meta( $post->ID, 'post_key', 'meta_value' );
-            render_half_post($post->ID);
+            render_news_whole_post($post->ID);
         }
     }
 

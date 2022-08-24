@@ -62,6 +62,7 @@ require_once(COMPONENTS_PATH . "pdf-attachments.php");
 require_once(COMPONENTS_PATH . 'satms-list-tem.php');
 require_once(COMPONENTS_PATH . 'cae-list-item.php');
 require_once(COMPONENTS_PATH . 'line-news-list-item.php');
+require_once(COMPONENTS_PATH . 'news-whole-post.php');
 
 require_once(REQUEST_HANDLERS . 'posts.php');
 require_once(REQUEST_HANDLERS . 'timeline.php');

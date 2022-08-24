@@ -229,6 +229,9 @@ main {
 			background-color: #f2f2f2;
 		}
 	}
+	div{
+		max-width: 100%;
+	}
 }
 
 .acc-item {
@@ -373,7 +376,7 @@ header:not(.sticky) {
 }
 
 main {
-	margin-top: 190px;
+	margin-top: 160px;
 }
 
 header.sticky {

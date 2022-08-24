@@ -46,6 +46,7 @@
 <main class="site-main">
 	<div class="container main-container">
 		<div id="main-content" class="content-wrapper">
+
 			<?php render_main_news_template(); ?>
 
 			<?php render_district_news_template(); ?>

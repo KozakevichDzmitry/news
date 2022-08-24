@@ -18,11 +18,16 @@ function render_satms_list_items($post)
 			<?php elseif (!empty($simple_video_id)) : ?>
 				<div class="card-item__preview-icon">
 					<?php include(IMAGES_PATH . 'play-icon.svg'); ?>
-					<span>19:50</span>
+                    <?php
+                    $file_meta = wp_get_attachment_metadata( $simple_video_id[0] ); // получаем все метаданные по видео
+                    $time =  $file_meta["length_formatted"];
+                    ?>
+					<span><?php echo $time;?></span>
 				</div>
 				<video>
 					<source src="<?php echo wp_get_attachment_url($simple_video_id[0]); ?>" type="video/mp4">
 				</video>
+
 			<?php endif; ?>
 		</div>
 		<div class="card-item__header">
