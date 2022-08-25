@@ -45,10 +45,9 @@
 <?php require_once(COMPONENTS_PATH . 'icons/expand-btn-icon.php'); ?>
 
 <main class="site-main">
+    <div class="container"><?php render_wpadcenter_ads('crb_adv_block'); ?></div>
 	<div class="container main-container">
 		<div id="main-content" class="content-wrapper">
-
-            <?php render_wpadcenter_ads('crb_adv_block'); ?>
 
 			<?php render_main_news_template(); ?>
             <?php render_wpadcenter_ads('crb_adv_block1'); ?>
