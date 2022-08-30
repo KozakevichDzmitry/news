@@ -5,8 +5,6 @@ require_once(COMPONENTS_PATH . 'news-templates/timeline-news-template.php');
 
 function timeline_news_load()
 {
-//	 $args = unserialize(stripslashes($_POST['query']));
-
 	$args = array();
 
 	$args['posts_per_page'] = $_POST['load'];

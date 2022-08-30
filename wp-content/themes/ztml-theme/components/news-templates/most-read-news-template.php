@@ -24,7 +24,7 @@ function render_most_read_news_template($is_minimazed = false)
 	?>
 
 	<?php if ($is_minimazed) : ?>
-		<div class="box-column-gap" style="margin-bottom: 30px;">
+		<div class="box-column-gap most-read-news" style="margin-bottom: 30px;">
 			<div class="box-line-gap">
 				<div class="box">
 					<?php render_new_template_image($most_read_posts[0]->ID); ?>
@@ -39,7 +39,7 @@ function render_most_read_news_template($is_minimazed = false)
 			</div>
 		</div>
 	<?php else : ?>
-		<div class="box-column-gap" style="margin-bottom: 30px;">
+		<div class="box-column-gap most-read-news" style="margin-bottom: 30px;">
 			<div class="box-line-gap">
 				<div class="box">
 					<?php render_new_template_image($most_read_posts[0]->ID); ?>

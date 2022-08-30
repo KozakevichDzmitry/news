@@ -69,7 +69,6 @@ $images = array("https://klike.net/uploads/posts/2020-05/1590042521_4.jpg",
 "https://deita.ru/images/articles/2018-10-17_17-27-19_439500_lg.jpg",
 "https://avatars.mds.yandex.net/i?id=31b42dbbb8d899aabb8542229fc06d36_l-5490649-images-thumbs&n=13",
 "https://klike.net/uploads/posts/2020-05/1590042521_4.jpg",
-"https://avatars.mds.yandex.net/get-zen_doc/4888095/pub_60c326a114e86145f5385cc8_60c4af951d6b9f4413233325/scale_1200"
 );
 
 $events_data = array(
@@ -245,11 +244,12 @@ $events_data = array(
 		<div class="content-wrapper">
             <div class="main-content">
 				<?php render_topic_bar(get_the_title(), false); ?>
+                <p class="events-color">Для современного мира постоянное информационно-пропагандистское обеспечение нашей деятельности, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для позиций, занимаемых участниками в отношении поставленных задач. Банальные, но неопровержимые выводы, а также элементы политического процесса, превозмогая сложившуюся непростую экономическую ситуацию, призваны к ответу. Задача организации, в особенности же социально-экономическое развитие позволяет выполнить важные задания по разработке экономической целесообразности принимаемых решений. Прежде всего, внедрение современных методик говорит о возможностях экспериментов, поражающих по своей масштабности.</p>
 				<div class="district__slider">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/-7n4t0cbVD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<?php foreach ($images as $image) : ?>
 						<div>
-							<img src="<?php echo $image ?>" />
+							<img class="fill zoom-img" src="<?php echo $image ?>" />
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -263,7 +263,7 @@ $events_data = array(
                     <div class="img-container">
                         <?php foreach ($event["data"] as $item) : ?>
                             <?php if ($item["type"] == "image"): ?>
-                                <img class="event-img" src="<?php echo $item['src']?>"/>
+                                <img class="event-img zoom-img" src="<?php echo $item['src']?>"/>
                             <?php elseif ($item["type"] == "video"): ?>
                                 <iframe class="event-video" src="<?php echo $item['src']?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <?php endif; ?>

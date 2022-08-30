@@ -3,6 +3,8 @@ jQuery(document).ready(function ($) {
 		var sticky = $("#header-stiky"),
 			scroll = $(window).scrollTop();
 
+		console.log(scroll, $("#header-stiky").height() + 300);
+
 		if (scroll >= $("#header-stiky").height() + 300) {
 			sticky.addClass("is-sticky sticky");
 		} else {
@@ -100,4 +102,84 @@ jQuery(document).ready(function ($) {
 		bottomSpacing: 80,
 		containerSelector: ".main-container",
 	});
+
+	$(".secondary-mobile-btn").on("click", function (e) {
+		e.stopPropagation();
+		console.log("click");
+		if ($("#secondary").hasClass("active")) {
+			$("#secondary").removeClass("active");
+			$(this).removeClass("active");
+			$("body").css("overflow-y", "auto");
+			$("#main-content").css("filter", "none");
+			$("header.header").css("filter", "none");
+			// $("header.header").css("filter", "none");
+			// $("header.header").css("filter", "none");
+		} else {
+			$("#secondary").addClass("active");
+			$(this).addClass("active");
+			$("#main-content").css("filter", "blur(3px)");
+			$("header.header").css("filter", "blur(3px)");
+			// $("header.header").css("filter", "blur(3px)");
+			// $("header.header").css("filter", "blur(3px)");
+			hamburgerIsOpen = true;
+			$("body").css("overflow-y", "hidden");
+		}
+	});
+
+	$(".managment-list .mob-get-more").on("click", function functionName() {
+		more_block = $(this).prev();
+		if (more_block.hasClass("active")) {
+			more_block.removeClass("active");
+			$(this).text("Читать всё");
+		} else {
+			more_block.addClass("active");
+			$(this).text("Скрыть");
+		}
+	});
+});
+
+jQuery(document).ready(function ($) {
+	new Swiper(".swiper-container.two", {
+		pagination: false,
+		paginationClickable: true,
+		effect: "coverflow",
+		autoHeight: false,
+		loop: true,
+		centeredSlides: true,
+		slidesPerView: "auto",
+		coverflow: {
+			rotate: 0,
+			stretch: 100,
+			depth: 0,
+			modifier: 1.5,
+			slideShadows: false,
+		},
+	});
+});
+
+jQuery(document).ready(function ($) {
+	const districtPreviewEl = $(".district-preview");
+	const districtEls = districtPreviewEl.find(".district-item");
+
+	function alignHeightDistricts($) {
+		let maxH = 0;
+		$(".district-preview>.district-item").each(function () {
+			if ($(this).height() > maxH) {
+				maxH = $(this).height();
+			}
+		});
+
+		$(".district-preview>.district-item").each(function () {
+			$(this).height(maxH);
+		});
+	}
+
+	districtPreviewEl.click((e) => {
+		if ($(e.target).hasClass("district-item")) {
+			districtEls.each((idx, item) => $(item).removeClass("active"));
+			$(e.target).addClass("active");
+		}
+	});
+
+	alignHeightDistricts($);
 });

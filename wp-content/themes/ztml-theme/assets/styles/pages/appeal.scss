@@ -89,7 +89,6 @@
 			}
 			input[type="file"]::before {
 				content: "Выбрать файл";
-				-webkit-user-select: none;
 				padding: 10px 20px;
 				background: $white-color;
 				border: 2px solid $blue-color;
@@ -214,9 +213,8 @@
 }
 
 @media (max-width: 1024px) {
-	.appeal{
-
-		.main-content{
+	.appeal {
+		.main-content {
 			.appeal__form {
 				.appeal-form__form-field {
 					flex-direction: column;
@@ -239,52 +237,48 @@
 			}
 		}
 	}
-
 }
 
 @media (max-width: 768px) {
 	.appeal {
-		.main-container.container{
+		.main-container.container {
 			padding: 0;
-			.content-wrapper{
+			.content-wrapper {
 				width: 100%;
 			}
 		}
-		.topic-bar{
-			.topic-bar__container{
+
+		.topic-bar {
+			.topic-bar__container {
 				padding: 0 20px;
 			}
 		}
 
-		.appeal__content{
-			padding: 0 20px;
+		.appeal__content {
+			margin: 0 20px;
 		}
+
 		.appeal__form {
 			padding: 0 20px;
-			.appeal-form__form-field{
-				.input-wrapper{
-					input:not(input[type=file]){
+			.appeal-form__form-field {
+				.input-wrapper {
+					input:not(input[type="file"]) {
 						margin-left: 0;
 					}
 					.input-wrapper__info {
 						display: none;
 					}
 				}
-
 			}
 		}
-
 	}
-
 }
-
-
 
 @media (max-width: 576px) {
 	.appeal {
-		.topic-bar{
-			.topic-bar__container{
-				.topic-bar__title{
+		.topic-bar {
+			.topic-bar__container {
+				.topic-bar__title {
 					font-size: 23px;
 					line-height: 1.36em;
 				}

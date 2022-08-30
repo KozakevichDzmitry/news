@@ -11,6 +11,7 @@
 <?php require_once(COMPONENTS_PATH . 'topic-bar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
+<?php require_once(COMPONENTS_PATH . 'ether-item.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'news-templates.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
@@ -18,12 +19,20 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 
 <?php
-$efir_podcast = new WP_Query(
-	array(
-		'post_count' => 3,
-		'post_type' => 'aaq',
-	)
+$show_count = 27;
+$load_count = 27;
+
+$efiri_args = array(
+	'post_type' => 'post',
+	'post_type' => 'aaq',
+	'post_status' => 'publish',
+	'posts_per_page' => $show_count
 );
+
+$efiri_posts = get_posts($efiri_args);
+$all_args = $efiri_args;
+$all_args['posts_per_page'] = -1;
+$all_posts = get_posts($all_args);
 ?>
 
 <main class="aaq">
@@ -43,63 +52,44 @@ $efir_podcast = new WP_Query(
 						</div>
 					</div>
 				</div>
-				<div class="aaq-question-list">
-					<div class="aaq-question-list-item">
-						<div class="aaq-question-list-item__name">
-							<p>Анна Донцова</p>
-						</div>
-						<div class="aaq-question-list-item__ask">
-							<p>—Уважаемый Сергей Павлович, обращаюсь к вам с просьбой рассмотреть возможность проложить пешеходную дорожку от ТЦ «ГИППО» по адресу: ул. Горецкого, 2, в сторону ул. Ельских и Михаловской. Проживаю на Михаловской, 6. Торговый центр находится в шаговой доступности. В хорошую погоду местные жители идут в магазин через поле, при плохих погодных условиях приходится обходить по кругу. Будем рады и признательны, если просьба будет удовлетворена.</p>
-						</div>
-					</div>
-					<div class="aaq-question-list-item">
-						<div class="aaq-question-list-item__name">
-							<p>Анна Донцова</p>
-						</div>
-						<div class="aaq-question-list-item__ask">
-							<p>—Уважаемый Сергей Павлович, обращаюсь к вам с просьбой рассмотреть возможность проложить пешеходную дорожку от ТЦ «ГИППО» по адресу: ул. Горецкого, 2, в сторону ул. Ельских и Михаловской. Проживаю на Михаловской, 6. Торговый центр находится в шаговой доступности. В хорошую погоду местные жители идут в магазин через поле, при плохих погодных условиях приходится обходить по кругу. Будем рады и признательны, если просьба будет удовлетворена.</p>
-						</div>
-					</div>
-					<div class="aaq-question-list-item">
-						<div class="aaq-question-list-item__name">
-							<p>Анна Донцова</p>
-						</div>
-						<div class="aaq-question-list-item__ask">
-							<p>—Уважаемый Сергей Павлович, обращаюсь к вам с просьбой рассмотреть возможность проложить пешеходную дорожку от ТЦ «ГИППО» по адресу: ул. Горецкого, 2, в сторону ул. Ельских и Михаловской. Проживаю на Михаловской, 6. Торговый центр находится в шаговой доступности. В хорошую погоду местные жители идут в магазин через поле, при плохих погодных условиях приходится обходить по кругу. Будем рады и признательны, если просьба будет удовлетворена.</p>
-						</div>
-					</div>
-					<div class="aaq-question-list-item">
-						<div class="aaq-question-list-item__name">
-							<p>Анна Донцова</p>
-						</div>
-						<div class="aaq-question-list-item__ask">
-							<p>—Уважаемый Сергей Павлович, обращаюсь к вам с просьбой рассмотреть возможность проложить пешеходную дорожку от ТЦ «ГИППО» по адресу: ул. Горецкого, 2, в сторону ул. Ельских и Михаловской. Проживаю на Михаловской, 6. Торговый центр находится в шаговой доступности. В хорошую погоду местные жители идут в магазин через поле, при плохих погодных условиях приходится обходить по кругу. Будем рады и признательны, если просьба будет удовлетворена.</p>
-						</div>
-					</div>
-				</div>
-				<div class="efirs-list">
-					<div class="efirs-list-item">
-						<?php if ($efir_podcast->have_posts()) : ?>
-							<?php while ($efir_podcast->have_posts()) : ?>
-								<?php $efir_podcast->the_post(); ?>
-								<div class="efirs-list-item__decription">
-									<?php echo the_content(); ?>
+
+				<?php
+				$appeals_posts = get_posts(array(
+					'post_type' => 'post',
+					'post_type' => 'aqq-appeals',
+					'post_status' => 'publish',
+					'posts_per_page' => -1
+				));
+				?>
+
+				<?php if (!empty($appeals_posts)) : ?>
+					<div class="aaq-question-list">
+						<?php foreach ($appeals_posts as $pst) : ?>
+							<div class="aaq-question-list-item">
+								<div class="aaq-question-list-item__name">
+									<p><?php echo $pst->post_title; ?></p>
 								</div>
-								<div class="efirs-list-item__efir-part">
-									<div class="efirs-list-item__thumb">
-										<?php echo get_the_post_thumbnail(); ?>
-									</div>
-									<div>
-										<?php echo carbon_get_post_meta(get_the_ID(), 'crb_youtube_code_aqq'); ?>
-									</div>
+								<div class="aaq-question-list-item__ask">
+									<?php echo $pst->post_content; ?>
 								</div>
-							<?php endwhile; ?>
-						<?php endif; ?>
+							</div>
+						<?php endforeach; ?>
 					</div>
-				</div>
-				<div class="aaq__moree-btn">
-					<button>Показать ещё</button>
-				</div>
+				<?php endif; ?>
+
+				<?php if ($efiri_posts) : ?>
+					<div class="efirs-list">
+						<?php foreach ($efiri_posts as $pst) : ?>
+							<?php render_ether_item($pst->ID); ?>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+
+				<?php if (intval($show_count) < count($all_posts)) : ?>
+					<div class="load-moree-btn">
+						<button data-all-posts="<?php echo count($all_posts) ?>">Показать ещё</button>
+					</div>
+				<?php endif ?>
 			</div>
 			<div class="second-content">
 				<?php render_most_read_news_template(true); ?>

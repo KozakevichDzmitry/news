@@ -72,8 +72,8 @@
 					height: 100%;
 				}
 			}
-			&__preview.video-active{
-				.card-item__preview-icon{
+			&__preview.video-active {
+				.card-item__preview-icon {
 					opacity: 0;
 				}
 			}
@@ -176,17 +176,18 @@
 				}
 			}
 		}
-
 	}
 }
-
 
 @media (max-width: 768px) {
 	.satms .cards-list {
 		grid-template-columns: 1fr 1fr;
 		padding: 0 20px;
 
-		img:not([draggable]), embed, object, video{
+		img:not([draggable]),
+		embed,
+		object,
+		video {
 			width: 100%;
 		}
 	}
@@ -196,5 +197,4 @@
 	.satms .cards-list {
 		grid-template-columns: 1fr;
 	}
-
 }

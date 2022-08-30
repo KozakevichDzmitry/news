@@ -10,16 +10,16 @@ function single_satm_slide($post)
 		<div class="satm-header">
 			<div class="content-exists">
 				<div class="content">
-                    <?php $checked_content = apply_filters('the_content', get_the_content(), $id); ?>
-                    <?php if (check_exist_images($checked_content)) : ?>
-                        <?php render_camera_icon(); ?>
-                    <?php endif; ?>
-                    <?php if (check_exist_video($checked_content)) : ?>
-                        <?php render_video_content_icon(); ?>
-                    <?php endif; ?>
-                    <?php if (check_exist_map($checked_content)) : ?>
-                        <?php render_location_icon(); ?>
-                    <?php endif; ?>
+					<?php $checked_content = apply_filters('the_content', get_the_content(), $id); ?>
+					<?php if (check_exist_images($checked_content)) : ?>
+						<?php render_camera_icon(); ?>
+					<?php endif; ?>
+					<?php if (check_exist_video($checked_content)) : ?>
+						<?php render_video_content_icon(); ?>
+					<?php endif; ?>
+					<?php if (check_exist_map($checked_content)) : ?>
+						<?php render_location_icon(); ?>
+					<?php endif; ?>
 				</div>
 				<div class="tags">
 					<span>Экономика</span>

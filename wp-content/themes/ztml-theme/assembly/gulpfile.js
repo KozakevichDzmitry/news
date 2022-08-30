@@ -18,7 +18,7 @@ const paths = {
 
 const browsersync = () => {
 	browser_sync.init({
-		proxy: "http://news/",
+		proxy: "localhost:10008",
 		notify: false,
 	});
 };

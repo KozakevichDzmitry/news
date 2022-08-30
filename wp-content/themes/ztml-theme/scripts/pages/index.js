@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+	console.log("update");
 	$.datepicker.setDefaults($.datepicker.regional.ru);
 
 	let lastPost = document.querySelector(
@@ -116,50 +117,4 @@ jQuery(document).ready(function ($) {
 	};
 
 	observer.observe(lastPost);
-});
-
-jQuery(document).ready(function ($) {
-	new Swiper(".swiper-container.two", {
-		pagination: false,
-		paginationClickable: true,
-		effect: "coverflow",
-		autoHeight: false,
-		loop: true,
-		centeredSlides: true,
-		slidesPerView: "auto",
-		coverflow: {
-			rotate: 0,
-			stretch: 100,
-			depth: 0,
-			modifier: 1.5,
-			slideShadows: false,
-		},
-	});
-});
-
-jQuery(document).ready(function ($) {
-	const districtPreviewEl = $(".district-preview");
-	const districtEls = districtPreviewEl.find(".district-item");
-
-	function alignHeightDistricts($) {
-		let maxH = 0;
-		$(".district-preview>.district-item").each(function () {
-			if ($(this).height() > maxH) {
-				maxH = $(this).height();
-			}
-		});
-
-		$(".district-preview>.district-item").each(function () {
-			$(this).height(maxH);
-		});
-	}
-
-	districtPreviewEl.click((e) => {
-		if ($(e.target).hasClass("district-item")) {
-			districtEls.each((idx, item) => $(item).removeClass("active"));
-			$(e.target).addClass("active");
-		}
-	});
-
-	alignHeightDistricts($);
 });

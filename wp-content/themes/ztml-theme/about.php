@@ -71,7 +71,6 @@ $vfat = array(
 					<?php echo the_content(); ?>
 				</div>
 				<div class="about-content">
-
 					<div class="metrics">
 						<?php foreach (carbon_get_the_post_meta('numbers') as $item) : ?>
 							<div class="card">
@@ -79,7 +78,7 @@ $vfat = array(
 									<img src="<?php echo wp_get_attachment_image_url($item['image']) ?>">
 								</div>
 								<div class="card__content">
-									<span class="card__title"><?php echo $item['title'] ?></span>
+									<span class="card__title">&#62; <b><?php echo $item['title'] ?></b></span>
 									<span class="card__text">
 										<?php echo $item['text'] ?>
 									</span>
@@ -140,7 +139,7 @@ $vfat = array(
 
 					<div>
 						<a class="outline-btn">Противодействие коррупции</a>
-						<a class="policy-link">Политика УП "Агентство "Минск-Новости"</a>
+						<a class="policy-link">Политика УП «Агентство «Минск-новости» в отношении обработки персональных данных</a>
 					</div>
 				</div>
 			</div>

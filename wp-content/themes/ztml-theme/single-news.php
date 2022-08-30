@@ -4,17 +4,16 @@
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'half-post.php'); ?>
-<?php require_once(COMPONENTS_PATH . 'news-whole-post.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
 
 <main class="authors-column-page">
 	<div class="container main-container">
 		<div class="content-wrapper">
-			<div class="main-content" id="<?php echo $post->ID;?>">
+			<div class="main-content" id="<?php echo $post->ID; ?>">
 				<?php gt_set_post_view(); ?>
 
-				<?php render_news_whole_post($post); ?>
+				<?php render_half_post($post); ?>
 
 				<?php render_top_three_news_template(); ?>
 
@@ -45,14 +44,13 @@
 
 				<?php if (!empty($meri_posts)) : ?>
 					<?php foreach ($meri_posts as $post) : ?>
-						<?php render_news_whole_post($post->ID); ?>
+						<?php render_half_post($post->ID); ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
-                <div class="loading-posts">
-                    <span class="spinner"></span>
-                </div>
+				<div class="loading-posts">
+					<span class="spinner"></span>
+				</div>
 			</div>
-
 		</div>
 		<?php render_sidebar(); ?>
 	</div>

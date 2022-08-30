@@ -12,8 +12,6 @@ function load_more_news()
 	$args['posts_per_page'] = $_POST['load'];
 	$args['offset'] = $_POST['show'];
 
-	var_dump($_POST['load'], $_POST['show']);
-
 	// $posts = get_posts($args);
 
 	// foreach ($posts as $pst) {

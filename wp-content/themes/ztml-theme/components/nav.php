@@ -18,7 +18,12 @@ function render_burger_nav()
 	$location = 'burger-header-nav';
 	$nav = $base_nav_settings;
 	$nav['theme_location'] = $location;
-	$nav['container_class'] = $nav['container_class'] . ' burger-nav';
+
+	if (!empty($nav['container_class'])) {
+		$nav['container_class'] = $nav['container_class'] . ' burger-nav';
+	} else {
+		$nav['container_class'] = ' burger-nav';
+	}
 
 	if (has_nav_menu($location)) {
 		wp_nav_menu($nav);

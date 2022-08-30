@@ -1,0 +1,36 @@
+@media (max-width: 768px) {
+
+  .pdf-attachments {
+
+    gap: 10px;
+    overflow-x: auto;
+    flex-wrap: initial;
+    margin: 0 0 30px;
+
+    & &-item {
+      width: 100%;
+      padding: 0;
+      background-color: $white-color;
+      box-shadow: initial;
+      max-width: 500px;
+      margin: 0 auto !important;
+    }
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .pdf-attachments {
+    flex-direction: column;
+    overflow-x: initial;
+    box-shadow: none;
+    background: none;
+    padding: 0 20px 30px;
+    margin: 0;
+    & &-item {
+      padding: 10px 20px 9px;
+      box-shadow: 0 3px 4px rgba(125, 125, 125, 0.25), 0 -3px 4px rgba(125, 125, 125, 0.1);
+    }
+  }
+}

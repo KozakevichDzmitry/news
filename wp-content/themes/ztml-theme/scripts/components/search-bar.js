@@ -1,15 +1,25 @@
-window.onload=function(){
+const OPEN_SEARCH_EVENT = "OPEN_SEARCH_EVENT";
+const CLOSE_SEARCH_EVENT = "CLOSE_SEARCH_EVENT";
 
-    var btnClose = document.getElementById("searchBtnClose");
-    var btnOpen = document.getElementById("search-btn");
-    var searchBar = document.getElementById("search-bar");
-    btnOpen.addEventListener('click', openCloseSearch)
-    btnClose.addEventListener('click', openCloseSearch)
-    function openCloseSearch(){
-        if(this.id === "searchBtnClose" ){
-            searchBar.classList.remove('active')
-        } else if(this.id === "search-btn"){
-            searchBar.classList.add('active')
-        }
-    }
-}
+jQuery(document).ready(function ($) {
+	const btnClose = $("#searchBtnClose");
+	const btnOpen = $("#search-btn");
+	const searchBar = $("#search-bar");
+
+	const openCloseSearch = (evt) => {
+		if (CLOSE_SEARCH_EVENT === evt) {
+			searchBar.removeClass("active");
+		} else if (OPEN_SEARCH_EVENT === evt) {
+			searchBar.addClass("active");
+		}
+	};
+
+	btnOpen.on("click", () => {
+		console.log(OPEN_SEARCH_EVENT);
+		openCloseSearch(OPEN_SEARCH_EVENT);
+	});
+
+	btnClose.on("click", () => {
+		openCloseSearch(CLOSE_SEARCH_EVENT);
+	});
+});

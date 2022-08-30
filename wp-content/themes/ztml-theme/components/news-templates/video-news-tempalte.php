@@ -1,6 +1,6 @@
 <?php
 
-function render_video_news_template($title)
+function render_video_news_template($title, $tax_quary = array())
 {
 ?>
 	<?php render_topic_bar($title, true, array(
@@ -19,13 +19,14 @@ function render_video_news_template($title)
 		'posts_per_page' => 3,
 		'post_status' => 'publish',
 		'paged' => 1,
-		'ignore_sticky_posts' => true
+		'ignore_sticky_posts' => true,
+		'tax_quary' => $tax_quary
 	]);
 
 	$top_three_posts = $top_three_quary->posts;
 	?>
 
-	<div style="display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 10px;margin-bottom: 30px;">
+	<div class="video-news-template">
 		<?php foreach ($top_three_posts as $pst) : ?>
 			<div class="box">
 				<?php render_new_template_video($pst->ID); ?>

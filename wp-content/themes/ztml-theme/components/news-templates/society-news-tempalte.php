@@ -24,7 +24,7 @@ function render_society_news_template($is_minimazed = false)
 		)
 	)); ?>
 
-	<div class="box-column-gap" style="margin-bottom: 30px;">
+	<div class="box-column-gap society-news" style="margin-bottom: 30px;">
 		<?php if ($is_minimazed) : ?>
 			<div class="box-line-gap">
 				<div class="box">

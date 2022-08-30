@@ -61,10 +61,19 @@ $vfat = array(
 					<div class="image">
 						<img src="<?php echo get_the_post_thumbnail_url(); ?>">
 					</div>
+					<div class="mobile-radio-player" id="radio-min-player">
+						<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/radio-minsk/radio.png" alt="">
+						<audio id="radio_minsk" preload="false">
+							<source src="https://radio.mk.by:8443/mk128" type="audio/mpeg">
+						</audio>
+					</div>
 					<div class="content">
 						<?php echo get_the_content(); ?>
 					</div>
 				</div>
+				<div class="mobile-content">
+						<?php echo get_the_content(); ?>
+					</div>
 				<div>
 					<ul class="radio-freq-list">
 						<?php foreach ($vfat as $district) : ?>

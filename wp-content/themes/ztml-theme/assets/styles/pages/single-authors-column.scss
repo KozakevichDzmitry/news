@@ -18,3 +18,26 @@
 		// }
 	}
 }
+
+.authors-column-page .container.main-container .content-wrapper .main-content .post .page-content p iframe{
+	width: 100%;
+}
+
+@media(max-width: 768px) {
+	.authors-column-page .container.main-container .content-wrapper .main-content .post .page-content #attachment_1063230 {
+		max-width: 910px;
+		width: 100% !important;
+	}
+}
+
+@media(max-width: 480px) {
+	.footer-content{
+		display: block;
+	}
+	.sub-block{
+		flex-direction: column;
+	}
+	.sub-block div{
+		width: 60%;
+	}
+}

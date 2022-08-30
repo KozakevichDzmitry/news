@@ -25,7 +25,7 @@
 
 	require_once(COMPONENTS_PATH . 'icons/burger-icon.php');
 	require_once(COMPONENTS_PATH . 'icons/search-icon.php');
-	require_once(COMPONENTS_PATH . 'icons/search-icon-close.php');
+	require_once(COMPONENTS_PATH . 'icons/search-close-icon.php');
 
 	require_once(COMPONENTS_PATH . "nav.php");
 	?>
@@ -105,17 +105,17 @@
 				</nav>
 			</div>
 		</div>
-        <div id="search-bar" class="header__search-bar">
-            <div class="container">
-            <div class="header__search-bar-wrapper">
-                <div class="header__search">
-                    <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
-                    <button id="searchBtnClose" class="search-btn-close">
-                        <?php render_search_icon_close(); ?>
-                    </button>
-                </div>
-                <p  class="header__search-info">Нажмите Enter для поиска или Esc для выхода</p>
-            </div>
-            </div>
-        </div>
+		<div id="search-bar" class="header__search-bar">
+			<div class="container">
+				<div class="header__search-bar-wrapper">
+					<div class="header__search">
+						<?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
+						<button id="searchBtnClose" class="search-btn-close">
+							<?php render_search_close_icon(); ?>
+						</button>
+					</div>
+					<p class="header__search-info">Нажмите Enter для поиска или Esc для выхода</p>
+				</div>
+			</div>
+		</div>
 	</header>

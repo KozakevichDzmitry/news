@@ -1,12 +1,12 @@
 .radio-misk {
-	.radio-player {
+	.radio-player, .mobile-radio-player {
 		cursor: pointer;
 	}
 	.radio-misk-info {
 		display: flex;
 		gap: 40px;
 
-		.content {
+		.content, .mobile-content {
 			font-family: "Noto Sans";
 			font-style: normal;
 			font-weight: 400;
@@ -138,7 +138,7 @@
 		}
 	}
 
-	.radio-player {
+	.radio-player, .mobile-radio-player {
 		// padding: 10px;
 		// background: white;
 		// box-shadow: 0px 0px 0px black;
@@ -387,5 +387,100 @@
 	transition: 0.3s;
 	&:hover {
 		transform: translateY(-5px);
+	}
+}
+
+.timeline.minimize .container .minimize-bar{
+	width: 100% !important;
+	max-width: 175px !important;
+}
+.radio-misk .card-list .slick-track {
+	padding-top: 14px;
+}
+
+.radio-misk .block-title{
+	margin-bottom: 0px;
+}
+
+@media(max-width: 1024px) {
+	.radio-misk .radio-freq-list .radio-freq-list__item .radio-freq-item__freq{
+		font-size: 12px;
+	}
+	.radio-misk .radio-freq-list .radio-freq-list__item .radio-freq-item__city{
+		font-size: 12px;
+	}
+	.radio-misk .radio-freq-list .radio-freq-list__item{
+		width: 19%;
+		padding: 11px;
+	}
+	.radio-misk .radio-freq-list{
+		gap: 6px;
+	}
+	.radio-misk .team-list .slick-current{
+		transform: none;
+	}
+}
+
+@media(min-width: 768px){
+	.mobile-radio-player{
+		display: none;
+	}
+	.mobile-content{
+		display: none;
+	}
+}
+
+@media(max-width: 768px) {
+	.radio-player {
+		display: none;
+	}
+	.radio-misk .radio-misk-info .content{
+		display: none;
+	}
+	.radio-misk .radio-misk-info{
+		margin-bottom: 10px;
+	}
+	.radio-misk .card-list .slick-dots{
+		margin-top: 8px;
+	}
+	.radio-misk .card-list .slick-track{
+		padding-bottom: 10px;
+	}
+	.radio-misk .contacts{
+		margin: 30px 0px 40px 0px;
+	}
+	.mobile-content{
+		font-size: 16px;
+		color: $black-color;
+		margin-bottom: 8px;
+	}
+	.radio-misk .radio-freq-list {
+		display: grid;
+	}
+	.radio-misk .contacts .contacts-list{
+		display: grid;
+		grid-template-columns: none;
+   		row-gap: 30px;
+	}
+	.card-item__subtitle{
+		margin-bottom: 14px !important;
+	}
+}
+
+@media(max-width: 480px) {
+	.radio-misk .contacts .contacts-list .contacts-item__title {
+		font-size: 20px;
+	}
+	.radio-misk .contacts .contacts-list .contacts-item__content ul li{
+		font-size: 15px;
+	}
+	.radio-misk .contacts .contacts-list .contacts-item__content p{
+		font-size: 16px;
+	}
+}
+
+@media(max-width: 360px) {
+	.contacts-item__content{
+		width: 90%;
 	}
 }
