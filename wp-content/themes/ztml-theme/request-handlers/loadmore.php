@@ -1,8 +1,8 @@
 <?php
 require_once(COMPONENTS_PATH . 'half-post.php');
 
-add_action('wp_ajax_loadmore', 'loadmore_news');
-add_action('wp_ajax_nopriv_loadmore', 'loadmore_news');
+add_action('wp_ajax_loadmorenews', 'loadmore_news');
+add_action('wp_ajax_nopriv_loadmorenews', 'loadmore_news');
 
 
 function loadmore_news()

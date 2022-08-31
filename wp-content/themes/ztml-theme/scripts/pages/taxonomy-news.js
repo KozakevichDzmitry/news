@@ -108,10 +108,12 @@ jQuery(document).ready(function ($) {
 });
 
 jQuery(document).ready(function ($) {
-	$(".category-select-slider .slider-container").slick({
-		infinite: true,
-		slidesToShow: 5,
-		slidesToScroll: 1,
-		variableWidth: true,
-	});
+	if (typeof $.fn.Slick !== 'undefined'){
+		$(".category-select-slider .slider-container").slick({
+			infinite: true,
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			variableWidth: true,
+		});
+	}
 });

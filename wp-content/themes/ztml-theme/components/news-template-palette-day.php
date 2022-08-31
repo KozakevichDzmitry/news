@@ -64,7 +64,8 @@ function render_template_palette_day()
 						<span>20:24</span>
 						<span>27.12.2021</span>
 					</div>
-					<div>
+                    <div class="share-block--fold">
+                        <?php echo do_shortcode('[share_links]'); ?>
 						<?php render_share_icon(); ?>
 					</div>
 				</div>

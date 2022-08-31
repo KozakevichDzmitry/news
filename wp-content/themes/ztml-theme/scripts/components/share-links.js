@@ -15,7 +15,6 @@ function share_popup(url, title, w, h) {
 		: screen.height;
 	var left = width / 2 - w / 2 + dualScreenLeft;
 	var top = height / 2 - h / 2 + dualScreenTop;
-	console.log(top);
 	var newWindow = window.open(
 		url,
 		title,
@@ -25,3 +24,12 @@ function share_popup(url, title, w, h) {
 		newWindow.focus();
 	}
 }
+
+jQuery(document).ready(function ($) {
+
+	$('main').click(function (e) {
+		if($(e.target).attr('id') ==='btn-share' || $(e.target).parent('svg').attr('id')==='btn-share'){
+			$(e.target).closest('.share-block--fold').toggleClass('active')
+		}
+	})
+})

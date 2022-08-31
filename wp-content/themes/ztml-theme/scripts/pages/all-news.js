@@ -108,5 +108,7 @@ jQuery(document).ready(function ($) {
 		slidesToShow: 5,
 		slidesToScroll: 1,
 		variableWidth: true,
+		swipe: true,
+		swipeToSlide: true,
 	});
 });

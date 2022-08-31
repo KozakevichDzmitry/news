@@ -12,7 +12,7 @@ function taxonomy_authors_column_load()
 		array(
 			'load' => $_POST['load'],
 			'offset' => $_POST['offset'],
-			'type' => 'news',
+            'type' => 'authors-column',
 			'date' => $_POST['date'],
 			'tax_query' => $_POST['tax_query'],
 		)

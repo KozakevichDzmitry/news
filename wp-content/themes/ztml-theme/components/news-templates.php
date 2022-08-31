@@ -60,7 +60,8 @@ function render_news_template_line($post_ID, $withImages = false, $reversed = fa
 						<?php endif; ?>
 					</div>
 				</div>
-				<div>
+                <div class="share-block--fold">
+                    <?php echo do_shortcode('[share_links]'); ?>
 					<?php render_share_icon(); ?>
 				</div>
 			</div>
@@ -197,7 +198,8 @@ function render_new_template_video($post_ID)
 						<?php endif; ?>
 					</div>
 				</div>
-				<div>
+                <div class="share-block--fold">
+                    <?php echo do_shortcode('[share_links]'); ?>
 					<?php render_share_icon(); ?>
 				</div>
 			</div>

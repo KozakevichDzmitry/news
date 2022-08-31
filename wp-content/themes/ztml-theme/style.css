@@ -650,6 +650,14 @@ header.sticky {
   -webkit-animation: spin 1s ease-in-out infinite;
 }
 
+.info {
+  position: relative;
+}
+
+.share {
+  position: relative;
+}
+
 @keyframes spin {
   to {
     -webkit-transform: rotate(360deg);
@@ -1894,6 +1902,7 @@ header.header .sub-nav .sub-nav-list ul.menu .menu-item .sub-menu .menu-item:las
 .line-regular-news .content .info .bottom-info {
   display: flex;
   gap: 10px;
+  position: relative;
 }
 .line-regular-news .content .info__time {
   display: flex;
@@ -2168,7 +2177,7 @@ header.header .sub-nav .sub-nav-list ul.menu .menu-item .sub-menu .menu-item:las
   align-items: center;
 }
 .category-select-slider .slider-container .slick-list.draggable {
-  width: 90%;
+  width: 89%;
 }
 .category-select-slider .category-select-btn {
   font-family: "Noto Sans";
@@ -2479,6 +2488,7 @@ header.header .sub-nav .sub-nav-list ul.menu .menu-item .sub-menu .menu-item:las
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .news-template-line .post-container .bottom-info .bottom-info-container {
   display: flex;
@@ -4888,7 +4898,44 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   max-width: 30px;
   max-height: 30px;
   width: 100%;
-  width: 100%;
+}
+
+.share-block--fold {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  transition: all 1s ease-in;
+}
+.share-block--fold .share-block {
+  position: absolute;
+  width: 0;
+  top: 50%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  transform: translate(-100%, -50%);
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+}
+.share-block--fold .share-block div {
+  height: fit-content;
+  padding-right: 0.2em;
+  line-height: 0;
+  cursor: pointer;
+}
+.share-block--fold svg {
+  width: auto;
+  height: auto;
+}
+.share-block--fold > svg {
+  cursor: pointer;
+}
+
+.share-block--fold.active .share-block {
+  width: min-content;
+  padding-right: 0.3em;
 }
 
 .sub-block {
@@ -5331,6 +5378,7 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  position: relative;
 }
 .satms .cards-list .card-item__footer .date {
   font-family: "Noto Sans";

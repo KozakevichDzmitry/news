@@ -443,7 +443,12 @@ header.sticky {
 	animation: spin 1s ease-in-out infinite;
 	-webkit-animation: spin 1s ease-in-out infinite;
 }
-
+.info{
+	position: relative;
+}
+.share{
+	position: relative;
+}
 
 @keyframes spin {
 	to { -webkit-transform: rotate(360deg); }

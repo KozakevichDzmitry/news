@@ -14,7 +14,9 @@ jQuery(document).ready(function ($) {
 			'query': _this.attr('data-param-posts'),
 			'tpl': _this.attr('data-tpl'),
 			'load': _this.attr('data-load-posts'),
-			'show': _this.attr('data-show-posts')
+			'show': _this.attr('data-show-posts'),
+			'type': _this.attr('data-ptype'),
+			'taxonomy': _this.attr('taxonomy_id')
 		}
 
 		$.ajax({

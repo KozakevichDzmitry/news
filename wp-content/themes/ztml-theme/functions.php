@@ -245,8 +245,8 @@ function page_scripts()
     }
 
     if (get_page_template_slug() == 'all-news.php') {
-        wp_enqueue_script('all-news-js', get_stylesheet_directory_uri() . '/scripts/pages/all-news.js', array('jquery'), true);
-
+        slick_register();
+        wp_enqueue_script('all-news-js', get_stylesheet_directory_uri() . '/scripts/pages/all-news.js', array('jquery', 'slick-min-js'), true);
         global $wp_query;
 
         wp_localize_script('all-news-js', 'ajaxpagination', array(

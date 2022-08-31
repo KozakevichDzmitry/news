@@ -2,7 +2,7 @@ jQuery(function ($) {
     let lastPost = $(".main-content .post:last")[0];
 
     let dataRequest = {
-        action: 'loadmore',
+        action: "loadmorenews",
         offset: 3,
         exclude: $('.main-content').attr('id'),
         load: 9

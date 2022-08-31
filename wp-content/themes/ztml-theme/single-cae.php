@@ -56,11 +56,10 @@ $newspapers_taxes = get_terms(
 								<?php echo date("d.m.Y", strtotime($post->post_date)); ?>
 							</span>
 						</div>
-						<div>
-							<a href="#">
-								<?php render_share_icon(); ?>
-							</a>
-						</div>
+                        <div class="share-block--fold">
+                            <?php echo do_shortcode('[share_links]'); ?>
+                            <?php render_share_icon(); ?>
+                        </div>
 					</div>
 				</div>
 
