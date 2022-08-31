@@ -146,7 +146,9 @@ function page_scripts()
     }
 
     if (get_post_type() == 'district') {
-        wp_enqueue_script('district-page-js', get_stylesheet_directory_uri() . '/scripts/pages/single-district.js', array('jquery', 'slick-min-js'), false);
+        wp_enqueue_script('district-page-js', get_stylesheet_directory_uri() . '/scripts/pages/single-district.js', array('jquery', 'slick-min-js', 'slick-lightbox-min-js'), false);
+        wp_enqueue_style('slick-lightbox-css', get_template_directory_uri() . '/libs/slick-lightbox/slick-lightbox.css');
+        wp_enqueue_script('slick-lightbox-min-js', get_template_directory_uri() . '/libs/slick-lightbox/slick-lightbox.min.js', array('jquery'));
     }
 
     if (get_page_template_slug() == 'tv-programme.php') {

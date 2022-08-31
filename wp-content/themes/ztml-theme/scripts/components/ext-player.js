@@ -1,7 +1,6 @@
 jQuery(document).ready(function ($) {
 	const erp = $(".erp-scn");
-
-	if (erp) {
+	if (erp.length > 0) {
 		const playerState = {
 			isPaused: true,
 			isLoaded: false,

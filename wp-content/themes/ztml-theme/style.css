@@ -658,6 +658,14 @@ header.sticky {
   position: relative;
 }
 
+.slick-lightbox .slick-prev {
+  z-index: 2;
+}
+
+.slick-prev.slick-arrow:before {
+  transform: scaleX(1);
+}
+
 @keyframes spin {
   to {
     -webkit-transform: rotate(360deg);

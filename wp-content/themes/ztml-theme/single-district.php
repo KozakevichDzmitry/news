@@ -29,7 +29,7 @@ $districts = new WP_Query(array(
 				<div class="district__slider">
 					<?php foreach (carbon_get_the_post_meta('crb_district_gallery_iamges') as $id) : ?>
 						<div>
-							<img src="<?php echo wp_get_attachment_url($id); ?>" />
+                            <a href="<?php echo wp_get_attachment_url($id); ?>"><img src="<?php echo wp_get_attachment_url($id); ?>" /></a>
 						</div>
 					<?php endforeach; ?>
 				</div>

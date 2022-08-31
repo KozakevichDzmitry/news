@@ -1,4 +1,8 @@
 jQuery(document).ready(function ($) {
+    $('.district__slider').slickLightbox({
+        itemSelector: '.slick-slide > a',
+        background: 'rgba(0, 0, 0, .7)'
+    });
 	$("#district .district__slider").slick({
 		dots: true,
 		infinite: false,
@@ -28,4 +32,5 @@ jQuery(document).ready(function ($) {
 			},
 		],
 	});
+
 });
