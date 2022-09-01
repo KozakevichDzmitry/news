@@ -79,6 +79,11 @@
 			}
 		}
 	}
+	@media (max-width: 767px) {
+		.newspaper__kacheli-content {
+			padding: 0 20px;
+		}
+	}
 
 	.newspaper__moree-btn {
 		background: $blue-color;
@@ -114,7 +119,18 @@
 			background-color: $white-color;
 		}
 	}
+	@media (max-width: 768px) {
+		.pdf-attachments {
+			padding: 0 20px;
+		}
+
+		div.pdf-attachments:last-child {
+			margin: 0 20px;
+		}
+
+	}
 }
+
 
 @media (max-width: 576px) {
 	#newspapers .main-content {

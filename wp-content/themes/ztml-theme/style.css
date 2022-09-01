@@ -2749,14 +2749,6 @@ header.header .sub-nav .sub-nav-list ul.menu .menu-item .sub-menu .menu-item:las
   margin: 0px;
 }
 
-@media (max-width: 768px) {
-  .second-content .pdf-attachments {
-    margin: 0 20px 30px 20px;
-  }
-  .second-content div.pdf-attachments:last-child {
-    margin: 0 20px;
-  }
-}
 @media (max-width: 576px) {
   .pdf-attachments {
     flex-direction: column;
@@ -3349,6 +3341,7 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
 .topic-bar .action svg {
   height: 15px;
   width: 15px;
+  vertical-align: middle;
 }
 .topic-bar .topic-bar__container {
   background: linear-gradient(90.54deg, #214972 42.55%, rgba(33, 73, 114, 0) 100%);
@@ -4883,6 +4876,11 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   line-height: 23px;
   color: #101010;
 }
+@media (max-width: 767px) {
+  #newspapers .main-content .newspaper__kacheli-content {
+    padding: 0 20px;
+  }
+}
 #newspapers .main-content .newspaper__moree-btn {
   background: #214972;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -4912,6 +4910,14 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   width: 100%;
   padding: 10px;
   background-color: #ffffff;
+}
+@media (max-width: 768px) {
+  #newspapers .main-content .pdf-attachments {
+    padding: 0 20px;
+  }
+  #newspapers .main-content div.pdf-attachments:last-child {
+    margin: 0 20px;
+  }
 }
 
 @media (max-width: 576px) {

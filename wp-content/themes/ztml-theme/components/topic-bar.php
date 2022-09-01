@@ -17,8 +17,9 @@ function render_topic_bar($title = '', $show_action = true, $action = array())
 				<?php $action['render']($action['args']); ?>
 			<?php else : ?>
 				<div class="action">
-					<a href="<?php echo $action['link']; ?>" class="to-archive"><?php echo $action['title']; ?></a>
+					<a href="<?php echo $action['link']; ?>" class="to-archive"><?php echo $action['title']; ?>
 					<?php echo $action['icon']; ?>
+                    </a>
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>
