@@ -6,11 +6,9 @@
 <footer class="footer">
 	<div class="container">
 		<div class="footer__content">
-			<div>
+			<div class="footer__info">
 				<aside class="footer__logo">
 					<?php render_logo_large_icon(); ?>
-				</aside>
-				<aside>
 					<div class="footer__privacy">
 						<a href="/usloviya-ispolzovaniya-materialov/">
 							Условия использования материалов<br>
@@ -19,7 +17,7 @@
 					</div>
 				</aside>
 			</div>
-			<div>
+			<div class="footer__navigation">
 				<aside>
 					<h4 class="footer__title">
 						<span>Навигация</span>
@@ -27,7 +25,7 @@
 					<?php render_footer_nav(); ?>
 				</aside>
 			</div>
-			<div>
+			<div class="footer__adv-info">
 				<aside>
 					<h4 class="footer__title">
 						<span>Реклама</span>
@@ -40,13 +38,11 @@
 					<a href="<?php echo get_permalink( 1063423);?>" class="footer__advertising-btn">Разместить рекламу</a>
 				</aside>
 			</div>
-			<div>
+			<div class="footer__media">
 				<aside>
 					<h4 class="footer__title">
 						<span>Наши Сми</span>
 					</h4>
-				</aside>
-				<aside>
 					<?php render_logo_smi_icon(); ?>
 				</aside>
 			</div>
