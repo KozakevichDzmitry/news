@@ -6073,6 +6073,17 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   font-size: 14px;
   line-height: 22px;
 }
+@media (max-width: 767px) {
+  .tv-programme .tv-controls {
+    padding: 0 20px;
+  }
+  .tv-programme .tv-description {
+    padding: 0 20px;
+  }
+  .tv-programme .tv-programme__wrapper {
+    padding: 0 20px;
+  }
+}
 
 @media (max-width: 1180px) {
   .tv-programme .tv-controls .day-select-list button {

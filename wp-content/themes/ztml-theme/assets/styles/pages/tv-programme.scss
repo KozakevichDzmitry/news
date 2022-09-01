@@ -193,6 +193,17 @@
 			}
 		}
 	}
+	@media (max-width: 767px) {
+		.tv-controls {
+			padding: 0 20px;
+		}
+		.tv-description{
+			padding: 0 20px;
+		}
+		.tv-programme__wrapper{
+			padding: 0 20px;
+		}
+	}
 }
 
 @media (max-width: 1180px) {
