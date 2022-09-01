@@ -4702,7 +4702,7 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   height: 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #district .district__slider {
     padding-top: 26px;
     padding-bottom: 46px;
@@ -4731,6 +4731,14 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
 
   .pdf-archive__link {
     display: none;
+  }
+
+  .district__info {
+    padding: 0 20px;
+  }
+
+  .district__link {
+    padding: 0 20px;
   }
 }
 .events-content {

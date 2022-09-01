@@ -155,7 +155,7 @@
 	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 	#district .district__slider {
 		padding-top: 26px;
 		padding-bottom: 46px;
@@ -184,5 +184,11 @@
 
 	.pdf-archive__link {
 		display: none;
+	}
+	.district__info{
+		padding: 0 20px;
+	}
+	.district__link{
+		padding: 0 20px;
 	}
 }
