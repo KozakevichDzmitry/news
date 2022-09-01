@@ -37,7 +37,7 @@
 						с помощью нашего медиахолдинга<br />
 						УП «Агентство «Минск-Новости»!
 					</p>
-					<a href="#" class="footer__advertising-btn">Разместить рекламу</a>
+					<a href="<?php echo get_permalink( 1063423);?>" class="footer__advertising-btn">Разместить рекламу</a>
 				</aside>
 			</div>
 			<div>
