@@ -2786,6 +2786,12 @@ header.header .sub-nav .sub-nav-list ul.menu .menu-item .sub-menu .menu-item:las
   gap: 5px;
   align-items: center;
 }
+.post-header .content-exists .content svg {
+  max-width: 10px;
+  max-height: 10px;
+  height: 100%;
+  width: 100%;
+}
 .post-header .title {
   margin: 10px 0px;
   font-family: "Noto Sans";
@@ -3024,6 +3030,12 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   align-items: center;
   gap: 5px;
 }
+.tempalte-news-palette .attached-news__content .content-info .info .content-exist svg {
+  max-width: 10px;
+  max-height: 10px;
+  height: 100%;
+  width: 100%;
+}
 .tempalte-news-palette .attached-news__content .content-info .time {
   display: flex;
   gap: 10px;
@@ -3175,6 +3187,12 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.timeline .container.collapsed .timeline__news-list-collapsed .timeline-news-template .post-header .post-header-info .content-exist svg {
+  max-width: 10px;
+  max-height: 10px;
+  height: 100%;
+  width: 100%;
 }
 .timeline .container.collapsed .timeline__news-list-collapsed .timeline-news-template .post-header .post-category span {
   font-family: "Noto Sans";
@@ -5629,6 +5647,12 @@ div.asl_m .probox .promagnifier .innericon svg, div.asl_m .probox .prosettings .
   display: flex;
   gap: 5px;
   align-items: center;
+}
+#single-satm.single-satm .satm-header .content-exists svg {
+  max-width: 10px;
+  max-height: 10px;
+  height: 100%;
+  width: 100%;
 }
 #single-satm.single-satm .satm-header .title {
   margin: 10px 0px;
