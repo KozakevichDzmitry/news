@@ -463,6 +463,12 @@ header.sticky {
 .slick-prev.slick-arrow:before{
 	transform: scaleX(1);
 }
+.content-exist{
+	svg{
+	max-width: 10px;
+	max-height: 10px;
+	}
+}
 
 @keyframes spin {
 	to { -webkit-transform: rotate(360deg); }
