@@ -24,6 +24,7 @@ html,
 body {
 	max-width: 100%;
 	overflow-x: hidden;
+	position: relative;
 }
 
 * {
@@ -394,7 +395,14 @@ header.sticky {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	border-width: 0;
 }
-
+.disable-scroll{
+	overflow: hidden;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
 @-webkit-keyframes mySticky {
 	from {
 		transform: translateY(-100%);
