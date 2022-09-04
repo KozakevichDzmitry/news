@@ -65,6 +65,5 @@
 		yearSuffix: "",
 	};
 	datepicker.setDefaults(datepicker.regional.ru);
-
 	return datepicker.regional.ru;
 });

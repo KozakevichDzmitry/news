@@ -245,6 +245,9 @@ function page_scripts()
             'query_vars' => json_encode($wp_query->query)
         ));
     }
+    if (get_page_template_slug() == 'exchange-rates.php') {
+        wp_enqueue_script('exchange-rates-js', get_stylesheet_directory_uri() . '/scripts/pages/exchange-rates.js', array('jquery'), true);
+    }
 
     if (get_page_template_slug() == 'all-news.php') {
         slick_register();
