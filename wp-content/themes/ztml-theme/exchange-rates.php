@@ -9,16 +9,22 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php get_header(); ?>
 
 <?php
 
 $current_date = date('Y-m-d');
-$last_date = date('Y-m-d', strtotime("-365 day"))
+$last_date = date('Y-m-d', strtotime("-365 day"));
+
+$id=get_the_ID();
 
 ?>
 <main class="exchange-rates">
+    <?php  render_adv('page',$id, 'top');?>
     <div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
         <div class="content-wrapper">
             <div class="main-content">
 

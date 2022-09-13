@@ -2,6 +2,7 @@
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'topic-bar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 
 <?php
 $show_count = 15;
@@ -20,13 +21,18 @@ $all_args = $videos_quary_args;
 $all_args['posts_per_page'] = -1;
 $videos_all_posts = get_posts($all_args);
 
+$taxonomy_id = get_queried_object()->term_id;
+
 ?>
 
 <?php get_header(); ?>
 
 
 <main id="videos-list" class="videos-satm">
+    <?php  render_adv('page',$taxonomy_id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$taxonomy_id, 'left');?>
+        <?php  render_adv('page',$taxonomy_id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar($term->name); ?>

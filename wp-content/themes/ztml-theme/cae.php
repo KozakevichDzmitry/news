@@ -18,7 +18,7 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'calendar.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php
 $show_count = 27;
 $load_count = 27;
@@ -49,10 +49,15 @@ $last_post_id = get_posts(array(
 	'post_status' => 'publish',
 	'order' => 'ASC'
 ))[0]->ID;
+$id=get_the_ID();
+
 ?>
 
 <main class="cae">
+    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), true, array(

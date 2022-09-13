@@ -7,9 +7,15 @@
 <?php require_once(COMPONENTS_PATH . 'news-whole-post.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+
+<?php $id = get_the_ID();?>
 
 <main class="authors-column-page">
+    <?php  render_adv('post',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('post',$id, 'left');?>
+        <?php  render_adv('post',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content" id="<?php echo $post->ID;?>">
 				<?php gt_set_post_view(); ?>

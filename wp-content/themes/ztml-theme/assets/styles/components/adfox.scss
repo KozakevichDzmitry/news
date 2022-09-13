@@ -1,0 +1,43 @@
+.adfox__left, .adfox__right {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+
+  .inner-wrapper-sticky {
+    position: absolute;
+    top: 0;
+    width: max-content;
+  }
+}
+
+.adfox__left {
+  right: 100%;
+  width: calc((100vw - 1190px) / 2);
+
+  .inner-wrapper-sticky {
+    right: 0;
+  }
+}
+
+.adfox__left.is-affixed .inner-wrapper-sticky {
+  left: auto !important;
+}
+
+.adfox__right {
+  left: 100%;
+
+  .inner-wrapper-sticky {
+    left: 0;
+  }
+
+}
+
+.adfox__top {
+  width: 100vw;
+  overflow: hidden;
+
+  div, img {
+    margin: 0 auto;
+    text-align: center
+  }
+}

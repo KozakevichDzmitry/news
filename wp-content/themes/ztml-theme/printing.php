@@ -14,7 +14,7 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 
 
 <?php get_header(); ?>
@@ -30,10 +30,15 @@ $services_list = carbon_get_post_meta(get_queried_object_id(), 'crb_printing_ser
 $contacts_caption = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts_caption');
 $contacts_list = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts');
 
+$id=get_the_ID();
+
 ?>
 
 <main class="printing">
+    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), false); ?>

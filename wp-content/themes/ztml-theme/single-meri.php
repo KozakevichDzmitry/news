@@ -5,9 +5,8 @@
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'half-post.php'); ?>
 
-
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php
 $newspapers_taxes = get_terms(
 	array(
@@ -15,10 +14,14 @@ $newspapers_taxes = get_terms(
 		'hide_empty' => false
 	)
 );
+$id = get_the_ID();
 ?>
 
 <main class="ta">
+    <?php  render_adv('post',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('post',$id, 'left');?>
+        <?php  render_adv('post',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_half_post($post); ?>

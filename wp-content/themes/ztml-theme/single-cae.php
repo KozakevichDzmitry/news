@@ -10,7 +10,7 @@
 <?php require_once(COMPONENTS_PATH . 'satms-list-tem.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php
 $satms = new WP_Query(
 	array(
@@ -25,10 +25,14 @@ $newspapers_taxes = get_terms(
 		'hide_empty' => false
 	)
 );
+$id = get_the_ID();
 ?>
 
 <main id="single-satm" class="single-satm">
+    <?php  render_adv('post',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('post',$id, 'left');?>
+        <?php  render_adv('post',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<div class="satm-header">

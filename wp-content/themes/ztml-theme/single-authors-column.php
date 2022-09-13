@@ -12,9 +12,16 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+<?php
+$id = get_the_ID();
 
+?>
 <main class="authors-column-page">
+    <?php  render_adv('post',$id , 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('post',$id , 'left');?>
+        <?php  render_adv('post',$id , 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 

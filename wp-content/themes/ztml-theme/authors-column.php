@@ -16,7 +16,7 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php");?>
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'calendar.php'); ?>
 
@@ -34,9 +34,8 @@ $meri_posts = get_posts($meri_args);
 $all_args = $meri_args;
 $all_args['posts_per_page'] = -1;
 $all_posts = get_posts($all_args);
-?>
 
-<?php
+$id=get_the_ID();
 
 $first_post_id = get_posts(array(
 	'numberposts' => 1,
@@ -55,7 +54,10 @@ $last_post_id = get_posts(array(
 ?>
 
 <main class="ta">
+    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), true, array(

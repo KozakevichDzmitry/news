@@ -16,7 +16,6 @@ jQuery(document).ready(function ($) {
 					type: "POST",
 					success: function (data) {
 						if (data) {
-							console.log("load");
 							$(".main-content").append(data);
 						}
 					},
@@ -32,7 +31,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	const posts = document.querySelectorAll(".post");
-	console.log(posts);
+
 	for (const post of posts) {
 		observer.observe(post);
 	}

@@ -312,6 +312,8 @@ main {
   display: flex;
   gap: 10px;
   width: 100%;
+  position: relative;
+  background-color: #f2f2f2;
 }
 .main-container.container .content-wrapper {
   width: calc(100% - 290px);
@@ -559,10 +561,6 @@ main {
 }
 #secondary .box {
   padding: 5px;
-}
-
-.container.main-container {
-  overflow: hidden;
 }
 
 .main-content .load-moree-btn {
@@ -948,6 +946,45 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 input[type=checkbox], input[type=radio] {
   box-sizing: border-box;
   padding: 0;
+}
+
+.adfox__left, .adfox__right {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+.adfox__left .inner-wrapper-sticky, .adfox__right .inner-wrapper-sticky {
+  position: absolute;
+  top: 0;
+  width: max-content;
+}
+
+.adfox__left {
+  right: 100%;
+  width: calc((100vw - 1190px) / 2);
+}
+.adfox__left .inner-wrapper-sticky {
+  right: 0;
+}
+
+.adfox__left.is-affixed .inner-wrapper-sticky {
+  left: auto !important;
+}
+
+.adfox__right {
+  left: 100%;
+}
+.adfox__right .inner-wrapper-sticky {
+  left: 0;
+}
+
+.adfox__top {
+  width: 100vw;
+  overflow: hidden;
+}
+.adfox__top div, .adfox__top img {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .author-column-slider-card {

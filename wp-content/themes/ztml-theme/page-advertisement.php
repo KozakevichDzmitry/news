@@ -17,18 +17,25 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . "icons/arrow-up-icon.php"); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+<?php
+$id = get_the_ID();
 
-<main class="page advertisement">
-	<div class="container main-container">
-		<div class="content-wrapper">
-			<div class="main-content">
-				<?php render_topic_bar(get_the_title(), false); ?>
-				<div class="page-content">
-					<?php the_content(); ?>
-				</div>
-				<div class="price-list">
-					<?php foreach (carbon_get_post_meta(get_the_ID(), 'page_advertisement_block') as $acc) : ?>
-						<div class="acc-item">
+?>
+    <main class="page advertisement">
+        <?php  render_adv('page',$id, 'top');?>
+        <div class="container main-container">
+            <?php  render_adv('page',$id, 'left');?>
+            <?php  render_adv('page',$id, 'right');?>
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <?php render_topic_bar(get_the_title(), false); ?>
+                    <div class="page-content">
+                        <?php the_content(); ?>
+                    </div>
+                    <div class="price-list">
+                        <?php foreach (carbon_get_post_meta(get_the_ID(), 'page_advertisement_block') as $acc) : ?>
+                            <div class="acc-item">
 							<span class="acc-title acc-btn">
 								<span>
 									<?php echo $acc['page_advertisement_block_title'] ?>
@@ -37,21 +44,21 @@
 									<?php render_arrow_up_icon(); ?>
 								</div>
 							</span>
-							<div class="acc-content page-content">
-								<?php echo apply_filters('the_content', $acc['page_advertisement_block_content']) ?>
-							</div>
-						</div>
-					<?php endforeach; ?>
-				</div>
-			</div>
-			<div class="second-content">
-				<?php render_most_read_news_template(true); ?>
-				<?php render_top_three_news_template(); ?>
-				<?php render_newspapers_template(); ?>
-			</div>
-		</div>
-		<?php render_sidebar(); ?>
-	</div>
-</main>
+                                <div class="acc-content page-content">
+                                    <?php echo apply_filters('the_content', $acc['page_advertisement_block_content']) ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <div class="second-content">
+                    <?php render_most_read_news_template(true); ?>
+                    <?php render_top_three_news_template(); ?>
+                    <?php render_newspapers_template(); ?>
+                </div>
+            </div>
+            <?php render_sidebar(); ?>
+        </div>
+    </main>
 
 <?php get_footer(); ?>

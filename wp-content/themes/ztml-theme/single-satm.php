@@ -13,7 +13,7 @@
 
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php
 $satms = new WP_Query(
 	array(
@@ -22,10 +22,15 @@ $satms = new WP_Query(
 		// 'post__not_in' => array($post->ID)
 	)
 );
+$id=get_the_ID();
+
 ?>
 
 <main id="single-satm" class="single-satm">
+    <?php  render_adv('post',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('post',$id, 'left');?>
+        <?php  render_adv('post',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<div class="main-single-satm">

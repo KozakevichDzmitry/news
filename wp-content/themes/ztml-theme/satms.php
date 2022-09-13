@@ -13,7 +13,7 @@
 <?php require_once(COMPONENTS_PATH . 'satms-list-tem.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php
 $satms = new WP_Query(
 	array(
@@ -23,10 +23,15 @@ $satms = new WP_Query(
 
 	)
 );
+$id=get_the_ID();
+
 ?>
 
 <main class="satms">
+    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), false); ?>

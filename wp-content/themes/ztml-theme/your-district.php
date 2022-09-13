@@ -20,9 +20,9 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/district-news-template.php'); ?>
-
+<?php $managers = carbon_get_post_meta(get_queried_object_id(), 'crb_manager_description'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php");?>
 <?php
 $newspapers_taxes = get_terms(
 	array(
@@ -42,10 +42,15 @@ $districts = array(
 	'Московский',
 	'Фрунзенский'
 );
+$id=get_the_ID();
+
 ?>
 
 <main class="your-district">
+    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_district_news_template(); ?>

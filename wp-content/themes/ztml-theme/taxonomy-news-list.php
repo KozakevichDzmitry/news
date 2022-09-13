@@ -16,11 +16,13 @@
 
 <?php require_once(COMPONENTS_PATH . 'calendar.php'); ?>
 
+<?php require_once(COMPONENTS_PATH . "adv.php");?>
 <?php
 $show_count = 27;
 $load_count = 27;
 
 $term = get_queried_object();
+
 
 $tax_query = array(
 	array(
@@ -61,10 +63,15 @@ $last_post_id = get_posts(array(
 	'order' => 'ASC',
 	'tax_query' => $tax_query
 ))[0]->ID;
+
+$taxonomy_id = get_queried_object()->term_id;
 ?>
 
 <main class="ta">
+    <?php  render_adv('page',$taxonomy_id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$taxonomy_id, 'left');?>
+        <?php  render_adv('page',$taxonomy_id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar($term->name, true, array(

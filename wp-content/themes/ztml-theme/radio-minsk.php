@@ -15,7 +15,7 @@
 <?php require_once(COMPONENTS_PATH . '/icons/instagram-colored-icon.php'); ?>
 <?php require_once(COMPONENTS_PATH . '/icons/telegram-colored-icon.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
-
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 <?php
 
 $vfat = array(
@@ -40,12 +40,17 @@ $vfat = array(
 		'freq' => '100.4'
 	),
 );
+$id=get_the_ID();
+
 ?>
 
 <?php get_header(); ?>
 
 <main id="radio-misk" class="radio-misk">
+    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
+        <?php  render_adv('page',$id, 'left');?>
+        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<div style="display: flex; align-items: center; justify-content: space-between;">
