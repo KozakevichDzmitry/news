@@ -313,10 +313,12 @@ main {
   gap: 10px;
   width: 100%;
   position: relative;
-  background-color: #f2f2f2;
+  background-color: #fff;
+  z-index: 1;
 }
 .main-container.container .content-wrapper {
   width: calc(100% - 290px);
+  z-index: 1;
 }
 .main-container.container .sidebar-wrapper {
   max-width: 290px;
