@@ -554,6 +554,7 @@ main {
 
 #secondary {
   max-width: 290px;
+  padding-top: 20px;
 }
 #secondary .inner-wrapper-sticky {
   display: flex;
