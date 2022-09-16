@@ -113,5 +113,9 @@ jQuery(document).ready(function ($) {
         });
     }
 
+        $('.timeline').on('touchmove',function(e){
+            if(!$('.timeline__news-list-expanded').has($(e.target)).length)
+                e.preventDefault();
+        });
 
 });
