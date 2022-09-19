@@ -45,12 +45,11 @@ $id=get_the_ID();
 ?>
 
 <?php get_header(); ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$id, 'background');?>
+    </div>
 <main id="radio-misk" class="radio-misk">
-    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$id, 'left');?>
-        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<div style="display: flex; align-items: center; justify-content: space-between;">

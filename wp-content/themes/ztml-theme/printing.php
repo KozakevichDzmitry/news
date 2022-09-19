@@ -33,12 +33,11 @@ $contacts_list = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts');
 $id=get_the_ID();
 
 ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$id, 'background');?>
+    </div>
 <main class="printing">
-    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$id, 'left');?>
-        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), false); ?>

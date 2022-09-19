@@ -19,12 +19,8 @@ function add_tab_adv($container, $arr, $type)
         }
 
         $container->add_tab($name, array(
-            Field::make('textarea', 'crb_adf_' . $id . '_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_' . $id . '_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_' . $id . '_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_' . $id . '_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_' . $id . '_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_' . $id . '_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_' . $id . '_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_' . $id . '_banners_background_shortcode', __('Использовать шорткод')),
         ));
     }
 }
@@ -76,7 +72,7 @@ function crb_attach_theme_options()
                         'value' => true,
                     )
                 )),
-            Field::make('textarea', 'crb_adfox_banner_top', __('Код баннера сверху'))
+            Field::make('textarea', 'crb_adfox_banner_background', __('Код баннера по краям'))
                 ->set_conditional_logic(array(
                     'relation' => 'AND',
                     array(
@@ -88,55 +84,7 @@ function crb_attach_theme_options()
                         'value' => true,
                     )
                 )),
-            Field::make('checkbox', 'crb_banner_top_shortcode', __('Использовать шорткод'))
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-            Field::make('textarea', 'crb_adfox_banner_left', __('Код баннера слева'))
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-            Field::make('checkbox', 'crb_banner_left_shortcode', __('Использовать шорткод'))
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-            Field::make('textarea', 'crb_adfox_banner_right', __('Код баннера справа'))
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-            Field::make('checkbox', 'crb_banner_right_shortcode', __('Использовать шорткод'))
+            Field::make('checkbox', 'crb_banner_background_shortcode', __('Использовать шорткод'))
                 ->set_conditional_logic(array(
                     'relation' => 'AND',
                     array(
@@ -191,12 +139,8 @@ function crb_attach_theme_options()
     $adv_say_container = Container::make('theme_options', __('Говорит Минск'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Говорит и показывает Минск"', array(
-            Field::make('textarea', 'crb_adf_satm_banner_top', __('Код баннера сверху')),
+            Field::make('textarea', 'crb_adf_satm_banner_background', __('Код баннера сверху')),
             Field::make('checkbox', 'crb_satm_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_satm_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_satm_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_satm_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_satm_banners_right_shortcode', __('Использовать шорткод')),
         ));
     add_tab_adv($adv_say_container, get_categories([
         'taxonomy' => 'satms',
@@ -208,57 +152,37 @@ function crb_attach_theme_options()
     Container::make('theme_options', __('Причина и следствие'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Причина и следствие"', array(
-            Field::make('textarea', 'crb_adf_cae_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_cae_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_cae_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_cae_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_cae_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_cae_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_cae_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_cae_banners_background_shortcode', __('Использовать шорткод')),
         ));
 
     Container::make('theme_options', __('Задайте вопрос'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Задайте вопрос"', array(
-            Field::make('textarea', 'crb_adf_aaq_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_aaq_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_aaq_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_aaq_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_aaq_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_aaq_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_aaq_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_aaq_banners_background_shortcode', __('Использовать шорткод')),
         ));
 
 
     Container::make('theme_options', __('Примите меры'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Примите меры"', array(
-            Field::make('textarea', 'crb_adf_meri_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_meri_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_meri_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_meri_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_meri_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_meri_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_meri_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_meri_banners_background_shortcode', __('Использовать шорткод')),
         ));
 
     Container::make('theme_options', __('Авторская колонка'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Авторская колонка"', array(
-            Field::make('textarea', 'crb_adf_authors-column_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_authors-column_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_authors-column_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_authors-column_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_authors-column_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_authors-column_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_authors-column_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_authors-column_banners_background_shortcode', __('Использовать шорткод')),
         ));
 
     $adv_video_container = Container::make('theme_options', __('Видео'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Видео"', array(
-            Field::make('textarea', 'crb_adf_video_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_video_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_video_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_video_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_video_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_video_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_video_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_video_banners_background_shortcode', __('Использовать шорткод')),
         ));
     add_tab_adv($adv_video_container, get_categories([
         'taxonomy' => 'videos',
@@ -270,12 +194,8 @@ function crb_attach_theme_options()
     $adv_news_container = Container::make('theme_options', __('Новости'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Новости"', array(
-            Field::make('textarea', 'crb_adf_news_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_news_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_news_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_news_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_news_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_news_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_news_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_news_banners_background_shortcode', __('Использовать шорткод')),
         ));
     add_tab_adv($adv_news_container, get_categories([
         'taxonomy' => 'news-list',
@@ -287,12 +207,8 @@ function crb_attach_theme_options()
     Container::make('theme_options', __('Смотрите'))
         ->set_page_parent($adv_options_container)
         ->add_tab('Общая реклама для всех постов "Смотрите"', array(
-            Field::make('textarea', 'crb_adf_see_banner_top', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_see_banners_top_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_see_banner_left', __('Код баннера слева')),
-            Field::make('checkbox', 'crb_see_banners_left_shortcode', __('Использовать шорткод')),
-            Field::make('textarea', 'crb_adf_see_banner_right', __('Код баннера справа')),
-            Field::make('checkbox', 'crb_see_banners_right_shortcode', __('Использовать шорткод')),
+            Field::make('textarea', 'crb_adf_see_banner_background', __('Код баннера сверху')),
+            Field::make('checkbox', 'crb_see_banners_background_shortcode', __('Использовать шорткод')),
         ));
 
     Container::make('post_meta', __('Руководители', 'crb'))

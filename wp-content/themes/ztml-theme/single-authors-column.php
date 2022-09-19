@@ -17,11 +17,11 @@
 $id = get_the_ID();
 
 ?>
+    <div class="adfox-banner-background">
+        <?php  render_adv('post',$id, 'background');?>
+    </div>
 <main class="authors-column-page">
-    <?php  render_adv('post',$id , 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('post',$id , 'left');?>
-        <?php  render_adv('post',$id , 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 

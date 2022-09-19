@@ -66,12 +66,11 @@ $last_post_id = get_posts(array(
 
 $taxonomy_id = get_queried_object()->term_id;
 ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$taxonomy_id, 'background');?>
+    </div>
 <main class="ta">
-    <?php  render_adv('page',$taxonomy_id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$taxonomy_id, 'left');?>
-        <?php  render_adv('page',$taxonomy_id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar($term->name, true, array(

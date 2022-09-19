@@ -27,12 +27,11 @@ $taxonomy_id = get_queried_object()->term_id;
 
 <?php get_header(); ?>
 
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$taxonomy_id, 'background');?>
+    </div>
 <main id="videos-list" class="videos-satm">
-    <?php  render_adv('page',$taxonomy_id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$taxonomy_id, 'left');?>
-        <?php  render_adv('page',$taxonomy_id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar($term->name); ?>

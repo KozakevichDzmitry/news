@@ -21,24 +21,12 @@ $districts = new WP_Query(array(
 ));
 
 $id=get_the_ID();
-//$adfox_disable = carbon_get_post_meta($id,'crb_adfox_disable');
-//
-//if(!$adfox_disable){
-//    $adfox_top = carbon_get_post_meta($id, 'crb_adfox_banner_top');
-//    $adfox_left = carbon_get_post_meta($id, 'crb_adfox_banner_left');
-//    $adfox_right = carbon_get_post_meta($id, 'crb_adfox_banner_right');
-//    $adfox_top_is_shortcode = carbon_get_post_meta($id, 'crb_banner_top_shortcode');
-//    $adfox_left_is_shortcode = carbon_get_post_meta($id, 'crb_banner_left_shortcode');
-//    $adfox_right_is_shortcode = carbon_get_post_meta($id, 'crb_banner_right_shortcode');
-//}
-
 ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$id, 'background');?>
+    </div>
 <main id="district" class="district">
-    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$id, 'left');?>
-        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), true, [], false); ?>

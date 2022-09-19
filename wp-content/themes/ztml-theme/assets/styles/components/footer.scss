@@ -1,5 +1,7 @@
 footer {
+  position: relative;
   background-color: $blue-color;
+  z-index: 1;
 
   & > .container {
     padding: 30px 0px 50px 0px;

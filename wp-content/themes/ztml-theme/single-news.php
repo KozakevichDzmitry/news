@@ -9,59 +9,58 @@
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 
-<?php $id = get_the_ID();?>
+<?php $id = get_the_ID(); ?>
+    <div class="adfox-banner-background">
+        <?php  render_adv('post',$id, 'background');?>
+    </div>
+    <main class="authors-column-page">
+        <div class="container main-container">
+            <div class="content-wrapper">
+                <div class="main-content" id="<?php echo $post->ID; ?>">
+                    <?php gt_set_post_view(); ?>
 
-<main class="authors-column-page">
-    <?php  render_adv('post',$id, 'top');?>
-	<div class="container main-container">
-        <?php  render_adv('post',$id, 'left');?>
-        <?php  render_adv('post',$id, 'right');?>
-		<div class="content-wrapper">
-			<div class="main-content" id="<?php echo $post->ID;?>">
-				<?php gt_set_post_view(); ?>
+                    <?php render_news_whole_post($post); ?>
 
-				<?php render_news_whole_post($post); ?>
+                    <?php render_top_three_news_template(); ?>
 
-				<?php render_top_three_news_template(); ?>
+                    <?php render_topic_bar('Читайте и подписывайтесь', false); ?>
 
-				<?php render_topic_bar('Читайте и подписывайтесь', false); ?>
+                    <div class="sub-block">
+                        <div>
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo.png'; ?>"/>
+                        </div>
+                        <div>
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo-dzen.png'; ?>"/>
+                        </div>
+                        <div>
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>"/>
+                        </div>
+                    </div>
 
-				<div class="sub-block">
-					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo.png'; ?>" />
-					</div>
-					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo-dzen.png'; ?>" />
-					</div>
-					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>" />
-					</div>
-				</div>
+                    <?php
+                    $meri_args = array(
+                        'post_status' => 'publish',
+                        'posts_per_page' => 3,
+                        'post_type' => 'news',
+                        'post__not_in' => array($post->ID),
+                    );
 
-				<?php
-				$meri_args = array(
-					'post_status' => 'publish',
-					'posts_per_page' => 3,
-					'post_type' => 'news',
-					'post__not_in' => array($post->ID),
-				);
+                    $meri_posts = get_posts($meri_args);
+                    ?>
 
-				$meri_posts = get_posts($meri_args);
-				?>
-
-				<?php if (!empty($meri_posts)) : ?>
-					<?php foreach ($meri_posts as $post) : ?>
-						<?php render_news_whole_post($post->ID); ?>
-					<?php endforeach; ?>
-				<?php endif; ?>
-                <div class="loading-posts">
-                    <span class="spinner"></span>
+                    <?php if (!empty($meri_posts)) : ?>
+                        <?php foreach ($meri_posts as $post) : ?>
+                            <?php render_news_whole_post($post->ID); ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <div class="loading-posts">
+                        <span class="spinner"></span>
+                    </div>
                 </div>
-			</div>
 
-		</div>
-		<?php render_sidebar(); ?>
-	</div>
-</main>
+            </div>
+            <?php render_sidebar(); ?>
+        </div>
+    </main>
 
 <?php get_footer(); ?>

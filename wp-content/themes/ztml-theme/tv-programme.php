@@ -31,12 +31,11 @@ $id=get_the_ID();
 
 
 ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$id, 'background');?>
+    </div>
 <main class="tv-programme">
-    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$id, 'left');?>
-        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), false); ?>

@@ -45,12 +45,11 @@ $districts = array(
 $id=get_the_ID();
 
 ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$id, 'background');?>
+    </div>
 <main class="your-district">
-    <?php  render_adv('page',$id, 'top');?>
 	<div class="container main-container">
-        <?php  render_adv('page',$id, 'left');?>
-        <?php  render_adv('page',$id, 'right');?>
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_district_news_template(); ?>

@@ -32,12 +32,11 @@ $the_query = new WP_Query(
 ?>
 
 <?php $topic_title = single_term_title('', false); ?>
-
+    <div class="adfox-banner-background">
+        <?php  render_adv('page',$taxonomy_id, 'background');?>
+    </div>
     <main id="newspapers" class="newspapers">
-        <?php  render_adv('page',$taxonomy_id, 'top');?>
         <div class="container main-container">
-            <?php  render_adv('page',$taxonomy_id, 'left');?>
-            <?php  render_adv('page',$taxonomy_id, 'right');?>
             <div class="content-wrapper">
                 <div class="main-content">
                     <?php render_topic_bar($topic_title); ?>

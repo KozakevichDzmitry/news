@@ -52,13 +52,13 @@ function render_news_template_line($post_ID, $withImages = false, $reversed = fa
 						<span><?php echo get_the_time('H:i', $post_ID); ?></span>
 						<span><?php echo get_the_time('d.m.Y', $post_ID); ?></span>
 					</div>
-					<div>
-						<?php $is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
-
-						<?php if ($is_advertising) : ?>
-							<?php render_advertising_icon(); ?>
-						<?php endif; ?>
-					</div>
+<!--					<div>-->
+<!--						--><?php //$is_advertising = carbon_get_post_meta($post_ID, 'news_is_advertising'); ?>
+<!---->
+<!--						--><?php //if ($is_advertising) : ?>
+<!--							--><?php //render_advertising_icon(); ?>
+<!--						--><?php //endif; ?>
+<!--					</div>-->
 				</div>
                 <div class="share-block--fold">
                     <?php echo do_shortcode('[share_links]'); ?>

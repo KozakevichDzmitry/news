@@ -951,43 +951,22 @@ input[type=checkbox], input[type=radio] {
   padding: 0;
 }
 
-.adfox__left, .adfox__right {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-}
-.adfox__left .inner-wrapper-sticky, .adfox__right .inner-wrapper-sticky {
-  position: absolute;
+.adfox-banner-background {
+  position: fixed;
+  overflow: hidden;
   top: 0;
-  width: max-content;
-}
-
-.adfox__left {
-  right: 100%;
-  width: calc((100vw - 1190px) / 2);
-}
-.adfox__left .inner-wrapper-sticky {
-  right: 0;
-}
-
-.adfox__left.is-affixed .inner-wrapper-sticky {
-  left: auto !important;
-}
-
-.adfox__right {
-  left: 100%;
-}
-.adfox__right .inner-wrapper-sticky {
+  width: 100vw;
+  height: 100vh;
   left: 0;
 }
 
-.adfox__top {
-  width: 100vw;
-  overflow: hidden;
-}
-.adfox__top div, .adfox__top img {
-  margin: 0 auto;
-  text-align: center;
+.adfox__background {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .author-column-slider-card {
@@ -1246,7 +1225,9 @@ input[type=checkbox], input[type=radio] {
 }
 
 footer {
+  position: relative;
   background-color: #214972;
+  z-index: 1;
 }
 footer > .container {
   padding: 30px 0px 50px 0px;

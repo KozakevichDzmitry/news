@@ -718,3 +718,18 @@ function get_default_news($count, $term, $exclude_list)
 
     return $news_posts->posts;
 }
+
+
+$post_types=array('news'); //get names of post types
+
+foreach($post_types as $post_type){
+    //add action to each post type
+    add_action( 'publish_'.$post_type, 'notify_published_post' );
+}
+
+function notify_published_post($post_id){
+
+    set_transient( 'new_post_id', $post_id, 30 );
+}
+
+
