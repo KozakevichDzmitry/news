@@ -19,6 +19,7 @@ function render_timeline()
 			<div class="timeline__news-list-collapsed">
 				<?php
 				$timeline_posts_quary = new WP_Query([
+                    'tag'=> 'main',
 					'post_type' => 'news',
 					'post_per_page' => '3',
 				]);
@@ -32,6 +33,7 @@ function render_timeline()
 			<div class="timeline__news-list-expanded">
 				<?php
 				$timeline_posts_quary = new WP_Query([
+                    'tag'=> 'feed',
 					'post_type' => 'news',
 					'post_per_page' => '10',
 				]);

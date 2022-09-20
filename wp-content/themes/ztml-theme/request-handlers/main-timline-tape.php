@@ -15,6 +15,7 @@ function main_timline_tape_load()
 			'type' => 'news',
 			'date' => $_POST['date'],
 			'tax_query' => $_POST['tax_query'],
+            'tag'=> 'feed',
 		)
 	);
 

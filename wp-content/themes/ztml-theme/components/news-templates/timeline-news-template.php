@@ -25,10 +25,7 @@ function render_timline_news_template($post_ID)
 						</div>
 						<div class="post-category">
 							<?php
-							$term = get_terms(array(
-								'taxonomy' => get_post_taxonomies($post_ID),
-								'object_ids' => $post_ID,
-							));
+                            $term = get_the_terms( $post_ID, 'news-list' );
 							?>
 							<?php if (!empty($term[0])) : ?>
 								<span><?php echo $term[0]->name; ?></span>

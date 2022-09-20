@@ -5,6 +5,7 @@ require_once(COMPONENTS_PATH . 'calendar.php');
 function render_main_news_template()
 {
 	$top_news_quary = new WP_Query([
+        'tag'=> 'main',
 		'post_type' => 'news',
 		'post_per_page' => '3',
 	]);
@@ -12,6 +13,7 @@ function render_main_news_template()
 	$top_news_posts = $top_news_quary->posts;
 
 	$timeline_news_quary = new WP_Query([
+        'tag'=> 'feed',
 		'post_type' => 'news',
 		'post_per_page' => '8',
 	]);

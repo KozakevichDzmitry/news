@@ -101,18 +101,6 @@ jQuery(document).ready(function ($) {
         containerSelector: ".main-container",
     });
 
-    if (document.querySelector(".adfox__left")) {
-        var sidebarLeft = new StickySidebar('.adfox__left', {
-            containerSelector: '.main-container',
-        });
-    }
-
-    if (document.querySelector(".adfox__right")) {
-        var sidebarRight = new StickySidebar('.adfox__right', {
-            containerSelector: '.main-container',
-        });
-    }
-
     $('.timeline').on('touchmove', function (e) {
         if (!$('.timeline__news-list-expanded').has($(e.target)).length)
             e.preventDefault();

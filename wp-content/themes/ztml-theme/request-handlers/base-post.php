@@ -18,6 +18,10 @@ function base_load_posts(
 		$q_args['tax_query'] = $fn_args['tax_query'];
 	}
 
+    if (!empty($fn_args['tag'])) {
+        $q_args['tag'] = $fn_args['tag'];
+    }
+
 	if (!empty($fn_args['date'])) {
 		$date = date('Y-m-d', strtotime($fn_args['date'] . ' 00:00:00'));
 		$q_args['date_query'] = array(
