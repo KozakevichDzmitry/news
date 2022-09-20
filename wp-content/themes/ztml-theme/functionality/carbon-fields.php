@@ -404,6 +404,15 @@ function crb_attach_theme_options()
             array(
                 Field::make('checkbox', 'news_is_advertising', 'Реклама?')
                     ->set_option_value('yes')->set_default_value('no'),
+                Field::make('text', 'news_text_advertising', 'Подпись')
+                    ->set_conditional_logic(array(
+                        'relation' => 'AND',
+                        array(
+                            'field' => 'news_is_advertising',
+                            'value' => true,
+                        ),
+                    ))
+                    ->set_default_value('На правах рекламы'),
                 Field::make('checkbox', 'news_is_attached', 'Закрепленная?')
                     ->set_option_value('yes')->set_default_value('no'),
             )

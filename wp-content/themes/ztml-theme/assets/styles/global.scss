@@ -472,6 +472,21 @@ header.sticky {
 	max-height: 10px;
 	}
 }
+.adv__info{
+	padding-top: 10px;
+
+	.adv_icon__box{
+		vertical-align: middle;
+		svg{
+			width: 10px;
+		}
+	}
+	.adv_text__box{
+		font-size: .8em;
+		color: #214972;
+	}
+}
+
 
 @keyframes spin {
 	to { -webkit-transform: rotate(360deg); }

@@ -61,8 +61,14 @@ function render_news_whole_post($id, $cat = NULL)
 
         <div class="page-content">
             <?php echo $content; ?>
+            <div class="adv__info">
+                <?php $is_advertising = carbon_get_post_meta($single_post->ID, 'news_is_advertising'); ?>
+                <?php if ($is_advertising) : ?>
+                    <span class="adv_icon__box"><?php render_advertising_icon(); ?></span>
+                    <span class="adv_text__box"><?php echo carbon_get_post_meta($single_post->ID, 'news_text_advertising');?></span>
+                <?php endif; ?>
+            </div>
         </div>
-
         <div class="footer-content">
             <div class="author-info">
                 <div class="author-image">
