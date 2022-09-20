@@ -117,10 +117,6 @@ function page_scripts()
         'query_vars' => json_encode($wp_query->query)
     ));
 
-    wp_localize_script('timeline-main-js', 'ajaxpagination', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-        'query_vars' => json_encode($wp_query->query)
-    ));
     if (get_post_type() == "news") {
         wp_enqueue_script('loadmore', get_stylesheet_directory_uri() . '/scripts/components/loadmore.js', array('jquery'), 1.0, true);
         wp_localize_script('loadmore', 'ajax', array('ajaxurl' => admin_url('admin-ajax.php')));
@@ -726,10 +722,8 @@ foreach($post_types as $post_type){
     //add action to each post type
     add_action( 'publish_'.$post_type, 'notify_published_post' );
 }
-
+add_action( 'publish_news'.$post_type, 'notify_published_post' );
 function notify_published_post($post_id){
 
     set_transient( 'new_post_id', $post_id, 30 );
 }
-
-

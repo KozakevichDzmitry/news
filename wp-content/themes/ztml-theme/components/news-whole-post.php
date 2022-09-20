@@ -27,10 +27,7 @@ function render_news_whole_post($id, $cat = NULL)
                 <div class="tags">
 					<span>
 						<?php
-                        $term = get_terms(array(
-                            'taxonomy' => get_post_taxonomies($id),
-                            'object_ids' => $id,
-                        ));
+                        $term = get_the_terms( $id, 'news-list' );
                         ?>
                         <?php if (!empty($cat)) : ?>
                             <span><?php echo $cat; ?></span>
