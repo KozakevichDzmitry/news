@@ -31,10 +31,20 @@ function render_news_template_line($post_ID, $withImages = false, $reversed = fa
 				</div>
 				<div class="post-category">
 					<?php
-					$term = get_the_terms( $post_ID, 'news-list' );
-					?>
-					<?php if (!empty($term[0])) : ?>
-						<span><?php echo $term[0]->name; ?></span>
+					$terms = get_the_terms( $post_ID, 'news-list' );
+                    $term= '';
+                    ?>
+					<?php if (!empty($terms)) :
+                        foreach ($terms as $t){
+                            if($t->name == 'Главное' || $t->name == 'Лента'){
+                                continue;
+                            }else{
+                                $term = $t->name;
+                                break;
+                            }
+                        }
+                        ?>
+						<span><?php echo $term; ?></span>
 					<?php endif; ?>
 				</div>
 			</div>

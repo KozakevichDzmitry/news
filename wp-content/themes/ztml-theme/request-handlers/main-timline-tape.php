@@ -7,15 +7,20 @@ function main_timline_tape_load()
 	$template = array(
 		'view' => 'render_news_template_line'
 	);
-
+    $tax = array(
+        array(
+            'taxonomy' => $_POST['taxonomy'],
+            'field' =>  $_POST['field'],
+            'terms' =>  $_POST['terms']
+        )
+    );
 	$res = base_load_posts(
 		array(
 			'load' => $_POST['load'],
 			'offset' => $_POST['offset'],
 			'type' => 'news',
 			'date' => $_POST['date'],
-			'tax_query' => $_POST['tax_query'],
-            'tag'=> 'feed',
+			'tax_query' => $tax,
 		)
 	);
 

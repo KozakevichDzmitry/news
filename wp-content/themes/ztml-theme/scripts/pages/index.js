@@ -15,6 +15,9 @@ jQuery(document).ready(function ($) {
 		action: "main_timline_tape_load",
 		load: 10,
 		offset: 10,
+		taxonomy:  'news-list',
+		field : 'slug',
+		terms : 'feed'
 	};
 
 	const observer = new IntersectionObserver(

@@ -22,7 +22,6 @@ function news_taxonomy()
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
-            'taxonomies' => array('post_tag')
 		)
 	);
 

@@ -320,13 +320,6 @@ function sticky_sidebar_register()
 
 add_action('wp_enqueue_scripts', 'sticky_sidebar_register');
 
-function sticky_adv_register()
-{
-    wp_enqueue_script('stickyAdv-js', get_template_directory_uri() . '/libs/stickyAdv/stickyAdv.js', array('jquery'));
-}
-
-add_action('wp_enqueue_scripts', 'sticky_adv_register');
-
 function diff_image_register()
 {
     wp_register_style('diff-image-css', get_template_directory_uri() . '/libs/diff-image/dif-image.css');
