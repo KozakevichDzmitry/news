@@ -21,6 +21,7 @@ $id = get_the_ID();
         <?php  render_adv('post',$id, 'background');?>
     </div>
 <main class="authors-column-page">
+    <div class="container container_adv"><?php  render_adv('post',$id, 'before_main');?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -77,9 +78,9 @@ $id = get_the_ID();
 				<?php endif; ?>
 			</div>
 			<div class="second-content">
-				<?php render_most_read_news_template(true); ?>
-				<?php render_top_three_news_template(); ?>
-				<?php render_newspapers_template(); ?>
+				<?php render_most_read_news_template(true,'post', $id); ?>
+				<?php render_top_three_news_template('post', $id); ?>
+				<?php render_newspapers_template('post', $id); ?>
 			</div>
 		</div>
 		<?php render_sidebar(); ?>

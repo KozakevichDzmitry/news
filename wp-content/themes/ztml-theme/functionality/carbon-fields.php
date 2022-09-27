@@ -5,7 +5,110 @@ use Carbon_Fields\Field;
 
 require_once(FUNC_PATH . 'getWpadcenterPostData.php');
 
-function add_tab_adv($container, $arr, $type)
+function addcontainer_adv_for_post($post_type, $locations)
+{
+    $fields = array(
+        Field::make('checkbox', 'crb_adfox_disable', __('Отключить рекламу')),
+        Field::make('checkbox', 'crb_adfox_origin', __('Использовать уникальную рекламу для этого поста')),
+        Field::make('html', 'crb_adfox_header-adv')
+            ->set_html('<h2>Вставьте HTML-код рекламного блока Adfox или шорткод и установите галочку \'Использовать шорткод\'</h2>')
+            ->set_conditional_logic(array(
+                'relation' => 'AND',
+                array(
+                    'field' => 'crb_adfox_disable',
+                    'value' => false,
+                ),
+                array(
+                    'field' => 'crb_adfox_origin',
+                    'value' => true,
+                )
+            )),
+    );
+    foreach ($locations as $location) {
+        $label = '';
+        if ($location == 'background') {
+            $label = 'Код брендированной рекламы';
+            $fields[] = Field::make('textarea', 'crb_adf_banner_' . $location, __($label))
+                ->set_conditional_logic(array(
+                    'relation' => 'AND',
+                    array(
+                        'field' => 'crb_adfox_disable',
+                        'value' => false,
+                    ),
+                    array(
+                        'field' => 'crb_adfox_origin',
+                        'value' => true,
+                    )
+                ));
+            $fields[] = Field::make('checkbox', 'crb_banners_' . $location . '_shortcode', __('Использовать шорткод'))
+                ->set_conditional_logic(array(
+                'relation' => 'AND',
+                array(
+                    'field' => 'crb_adfox_disable',
+                    'value' => false,
+                ),
+                array(
+                    'field' => 'crb_adfox_origin',
+                    'value' => true,
+                )
+            ));
+            continue;
+        }
+        else if ($location == 'main') $label = 'Код баннера до основного контента';
+        else  $label = 'Код баннера до ' . $location;
+
+        $fields[] = Field::make('textarea', 'crb_adfox_banner_before_'.$location, __($label))
+            ->set_conditional_logic(array(
+                'relation' => 'AND',
+                array(
+                    'field' => 'crb_adfox_disable',
+                    'value' => false,
+                ),
+                array(
+                    'field' => 'crb_adfox_origin',
+                    'value' => true,
+                )
+            ));
+        $fields[] = Field::make('checkbox', 'crb_banner_before_'.$location.'_shortcode', __('Использовать шорткод'))
+            ->set_conditional_logic(array(
+                'relation' => 'AND',
+                array(
+                    'field' => 'crb_adfox_disable',
+                    'value' => false,
+                ),
+                array(
+                    'field' => 'crb_adfox_origin',
+                    'value' => true,
+                )
+            ));
+    }
+
+    $container = Container::make('post_meta', 'Добавление рекламы')
+        ->show_on_post_type($post_type)
+        ->add_fields($fields);
+
+    return $container;
+}
+
+function add_tab_generic_adv($container, $name, $locations)
+{
+    $fields = array();
+    foreach ($locations as $location) {
+        $label = '';
+        if ($location == 'background') {
+            $label = 'Код брендированной рекламы';
+            $fields[] = Field::make('textarea', 'crb_adf_' . $name . '_banner_' . $location, __($label));
+            $fields[] = Field::make('checkbox', 'crb_' . $name . '_banners_' . $location . '_shortcode', __('Использовать шорткод'));
+            continue;
+        } else if ($location == 'main') $label = 'Код баннера до основного контента';
+        else  $label = 'Код баннера до ' . $location;
+        $fields[] = Field::make('textarea', 'crb_adf_' . $name . '_banner_before_' . $location, __($label));
+        $fields[] = Field::make('checkbox', 'crb_' . $name . '_banners_before_' . $location . '_shortcode', __('Использовать шорткод'));
+    }
+    $container->add_tab('Общая реклама для всех постов данного типа', $fields);
+}
+
+function add_tab_adv($container, $arr, $type, $supplements = array())
 {
     foreach ($arr as $item) {
         if ($type == 'post_type') {
@@ -18,11 +121,18 @@ function add_tab_adv($container, $arr, $type)
             return;
         }
 
-        $container->add_tab($name, array(
-            Field::make('textarea', 'crb_adf_' . $id . '_banner_background', __('Код баннера сверху')),
+        $fields = array(
+            Field::make('textarea', 'crb_adf_' . $id . '_banner_background', __('Код брендированной рекламы')),
             Field::make('checkbox', 'crb_' . $id . '_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+
+        );
+        foreach ($supplements as $supplement) {
+            $fields[] = Field::make('textarea', 'crb_adf_' . $id . '_banner_before_' . $supplement, __('Код баннера до ' . $supplement));
+            $fields[] = Field::make('checkbox', 'crb_' . $id . '_banners_before_' . $supplement . '_shortcode', __('Использовать шорткод'));
+        }
+        $container->add_tab($name, $fields);
     }
+
 }
 
 function crb_attach_theme_options()
@@ -54,49 +164,15 @@ function crb_attach_theme_options()
 
         ));
 
-    Container::make('post_meta', 'Добавление рекламы')
-        ->show_on_post_type(array('satm', 'cae', 'aaq', 'meri', 'authors-column', 'video', 'news', 'see'))
-        ->add_fields(array(
-            Field::make('checkbox', 'crb_adfox_disable', __('Отключить баннерную рекламу')),
-            Field::make('checkbox', 'crb_adfox_origin', __('Использовать уникальную рекламу для этого поста')),
-            Field::make('html', 'crb_adfox_header-adv')
-                ->set_html('<h2>Вставьте HTML-код рекламного блока Adfox или шорткод и установите галочку \'Использовать шорткод\'</h2>')
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-            Field::make('textarea', 'crb_adfox_banner_background', __('Код баннера по краям'))
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-            Field::make('checkbox', 'crb_banner_background_shortcode', __('Использовать шорткод'))
-                ->set_conditional_logic(array(
-                    'relation' => 'AND',
-                    array(
-                        'field' => 'crb_adfox_disable',
-                        'value' => false,
-                    ),
-                    array(
-                        'field' => 'crb_adfox_origin',
-                        'value' => true,
-                    )
-                )),
-        ));
+    addcontainer_adv_for_post('satm', array('background','main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
+    addcontainer_adv_for_post('cae', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
+    addcontainer_adv_for_post('aaq', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
+    addcontainer_adv_for_post('meri', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
+    addcontainer_adv_for_post('authors-column', array('background','main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
+    addcontainer_adv_for_post('video', array('background','main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
+    addcontainer_adv_for_post('news', array('background','main', 'most_read_news',));
+    addcontainer_adv_for_post('see', array('background','main','vechernij-minsk', 'kacheli', 'minskij-kurer'));
+
 
     $adv_options_container = Container::make('theme_options', __('Реклама'))
         ->add_fields(array(
@@ -106,110 +182,84 @@ function crb_attach_theme_options()
 
     $adv_page_container = Container::make('theme_options', __('Страницы'))
         ->set_page_parent($adv_options_container);
-
     add_tab_adv($adv_page_container, get_pages([
         'post_type' => 'page',
         'post_status' => 'publish',
         'exclude' => '1063345',
         'posts_per_page' => -1
-    ]), 'post_type');
+    ]), 'post_type', array('main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     wp_reset_postdata();
 
     $adv_newspapers_container = Container::make('theme_options', __('Издательства'))
         ->set_page_parent($adv_options_container);
-
     add_tab_adv($adv_newspapers_container, get_categories([
         'taxonomy' => 'newspapers',
         'type' => 'newspaper',
         'posts_per_page' => -1
-    ]), 'taxonomy');
+    ]), 'taxonomy', array('main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     wp_reset_postdata();
 
     $adv_district_container = Container::make('theme_options', __('Районы'))
         ->set_page_parent($adv_options_container);
-
     add_tab_adv($adv_district_container, get_posts([
         'post_type' => 'district',
         'post_status' => 'publish',
         'posts_per_page' => -1
-    ]), 'post_type');
+    ]), 'post_type', array('main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer', 'society_news', 'urban_economy_news', 'economy_news'));
     wp_reset_postdata();
 
-
     $adv_say_container = Container::make('theme_options', __('Говорит Минск'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Говорит и показывает Минск"', array(
-            Field::make('textarea', 'crb_adf_satm_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_satm_banners_top_shortcode', __('Использовать шорткод')),
-        ));
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_say_container, 'satm', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     add_tab_adv($adv_say_container, get_categories([
         'taxonomy' => 'satms',
         'type' => 'satm',
         'posts_per_page' => -1
-    ]), 'taxonomy');
+    ]), 'taxonomy', array('main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     wp_reset_postdata();
 
-    Container::make('theme_options', __('Причина и следствие'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Причина и следствие"', array(
-            Field::make('textarea', 'crb_adf_cae_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_cae_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+    $adv_cae_container = Container::make('theme_options', __('Причина и следствие'))
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_cae_container, 'cae', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
 
-    Container::make('theme_options', __('Задайте вопрос'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Задайте вопрос"', array(
-            Field::make('textarea', 'crb_adf_aaq_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_aaq_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+    $adv_aaq_container = Container::make('theme_options', __('Задайте вопрос'))
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_aaq_container, 'aaq', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
 
 
-    Container::make('theme_options', __('Примите меры'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Примите меры"', array(
-            Field::make('textarea', 'crb_adf_meri_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_meri_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+    $adv_meri_container = Container::make('theme_options', __('Примите меры'))
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_meri_container, 'meri', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
 
-    Container::make('theme_options', __('Авторская колонка'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Авторская колонка"', array(
-            Field::make('textarea', 'crb_adf_authors-column_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_authors-column_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+
+    $adv_authors_column_container = Container::make('theme_options', __('Авторская колонка'))
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_authors_column_container, 'authors-column', array('background', 'main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
 
     $adv_video_container = Container::make('theme_options', __('Видео'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Видео"', array(
-            Field::make('textarea', 'crb_adf_video_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_video_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_video_container, 'video', array('background', 'main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     add_tab_adv($adv_video_container, get_categories([
         'taxonomy' => 'videos',
         'type' => 'video',
         'posts_per_page' => -1
-    ]), 'taxonomy');
+    ]), 'taxonomy', array('background','main', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     wp_reset_postdata();
 
     $adv_news_container = Container::make('theme_options', __('Новости'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Новости"', array(
-            Field::make('textarea', 'crb_adf_news_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_news_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_news_container, 'news', array('background', 'main', 'top_three_news'));
     add_tab_adv($adv_news_container, get_categories([
         'taxonomy' => 'news-list',
         'type' => 'news',
         'posts_per_page' => -1
-    ]), 'taxonomy');
+    ]), 'taxonomy', array('background','main', 'most_read_news', 'top_three_news', 'vechernij-minsk', 'kacheli', 'minskij-kurer'));
     wp_reset_postdata();
 
-    Container::make('theme_options', __('Смотрите'))
-        ->set_page_parent($adv_options_container)
-        ->add_tab('Общая реклама для всех постов "Смотрите"', array(
-            Field::make('textarea', 'crb_adf_see_banner_background', __('Код баннера сверху')),
-            Field::make('checkbox', 'crb_see_banners_background_shortcode', __('Использовать шорткод')),
-        ));
+    $adv_see_container = Container::make('theme_options', __('Смотрите'))
+        ->set_page_parent($adv_options_container);
+    add_tab_generic_adv($adv_see_container, 'see', array('background', 'main',));
+
 
     Container::make('post_meta', __('Руководители', 'crb'))
         ->where('post_template', '=', 'management.php')

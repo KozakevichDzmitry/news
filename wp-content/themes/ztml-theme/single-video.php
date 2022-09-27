@@ -8,6 +8,7 @@
         <?php  render_adv('post',$id, 'background');?>
     </div>
 <main id="single-satm" class="single-satm">
+    <div class="container container_adv"><?php  render_adv('post',$id, 'before_main');?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -31,7 +32,7 @@
 				</div>
 			</div>
 			<div class="second-content">
-				<?php render_newspapers_template(); ?>
+				<?php render_newspapers_template('post', $id); ?>
 			</div>
 		</div>
 		<?php render_sidebar(); ?>

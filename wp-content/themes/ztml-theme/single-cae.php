@@ -31,6 +31,7 @@ $id = get_the_ID();
         <?php  render_adv('post',$id, 'background');?>
     </div>
 <main id="single-satm" class="single-satm">
+    <div class="container container_adv"><?php  render_adv('post',$id, 'before_main');?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">

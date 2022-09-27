@@ -1,9 +1,11 @@
 <?php
 
-function render_society_news_template($is_minimazed = false)
+function render_society_news_template($is_minimazed = false,$type_adv="page", $id=false)
 {
-?>
-	<?php render_topic_bar("Общество", true, array(
+    if($id){?>
+        <div class="container_adv"><?php render_adv($type_adv, $id, 'before_society_news');?></div>
+    <?php }
+	 render_topic_bar("Общество", true, array(
 		'link' => get_site_url() . '/news-list/obshhestvo/',
 		'title' => 'Все материалы рубрики',
 		'icon' => '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

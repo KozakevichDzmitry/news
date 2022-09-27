@@ -24,7 +24,6 @@ function render_adv($type, $id, $location)
             }else{
                 //  Если у текущего поста не установлена реклама, тогда будет отображаться
                 //  общая реклама для этого типа постов. Общая реклама устанавливается в разделе "Реклама"
-
                 $banner = carbon_get_theme_option('crb_adf_' . $post_name . '_banner_' . $location);
                 $is_shortcode = carbon_get_theme_option('crb_' . $post_name . '_banners_' . $location . '_shortcode');
                 if( $is_shortcode){?>
@@ -34,7 +33,8 @@ function render_adv($type, $id, $location)
                 <?php }
             }
         }
-    } elseif ($type == 'page') {
+    }
+    elseif ($type == 'page') {
         $banner = carbon_get_theme_option('crb_adf_' . $id . '_banner_' . $location);
         $is_shortcode = carbon_get_theme_option('crb_' . $id . '_banners_' . $location .'_shortcode');
         if( $is_shortcode){?>

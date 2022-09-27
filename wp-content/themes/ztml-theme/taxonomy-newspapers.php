@@ -36,6 +36,7 @@ $the_query = new WP_Query(
         <?php  render_adv('page',$taxonomy_id, 'background');?>
     </div>
     <main id="newspapers" class="newspapers">
+        <div class="container container_adv"><?php  render_adv('page',$taxonomy_id, 'before_main');?></div>
         <div class="container main-container">
             <div class="content-wrapper">
                 <div class="main-content">
@@ -143,11 +144,11 @@ $the_query = new WP_Query(
                     <?php } ?>
                 </div>
                 <div class="second-content">
-                    <?php render_most_read_news_template(true); ?>
-                    <?php render_top_three_news_template(); ?>
+                    <?php render_most_read_news_template(true,'page', $taxonomy_id); ?>
+                    <?php render_top_three_news_template('page', $taxonomy_id); ?>
 
                     <?php if (!($topic_title === 'Качели')) : ?>
-                        <?php render_newspapers_template(); ?>
+                        <?php render_newspapers_template('page', $taxonomy_id); ?>
                     <?php endif; ?>
                 </div>
             </div>

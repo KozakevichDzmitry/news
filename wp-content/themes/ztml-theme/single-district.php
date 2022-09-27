@@ -20,12 +20,13 @@ $districts = new WP_Query(array(
 	'post_status' => 'publish'
 ));
 
-$id=get_the_ID();
+$page_id=get_the_ID();
 ?>
     <div class="adfox-banner-background">
-        <?php  render_adv('page',$id, 'background');?>
+        <?php  render_adv('page',$page_id, 'background');?>
     </div>
 <main id="district" class="district">
+    <div class="container container_adv"><?php  render_adv('page',$page_id, 'before_main');?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -47,12 +48,12 @@ $id=get_the_ID();
 				</div>
 			</div>
 			<div class="second-content">
-				<?php render_society_news_template(true); ?>
-				<?php render_urban_economy_news_template(true); ?>
-				<?php render_economy_news_template(true); ?>
-				<?php render_most_read_news_template(true); ?>
-				<?php render_top_three_news_template(); ?>
-				<?php render_newspapers_template(); ?>
+				<?php render_society_news_template(true,'page', $page_id); ?>
+				<?php render_urban_economy_news_template(true,'page', $page_id); ?>
+				<?php render_economy_news_template(true,'page', $page_id); ?>
+				<?php render_most_read_news_template(true,'page', $page_id); ?>
+				<?php render_top_three_news_template('page', $page_id); ?>
+				<?php render_newspapers_template('page', $page_id); ?>
 			</div>
 		</div>
 		<div class="sidebar-wrapper">

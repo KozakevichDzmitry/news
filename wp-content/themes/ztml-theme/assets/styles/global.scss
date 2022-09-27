@@ -55,7 +55,12 @@ svg {
 	padding: 0px 20px;
 	margin: 0px auto;
 }
-
+.container_adv{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	position: relative;
+	z-index: 1;
+}
 .container-md-fluid {
 	max-width: 1190px;
 	padding: 0px 20px;

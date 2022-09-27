@@ -14,6 +14,7 @@
         <?php  render_adv('post',$id, 'background');?>
     </div>
     <main class="authors-column-page">
+        <div class="container container_adv"><?php  render_adv('post',$id, 'before_main');?></div>
         <div class="container main-container">
             <div class="content-wrapper">
                 <div class="main-content" id="<?php echo $post->ID; ?>">
@@ -21,7 +22,7 @@
 
                     <?php render_news_whole_post($post); ?>
 
-                    <?php render_top_three_news_template(); ?>
+                    <?php render_top_three_news_template('post', $id); ?>
 
                     <?php render_topic_bar('Читайте и подписывайтесь', false); ?>
 

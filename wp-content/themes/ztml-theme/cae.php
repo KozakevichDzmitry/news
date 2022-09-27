@@ -56,6 +56,7 @@ $id=get_the_ID();
         <?php  render_adv('page',$id, 'background');?>
     </div>
 <main class="cae">
+    <div class="container container_adv"><?php  render_adv('page',$id, 'before_main');?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -85,9 +86,9 @@ $id=get_the_ID();
 				<?php endif ?>
 			</div>
 			<div class="second-content">
-				<?php render_most_read_news_template(true); ?>
-				<?php render_top_three_news_template(); ?>
-				<?php render_newspapers_template(); ?>
+				<?php render_most_read_news_template(true, 'page', $id); ?>
+				<?php render_top_three_news_template('page', $id); ?>
+				<?php render_newspapers_template('page', $id); ?>
 			</div>
 		</div>
 		<?php render_sidebar(); ?>
