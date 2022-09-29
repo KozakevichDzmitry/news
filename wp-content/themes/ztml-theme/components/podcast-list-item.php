@@ -19,7 +19,7 @@ function render_satms_list_items($post)
 		</div>
 		<div class="card-item__footer">
 			<a href="<?php echo '/cae/' . $post->post_name ?>" class="read-more-link">
-				<span>Читать всё</span>
+				<span class="read-more">Читать все</span>
 				<span>
 					<?php render_go_to_icon(); ?>
 				</span>

@@ -19,6 +19,7 @@ function render_management_item($fio, $role, $bio, $photo_url, $recep)
 					<?php echo $bio; ?>
 				</span>
 			</div>
+			<?php if (strlen($bio) > 215) : ?><a class="only-mobile mob-get-more read-more">Читать все</a><?php endif; ?>
 			<div class="info__field">
 				<span class="text"><?php echo $recep; ?></span>
 			</div>

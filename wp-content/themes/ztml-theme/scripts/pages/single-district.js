@@ -1,8 +1,8 @@
 jQuery(document).ready(function ($) {
-    $('.district__slider').slickLightbox({
-        itemSelector: '.slick-slide > a',
-        background: 'rgba(0, 0, 0, .7)'
-    });
+	$(".district__slider").slickLightbox({
+		itemSelector: ".slick-slide > a",
+		background: "rgba(0, 0, 0, .7)",
+	});
 	$("#district .district__slider").slick({
 		dots: true,
 		infinite: true,
@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 		slidesToShow: 4,
 		slidesToScroll: 1,
 		centerMode: true,
-		centerPadding: '40px',
+		centerPadding: "40px",
 		responsive: [
 			{
 				breakpoint: 1100,
@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
 					slidesToShow: 3,
 					slidesToScroll: 1,
 					centerMode: true,
-					centerPadding: '30px',
+					centerPadding: "30px",
 				},
 			},
 			{
@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
 					slidesToShow: 2,
 					slidesToScroll: 1,
 					centerMode: true,
-					centerPadding: '30px',
+					centerPadding: "30px",
 					arrows: false,
 				},
 			},
@@ -46,9 +46,8 @@ jQuery(document).ready(function ($) {
 					slidesToShow: 3,
 					slidesToScroll: 1,
 					centerMode: true,
-					centerPadding: '30px',
+					centerPadding: "30px",
 					arrows: false,
-
 				},
 			},
 			{
@@ -60,7 +59,7 @@ jQuery(document).ready(function ($) {
 					slidesToShow: 2,
 					slidesToScroll: 1,
 					centerMode: true,
-					centerPadding: '40px',
+					centerPadding: "40px",
 					arrows: false,
 				},
 			},
@@ -73,11 +72,10 @@ jQuery(document).ready(function ($) {
 					slidesToShow: 1,
 					slidesToScroll: 1,
 					centerMode: true,
-					centerPadding: '40px',
+					centerPadding: "40px",
 					arrows: false,
 				},
 			},
 		],
 	});
-
 });

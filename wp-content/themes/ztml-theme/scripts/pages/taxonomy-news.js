@@ -17,8 +17,8 @@ jQuery(document).ready(function ($) {
 
 	const dataRequest = {
 		action: "taxonomy_news_posts_load",
-		load: 27,
-		offset: 27,
+		load: 5 * 3,
+		offset: 5 * 3,
 		tax_query: {
 			taxonomy: $(".load-moree-btn button").attr("data-tax-name"),
 			field: "term_id",
@@ -74,6 +74,7 @@ jQuery(document).ready(function ($) {
 
 	$("#datepicker-tax-news-template").datepicker({
 		showOn: "both",
+		changeMonth: true,
 		changeYear: true,
 		dateFormat: "yy-mm-dd",
 		minDate: $("#datepicker-tax-news-template").data("min-date"),
@@ -108,12 +109,10 @@ jQuery(document).ready(function ($) {
 });
 
 jQuery(document).ready(function ($) {
-	if (typeof $.fn.Slick !== 'undefined'){
-		$(".category-select-slider .slider-container").slick({
-			infinite: true,
-			slidesToShow: 5,
-			slidesToScroll: 1,
-			variableWidth: true,
-		});
-	}
+	$(".category-select-slider .slider-container").slick({
+		infinite: true,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		variableWidth: true,
+	});
 });

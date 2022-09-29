@@ -9,7 +9,7 @@ function render_volume_sound_icon()
 			<path d="M14.5005 5.69984V13.3002C15.4193 12.4641 16.0006 10.846 16.0006 9.5C16.0006 8.15398 15.4193 6.53587 14.5005 5.69984ZM5.50007 13.3002H7.52293L13.0005 17V2L7.52293 5.69984H5.50007C4.67278 5.69984 4 6.38159 4 7.2199V11.7801C4 12.6184 4.67278 13.3002 5.50007 13.3002Z" fill="white" />
 		</g>
 		<defs>
-			<filter id="filter0_d_1266_28116" x="0" y="0" width="23" height="23" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<filter x="0" y="0" width="23" height="23" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 				<feFlood flood-opacity="0" result="BackgroundImageFix" />
 				<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
 				<feOffset dy="2" />

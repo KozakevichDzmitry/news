@@ -21,7 +21,6 @@ jQuery(document).ready(function ($) {
 					success: function (data) {
 						if (data) {
 							$(".timeline-main .news-template-line.eof").removeClass("eof");
-							console.log(data);
 							$(".timeline-main").append(data);
 
 							const lastItem = document.querySelector(

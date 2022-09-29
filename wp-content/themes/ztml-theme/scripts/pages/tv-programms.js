@@ -34,29 +34,41 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	$(".day-select-list").slick({
-		dots: true,
-		prevArrow: false,
-		nextArrow: false,
-		infinite: false,
-		speed: 300,
-		mobileFirst: true,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		responsive: [
-			{
-				breakpoint: 767,
-				settings: "unslick",
-			},
-			{
-				breakpoint: 670,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 1,
-					infinite: true,
+	var sliderElem = $(".day-select-list"),
+		sliderBool = false,
+		sliderBreakpoint = 670,
+		sliderSettings = {
+			dots: true,
+			prevArrow: false,
+			nextArrow: false,
+			infinite: false,
+			speed: 300,
+			mobileFirst: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			responsive: [
+				{
+					breakpoint: sliderBreakpoint,
+					settings: "unslick",
 				},
-			},
-		],
+			],
+		};
+	function sliderInit() {
+		if (window.innerWidth <= sliderBreakpoint) {
+			if (sliderBool === false) {
+				sliderElem.slick(sliderSettings);
+				sliderBool = true;
+			}
+		} else {
+			sliderBool = false;
+		}
+	}
+
+	// resize
+	sliderInit();
+
+	$(window).resize(function () {
+		sliderInit();
 	});
 
 	const selectChannelMenu = $(".select-channel .channels-list");

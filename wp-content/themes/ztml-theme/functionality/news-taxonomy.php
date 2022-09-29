@@ -22,9 +22,26 @@ function news_taxonomy()
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
+			'show_in_rest' => true,
+
 		)
 	);
 
+	register_taxonomy('news-district', 'news', array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name' => _x('Районы', 'taxonomy general name'),
+			'singular_name' => _x('Районы', 'taxonomy singular name'),
+			'menu_name' => __('Районы'),
+		),
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array(
+			'slug' => 'category',
+			'with_front' => false
+		)
+	));
 
 	register_taxonomy(
 		'news-list',

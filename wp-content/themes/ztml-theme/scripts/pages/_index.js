@@ -37,6 +37,8 @@ function districtSliderAdaptive($) {
 					breakpoint: 768,
 					settings: {
 						slidesToShow: 1,
+						arrows: false,
+						dots: true
 					},
 				},
 			],
@@ -78,7 +80,7 @@ jQuery(document).ready(function ($) {
 	alignHeightDistricts($);
 	districtSliderAdaptive($);
 
-	$(window).resize(function () {
+	$(window).on('resize',function () {
 		districtSliderAdaptive($);
 	});
 });

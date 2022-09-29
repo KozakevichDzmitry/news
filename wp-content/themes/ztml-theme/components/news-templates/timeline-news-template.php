@@ -3,6 +3,8 @@
 require_once(COMPONENTS_PATH . 'icons/collapse-btn-icon.php');
 require_once(COMPONENTS_PATH . 'icons/expand-btn-icon.php');
 
+require_once(COMPONENTS_PATH . 'content-exist-markers.php');
+
 function render_timline_news_template($post_ID)
 {
 ?>
@@ -12,34 +14,25 @@ function render_timline_news_template($post_ID)
 				<div class="post-header">
 					<div class="post-header-info">
 						<div class="content-exist">
-							<?php $pgc =  apply_filters('the_content', get_post($post_ID)->post_content); ?>
-							<?php if (check_exist_images($pgc)) : ?>
-								<?php render_camera_icon(); ?>
-							<?php endif; ?>
-							<?php if (check_exist_video($pgc)) : ?>
-								<?php render_video_content_icon(); ?>
-							<?php endif; ?>
-							<?php if (check_exist_map($pgc)) : ?>
-								<?php render_location_icon(); ?>
-							<?php endif; ?>
+							<?php render_content_exist_markers($post_ID); ?>
 						</div>
 						<div class="post-category">
-                            <?php
-                            $terms = get_the_terms( $post_ID, 'news-list' );
-                            $term= '';
-                            ?>
-                            <?php if (!empty($terms)) :
-                                foreach ($terms as $t){
-                                    if($t->name == 'Главное' || $t->name == 'Лента'){
-                                        continue;
-                                    }else{
-                                        $term = $t->name;
-                                        break;
-                                    }
-                                }
-                                ?>
-                                <span><?php echo $term; ?></span>
-                            <?php endif; ?>
+							<?php
+							$terms = get_the_terms($post_ID, 'news-list');
+							$term = '';
+							?>
+							<?php if (!empty($terms)) :
+								foreach ($terms as $t) {
+									if ($t->name == 'Главное' || $t->name == 'Лента') {
+										continue;
+									} else {
+										$term = $t->name;
+										break;
+									}
+								}
+							?>
+								<span><?php echo $term; ?></span>
+							<?php endif; ?>
 						</div>
 					</div>
 					<div class="bottom-info-container">
@@ -73,6 +66,7 @@ function render_timeline_line_news($post_ID, $is_eof = false)
 	<div class="post-line <?php echo $is_eof ? 'eof' : ''; ?>">
 		<div class="time-info">
 			<span><?php echo get_the_time('H:i', $post_ID); ?></span>
+			<span><?php echo get_the_time('d.m.Y', $post_ID); ?></span>
 		</div>
 		<div class="post-content">
 			<a class="post-title" href="<?php echo esc_url(get_permalink($post_ID)); ?>">

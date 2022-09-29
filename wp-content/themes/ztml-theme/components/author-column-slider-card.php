@@ -10,7 +10,7 @@ function render_author_column_slider_card($post_data)
 			</span>
 		</div>
 		<div class="author-column-slider-card__image">
-			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZ9se8N-sEQ-LU7cYhO9hWVljFF3eS1vUYQ&usqp=CAU" />
+			<?php echo get_avatar(get_post_field('post_author', $post_data->ID)); ?>
 		</div>
 		<div class="content-container">
 			<div class="author-column-slider-card__post">

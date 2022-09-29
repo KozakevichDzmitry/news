@@ -31,7 +31,6 @@ jQuery(document).ready(function ($) {
 
 			if (data) {
 				const { posts, count } = JSON.parse(data);
-				console.log(count);
 				if (count <= dataRequest.offset + dataRequest.load) {
 					loadBtnEl.hide();
 				} else {
@@ -53,7 +52,6 @@ jQuery(document).ready(function ($) {
 		ajaxRequest(last_date ? { date: last_date } : {}, (data) => {
 			if (data) {
 				const { posts, count } = JSON.parse(data);
-				console.log(count);
 
 				if (count <= dataRequest.offset + dataRequest.load) {
 					loadBtnEl.hide();
@@ -73,6 +71,7 @@ jQuery(document).ready(function ($) {
 	$("#datepicker-take-action-template").datepicker({
 		showOn: "both",
 		changeYear: true,
+		changeMonth: true,
 		dateFormat: "yy-mm-dd",
 		minDate: $("#datepicker-take-action-template").data("min-date"),
 		maxDate: $("#datepicker-take-action-template").data("max-date"),
@@ -86,7 +85,6 @@ jQuery(document).ready(function ($) {
 				},
 				(data) => {
 					const { posts, count } = JSON.parse(data);
-					console.log(count);
 					resetCalendar.show();
 
 					if (count <= dataRequest.offset + dataRequest.load) {

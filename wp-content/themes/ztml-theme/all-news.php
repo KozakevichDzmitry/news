@@ -24,9 +24,9 @@
 <?php require_once(COMPONENTS_PATH . 'news-category-slider.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'calendar.php'); ?>
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+
 <?php
 $show_count = 27;
-$load_count = 6;
 
 $meri_args = array(
 	'post_status' => 'publish',
@@ -54,15 +54,13 @@ $last_post_id = get_posts(array(
 	'post_status' => 'publish',
 	'order' => 'ASC'
 ))[0]->ID;
-
-$id=get_the_ID();
-
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('page',$id, 'background');?>
-    </div>
+
+<div class="adfox-banner-background">
+	<?php render_adv('page', get_the_ID(), 'background'); ?>
+</div>
 <main class="ta">
-    <div class="container container_adv"><?php  render_adv('page',$id, 'before_main');?></div>
+	<div class="container container_adv"><?php render_adv('page', get_the_ID(), 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">

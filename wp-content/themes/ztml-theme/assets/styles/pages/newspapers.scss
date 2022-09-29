@@ -79,11 +79,6 @@
 			}
 		}
 	}
-	@media (max-width: 767px) {
-		.newspaper__kacheli-content {
-			padding: 0 20px;
-		}
-	}
 
 	.newspaper__moree-btn {
 		background: $blue-color;
@@ -119,24 +114,31 @@
 			background-color: $white-color;
 		}
 	}
-	@media (max-width: 768px) {
-		.pdf-attachments {
-			padding: 0 20px;
-		}
-
-		div.pdf-attachments:last-child {
-			margin: 0 20px;
-		}
-
-	}
 }
-
 
 @media (max-width: 576px) {
 	#newspapers .main-content {
 		.pdf-attachments {
 			grid-template-columns: 1fr;
 			gap: 10px;
+		}
+	}
+}
+
+@media (min-width: 769px) and (max-width: 860px) {
+	#newspapers .main-content .pdf-attachments {
+		grid-template-columns: 1fr 1fr !important;
+	}
+}
+
+@media (max-width: 768px) {
+	#newspapers .main-content {
+		margin-bottom: 30px;
+
+		.pdf-attachments {
+			.pdf-attachments-item {
+				max-width: 100% !important;
+			}
 		}
 	}
 }

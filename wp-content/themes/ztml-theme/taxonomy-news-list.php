@@ -15,14 +15,13 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/most-read-news-template.php'); ?>
 
 <?php require_once(COMPONENTS_PATH . 'calendar.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 
-<?php require_once(COMPONENTS_PATH . "adv.php");?>
 <?php
 $show_count = 27;
 $load_count = 27;
 
 $term = get_queried_object();
-
 
 $tax_query = array(
 	array(
@@ -63,14 +62,14 @@ $last_post_id = get_posts(array(
 	'order' => 'ASC',
 	'tax_query' => $tax_query
 ))[0]->ID;
-
 $taxonomy_id = get_queried_object()->term_id;
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('page',$taxonomy_id, 'background');?>
-    </div>
+
+<div class="adfox-banner-background">
+	<?php render_adv('page', $taxonomy_id, 'background'); ?>
+</div>
 <main class="ta">
-    <div class="container container_adv"><?php  render_adv('page',$taxonomy_id, 'before_main');?></div>
+	<div class="container container_adv"><?php render_adv('page', $taxonomy_id, 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -103,7 +102,7 @@ $taxonomy_id = get_queried_object()->term_id;
 				<?php endif ?>
 			</div>
 			<div class="second-content">
-				<?php render_most_read_news_template(true,'page', $taxonomy_id); ?>
+				<?php render_most_read_news_template(true, 'page', $taxonomy_id); ?>
 				<?php render_top_three_news_template('page', $taxonomy_id); ?>
 				<?php render_newspapers_template('page', $taxonomy_id); ?>
 			</div>

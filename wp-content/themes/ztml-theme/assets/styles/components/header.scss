@@ -1,5 +1,5 @@
 header.header {
-	z-index: 20;
+	z-index: 19;
 
 	.header__main-nav-wrapper {
 		background-color: $blue-color;
@@ -158,6 +158,11 @@ header.header {
 				width: 100%;
 				height: 100%;
 			}
+
+			img {
+				max-height: 70px;
+				display: block;
+			}
 		}
 	}
 
@@ -169,55 +174,83 @@ header.header {
 		gap: 30px;
 
 		#burger-nav {
+			ul.menu {
+				background: $white-color;
+				padding: 0px 10px;
+				box-shadow: 0px 3px 4px rgb(125 125 125 / 25%),
+					0px -3px 4px rgb(125 125 125 / 10%);
+			}
+
 			position: absolute;
-			top: 0px;
 			bottom: 0px;
-			max-width: 320px;
-			width: 100%;
+			min-width: min-content;
 			overflow: hidden;
 			overflow-y: auto;
-			background: $white-color;
-			height: 100vh;
+			height: calc(80vh - 32px);
 			z-index: 22;
+			width: fit-content !important;
 
 			transform: translateX(-1000%);
 			transition: transform 0.3s linear;
 
 			display: block;
 
-			padding: 0px 10px;
-
-			.menu-item a {
-				padding: 5px 0px;
-				text-decoration: none;
-				display: block;
-			}
-
-			.menu-item:not(.menu-item-has-children) > a {
-				@include font-h4;
-				color: $black-color;
-			}
-
-			.menu-item.menu-item-has-children > a {
-				@include font-h4;
-				color: $blue-color;
-				display: flex;
-				align-items: center;
-				gap: 5px;
-
-				&:after {
-					background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 7L5 1L1 7' stroke='%23214972' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+			.menu-item {
+				.menu-link a {
+					padding: 5px 0px;
+					text-decoration: none;
 					display: block;
-					content: "";
-					background-size: contain;
-					background-position: center;
-					background-repeat: no-repeat;
-					height: 10px;
-					width: 10px;
 				}
 			}
 
-			.menu-item.menu-item-has-children .sub-menu .menu-item a {
+			.menu-item:not(.menu-item-has-children) > .menu-link {
+				a {
+					@include font-h4;
+					color: $black-color;
+				}
+
+				button {
+					display: none;
+				}
+			}
+
+			.menu-item.menu-item-has-children > {
+				.menu-link {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+
+					a {
+						@include font-h4;
+						color: $blue-color;
+					}
+
+					button {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+
+						&.expand {
+							svg {
+								transform: scaleY(1);
+							}
+						}
+
+						svg {
+							height: 100%;
+							width: 100%;
+							max-width: 10px;
+							max-height: 10px;
+							transform: scaleY(-1);
+						}
+					}
+				}
+			}
+
+			.menu-item.menu-item-has-children .sub-menu {
+				display: none;
+			}
+
+			.menu-item.menu-item-has-children .sub-menu .menu-item .menu-link a {
 				display: block;
 				padding: 5px 5px 5px 20px !important;
 				@include font-t1;
@@ -465,4 +498,52 @@ header.header {
 		width: 90% !important;
 		left: 0px;
 	}
+}
+
+#burger-btn,
+#search-btn {
+	svg {
+		transition: -webkit-transform 0.2s ease-out;
+		transition: background 0.2s ease-out;
+		transition: background 0.2s ease-out, -webkit-transform 0.2s ease-out;
+	}
+
+	&:hover {
+		svg {
+			-webkit-filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.7));
+			filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.7));
+		}
+	}
+	&:active {
+		svg {
+			fill: rgba(16, 16, 16, 0.6);
+			path {
+				stroke: rgba(16, 16, 16, 0.6);
+			}
+		}
+	}
+}
+
+#searchBtnClose {
+	svg {
+		transition: -webkit-transform 0.2s ease-out;
+		transition: background 0.2s ease-out;
+		transition: background 0.2s ease-out, -webkit-transform 0.2s ease-out;
+	}
+
+	&:hover {
+		svg {
+			-webkit-filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.7));
+			filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.7));
+		}
+	}
+	&:active {
+		svg {
+			fill: rgba(16, 16, 16, 0.6);
+		}
+	}
+}
+
+header.header .sub-nav #burger-nav ul.menu {
+	padding-bottom: 32px;
 }

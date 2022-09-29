@@ -1,10 +1,10 @@
 <?php
 
-function render_video_news_template($title)
+function render_video_news_template($title, $tax_query = array())
 {
 ?>
 	<?php render_topic_bar($title, true, array(
-		'link' => get_site_url() . '/news-list/sport/',
+		'link' => get_site_url() . '/smotrite/',
 		'title' => 'Все материалы рубрики',
 		'icon' => '
 			<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,13 +19,14 @@ function render_video_news_template($title)
 		'posts_per_page' => 3,
 		'post_status' => 'publish',
 		'paged' => 1,
-		'ignore_sticky_posts' => true
+		'ignore_sticky_posts' => true,
+		'tax_query' => $tax_query
 	]);
 
 	$top_three_posts = $top_three_quary->posts;
 	?>
 
-	<div style="display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 10px;margin-bottom: 30px;">
+	<div class="video-news-template">
 		<?php foreach ($top_three_posts as $pst) : ?>
 			<div class="box">
 				<?php render_new_template_video($pst->ID); ?>

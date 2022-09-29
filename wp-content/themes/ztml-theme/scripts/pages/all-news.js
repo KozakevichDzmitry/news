@@ -70,6 +70,7 @@ jQuery(document).ready(function ($) {
 	$("#datepicker-all-news-template").datepicker({
 		showOn: "both",
 		changeYear: true,
+		changeMonth: true,
 		dateFormat: "yy-mm-dd",
 		minDate: $("#datepicker-all-news-template").data("min-date"),
 		maxDate: $("#datepicker-all-news-template").data("max-date"),

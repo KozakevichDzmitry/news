@@ -1,4 +1,7 @@
 .printing {
+	.main-content {
+		margin-bottom: 30px !important;
+	}
 	.printing-text {
 		font-family: "Noto Sans", sans-serif;
 		font-style: normal;
@@ -62,18 +65,16 @@
 }
 @media (max-width: 768px) {
 	.printing {
-		.main-container.container{
+		.main-container.container {
 			padding: 0;
-			.content-wrapper{
+			.content-wrapper {
 				width: 100%;
 			}
 		}
-		.topic-bar{
-			.topic-bar__container{
+		.topic-bar {
+			.topic-bar__container {
 				padding: 0 20px;
 			}
 		}
 	}
-
 }
-

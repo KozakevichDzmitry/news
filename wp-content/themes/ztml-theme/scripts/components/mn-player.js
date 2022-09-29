@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 		}, 1000);
 	});
 	volume.addEventListener("input", (e) => {
-		console.log(e.target.value / 100);
 		audio.volume = e.target.value / 100;
 	});
 	trackBar.addEventListener("input", (e) => {

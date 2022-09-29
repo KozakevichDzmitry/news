@@ -15,9 +15,9 @@ jQuery(document).ready(function ($) {
 		action: "main_timline_tape_load",
 		load: 10,
 		offset: 10,
-		taxonomy:  'news-list',
-		field : 'slug',
-		terms : 'feed'
+		taxonomy: "news-list",
+		field: "slug",
+		terms: "feed",
 	};
 
 	const observer = new IntersectionObserver(
@@ -69,6 +69,7 @@ jQuery(document).ready(function ($) {
 
 	$("#datepicker-all-news").datepicker({
 		showOn: "both",
+		changeMonth: true,
 		changeYear: true,
 		dateFormat: "yy-mm-dd",
 		minDate: $("#datepicker-all-news").data("min-date"),
@@ -111,58 +112,10 @@ jQuery(document).ready(function ($) {
 			".long-news-list .timeline-main .news-template-line.eof"
 		);
 
-		console.log(lastPost);
-
 		observer.observe(lastPost);
 
 		dataRequest.offset += dataRequest.load;
 	};
 
 	observer.observe(lastPost);
-});
-
-jQuery(document).ready(function ($) {
-	new Swiper(".swiper-container.two", {
-		pagination: false,
-		paginationClickable: true,
-		effect: "coverflow",
-		autoHeight: false,
-		loop: true,
-		centeredSlides: true,
-		slidesPerView: "auto",
-		coverflow: {
-			rotate: 0,
-			stretch: 100,
-			depth: 0,
-			modifier: 1.5,
-			slideShadows: false,
-		},
-	});
-});
-
-jQuery(document).ready(function ($) {
-	const districtPreviewEl = $(".district-preview");
-	const districtEls = districtPreviewEl.find(".district-item");
-
-	function alignHeightDistricts($) {
-		let maxH = 0;
-		$(".district-preview>.district-item").each(function () {
-			if ($(this).height() > maxH) {
-				maxH = $(this).height();
-			}
-		});
-
-		$(".district-preview>.district-item").each(function () {
-			$(this).height(maxH);
-		});
-	}
-
-	districtPreviewEl.click((e) => {
-		if ($(e.target).hasClass("district-item")) {
-			districtEls.each((idx, item) => $(item).removeClass("active"));
-			$(e.target).addClass("active");
-		}
-	});
-
-	alignHeightDistricts($);
 });

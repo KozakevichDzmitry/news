@@ -14,23 +14,22 @@
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/newspapers-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+
 <?php
 $satms = new WP_Query(
 	array(
-        'posts_per_page' => 3,
+		'posts_per_page' => 3,
 		'post_type' => 'satm',
-        'post_status' => 'publish',
-
+		'post_status' => 'publish',
 	)
 );
-$id=get_the_ID();
-
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('page',$id, 'background');?>
-    </div>
+
+<div class="adfox-banner-background">
+	<?php render_adv('page', get_the_ID(), 'background'); ?>
+</div>
 <main class="satms">
-    <div class="container container_adv"><?php  render_adv('page',$id, 'before_main');?></div>
+	<div class="container container_adv"><?php render_adv('page', get_the_ID(), 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -45,7 +44,7 @@ $id=get_the_ID();
 				</div>
 			</div>
 			<div class="second-content">
-				<?php render_newspapers_template('page', $id); ?>
+				<?php render_newspapers_template('page', get_the_ID()); ?>
 			</div>
 		</div>
 		<?php render_sidebar(); ?>

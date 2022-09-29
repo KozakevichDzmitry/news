@@ -22,6 +22,24 @@ function primite_meri_taxonomy()
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
+			'show_in_rest' => true,
+		)
+	);
+
+	register_taxonomy(
+		'meri-list',
+		'meri',
+		array(
+			'hierarchical' => true,
+			'labels' => array(
+				'name' => _x('Категории', 'taxonomy general name'),
+				'singular_name' => _x('Категория', 'taxonomy singular name'),
+				'menu_name' => __('Категории'),
+			),
+			'show_ui' => true,
+			'show_in_rest' => true,
+			'show_admin_column' => true,
+			'query_var' => true,
 		)
 	);
 }

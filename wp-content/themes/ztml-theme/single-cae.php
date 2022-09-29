@@ -8,9 +8,9 @@
 <?php require_once(COMPONENTS_PATH . "icons/share-icon.php"); ?>
 
 <?php require_once(COMPONENTS_PATH . 'satms-list-tem.php'); ?>
-
-<?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+<?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
+
 <?php
 $satms = new WP_Query(
 	array(
@@ -25,13 +25,14 @@ $newspapers_taxes = get_terms(
 		'hide_empty' => false
 	)
 );
-$id = get_the_ID();
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('post',$id, 'background');?>
-    </div>
+
+<div class="adfox-banner-background">
+	<?php render_adv('post', $post->ID, 'background'); ?>
+</div>
 <main id="single-satm" class="single-satm">
-    <div class="container container_adv"><?php  render_adv('post',$id, 'before_main');?></div>
+	<div class="container container_adv"><?php render_adv('post', $post->ID, 'before_main'); ?></div>
+	<?php plus_and_zen_post($post->ID); ?>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -60,10 +61,10 @@ $id = get_the_ID();
 								<?php echo date("d.m.Y", strtotime($post->post_date)); ?>
 							</span>
 						</div>
-                        <div class="share-block--fold">
-                            <?php echo do_shortcode('[share_links]'); ?>
-                            <?php render_share_icon(); ?>
-                        </div>
+						<div class="share-block--fold">
+							<?php echo do_shortcode('[share_links]'); ?>
+							<?php render_share_icon(); ?>
+						</div>
 					</div>
 				</div>
 
@@ -108,7 +109,7 @@ $id = get_the_ID();
 						)
 					);
 					?>
-					<?php render_pdf_attachments($the_query->posts); ?>
+					<?php render_pdf_attachments($the_query->posts, 'three'); ?>
 				<?php endforeach; ?>
 			</div>
 		</div>

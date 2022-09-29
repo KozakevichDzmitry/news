@@ -13,21 +13,24 @@ function render_timeline()
 			</div>
 		</div>
 		<div class="container news collapsed">
-			<div class="timeline__title">
-				<span>Лента новостей</span>
-			</div>
 			<div class="timeline__news-list-collapsed">
 				<?php
 				$timeline_posts_quary = new WP_Query([
-					'post_type' => 'news',
-					'post_per_page' => '3',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'news-list',
-                            'field' => 'slug',
-                            'terms' => 'main'
-                        )
-                    )
+					'post_type' => 'any',
+					'posts_per_page' => '3',
+					'tax_query' => array(
+						'relation' => 'OR',
+						array(
+							'taxonomy' => 'news-list',
+							'field' => 'slug',
+							'terms' => 'feed'
+						),
+						array(
+							'taxonomy' => 'meri-list',
+							'field' => 'slug',
+							'terms' => 'feed'
+						)
+					)
 				]);
 
 				$timeline_posts = $timeline_posts_quary->posts;
@@ -37,17 +40,36 @@ function render_timeline()
 				<?php render_timline_news_template($timeline_posts[2]->ID); ?>
 			</div>
 			<div class="timeline__news-list-expanded">
+				<div class="timeline__title">
+					<span>Лента новостей</span>
+				</div>
+				<div id="close_timeline">
+					<div class="timeline__buttons">
+						<button class="timeline__btn-expand collapse">
+							<?php render_expand_btn_icon(); ?>
+						</button>
+						<button class="timeline__btn-collapse">
+							<?php render_collapse_btn_icon(); ?>
+						</button>
+					</div>
+				</div>
 				<?php
 				$timeline_posts_quary = new WP_Query([
-					'post_type' => 'news',
-					'post_per_page' => '10',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'news-list',
-                            'field' => 'slug',
-                            'terms' => 'feed'
-                        )
-                    )
+					'post_type' => 'any',
+					'posts_per_page' => '10',
+					'tax_query' => array(
+						'relation' => 'OR',
+						array(
+							'taxonomy' => 'news-list',
+							'field' => 'slug',
+							'terms' => 'feed'
+						),
+						array(
+							'taxonomy' => 'meri-list',
+							'field' => 'slug',
+							'terms' => 'feed'
+						)
+					)
 				]);
 
 				$timeline_posts = $timeline_posts_quary->posts;
@@ -61,14 +83,15 @@ function render_timeline()
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</div>
-
-			<div class="timeline__buttons">
-				<button class="timeline__btn-expand collapse">
-					<?php render_expand_btn_icon(); ?>
-				</button>
-				<button class="timeline__btn-collapse">
-					<?php render_collapse_btn_icon(); ?>
-				</button>
+			<div id="open_timeline">
+				<div class="timeline__buttons">
+					<button class="timeline__btn-expand collapse">
+						<?php render_expand_btn_icon(); ?>
+					</button>
+					<button class="timeline__btn-collapse">
+						<?php render_collapse_btn_icon(); ?>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

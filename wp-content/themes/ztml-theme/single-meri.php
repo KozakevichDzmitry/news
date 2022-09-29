@@ -4,9 +4,11 @@
 <?php require_once(COMPONENTS_PATH . 'pdf-attachments.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'half-post.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+
 
 <?php require_once(COMPONENTS_PATH . 'line-news-list-item.php'); ?>
-<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+
 <?php
 $newspapers_taxes = get_terms(
 	array(
@@ -14,28 +16,31 @@ $newspapers_taxes = get_terms(
 		'hide_empty' => false
 	)
 );
-$id = get_the_ID();
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('post',$id, 'background');?>
-    </div>
-<main class="ta">
+
+<div class="adfox-banner-background">
+	<?php render_adv('post', $post->ID, 'background'); ?>
+</div>
+<main class="ta single-take-actions">
+	<?php plus_and_zen_post($post->ID); ?>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
-				<?php render_half_post($post); ?>
+				<div class="mob-container">
+					<?php render_half_post($post); ?>
+				</div>
 
-				<?php render_topic_bar('Читайте и подписывайтесь'); ?>
+				<?php render_topic_bar('Читайте и подписывайтесь', false); ?>
 
 				<div class="sub-block">
 					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo.png'; ?>" />
+						<a target="_blank" href="https://yandex.by/news/smi/minsknewsby"><img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo.png'; ?>" /></a>
 					</div>
 					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo-dzen.png'; ?>" />
+						<a target="_blank" href="https://zen.yandex.ru/minsknews"><img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo-dzen.png'; ?>" /></a>
 					</div>
 					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>" />
+						<a target="_blank" href="https://news.google.com/publications/CAAqJggKIiBDQklTRWdnTWFnNEtERzFwYm5OcmJtVjNjeTVpZVNnQVAB?r=0&oc=1&hl=ru&gl=RU&ceid=RU:ru"><img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>" /></a>
 					</div>
 				</div>
 			</div>
@@ -64,7 +69,7 @@ $id = get_the_ID();
 						)
 					);
 					?>
-					<?php render_pdf_attachments($the_query->posts); ?>
+					<?php render_pdf_attachments($the_query->posts, 'three'); ?>
 				<?php endforeach; ?>
 			</div>
 		</div>

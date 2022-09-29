@@ -16,11 +16,11 @@ function render_header_logo_icon()
 				<stop offset="1" stop-color="white" stop-opacity="0" />
 			</radialGradient>
 			<linearGradient id="paint1_linear_918_7093" x1="71.7866" y1="49.2902" x2="71.7866" y2="-0.00726362" gradientUnits="userSpaceOnUse">
-				<stop stop-color="#FF2F36" />
+				<stop offset="1" stop-color="#FF2F36" />
 				<stop offset="1" stop-color="#A62320" />
 			</linearGradient>
 			<linearGradient id="paint2_linear_918_7093" x1="-7.48233" y1="49.3079" x2="-7.48233" y2="-0.00726623" gradientUnits="userSpaceOnUse">
-				<stop stop-color="#E31E24" />
+				<stop offset="1"stop-color="#E31E24" />
 				<stop offset="1" stop-color="#A62320" />
 			</linearGradient>
 		</defs>

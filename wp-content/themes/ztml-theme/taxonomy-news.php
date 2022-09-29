@@ -23,17 +23,17 @@ $newspapers_taxes = get_terms(
 			<div class="main-content">
 				<?php render_half_post($post); ?>
 
-				<?php render_topic_bar('Читайте и подписывайтесь'); ?>
+				<?php render_topic_bar('Читайте и подписывайтесь', false); ?>
 
 				<div class="sub-block">
 					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo.png'; ?>" />
+						<a target="_blank" href="https://yandex.by/news/smi/minsknewsby"><img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo.png'; ?>" /></a>
 					</div>
 					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo-dzen.png'; ?>" />
+						<a target="_blank" href="https://zen.yandex.ru/minsknews"><img src="<?php echo get_template_directory_uri() . '/assets/images/yandex-logo-dzen.png'; ?>" /></a>
 					</div>
 					<div>
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>" />
+						<a target="_blank" href="https://news.google.com/publications/CAAqJggKIiBDQklTRWdnTWFnNEtERzFwYm5OcmJtVjNjeTVpZVNnQVAB?r=0&oc=1&hl=ru&gl=RU&ceid=RU:ru"><img src="<?php echo get_template_directory_uri() . '/assets/images/google-logo.png'; ?>" /></a>
 					</div>
 				</div>
 
@@ -96,7 +96,7 @@ $newspapers_taxes = get_terms(
 						)
 					);
 					?>
-					<?php render_pdf_attachments($the_query->posts); ?>
+					<?php render_pdf_attachments($the_query->posts, 'three'); ?>
 				<?php endforeach; ?>
 			</div>
 		</div>

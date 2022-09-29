@@ -26,10 +26,18 @@ function share_popup(url, title, w, h) {
 }
 
 jQuery(document).ready(function ($) {
+	$lastShareLinkEl = null;
+	$(document).on("click", function (e) {
+		$target = $(e.target);
 
-	$('main').click(function (e) {
-		if($(e.target).attr('id') ==='btn-share' || $(e.target).parent('svg').attr('id')==='btn-share'){
-			$(e.target).closest('.share-block--fold').toggleClass('active')
+		$parent = $target.closest(".share-block--fold");
+
+		if ($parent) {
+			if ($lastShareLinkEl && !$lastShareLinkEl.is($($parent))) {
+				$lastShareLinkEl.removeClass("active");
+			}
+			$($parent).toggleClass("active");
+			$lastShareLinkEl = $($parent);
 		}
-	})
-})
+	});
+});

@@ -10,7 +10,7 @@ function render_cae_item_list($post_ID)
 			<span><?php echo get_the_title($post_ID); ?></span>
 		</div>
 		<div class="card-item__player">
-			<?php render_mn_player(); ?>
+			<?php render_mn_player($post_ID); ?>
 		</div>
 		<div class="card-item__description">
 			<div class="overlay"></div>
@@ -20,7 +20,7 @@ function render_cae_item_list($post_ID)
 		</div>
 		<div class="card-item__footer">
 			<button class="read-more-link">
-				<span>Читать всё</span>
+				<span class="read-more">Читать все</span>
 				<span>
 					<?php render_go_to_icon(); ?>
 				</span>

@@ -17,6 +17,7 @@
 <?php require_once(COMPONENTS_PATH . "adv.php"); ?>
 
 
+
 <?php get_header(); ?>
 
 <?php
@@ -29,55 +30,54 @@ $services_list = carbon_get_post_meta(get_queried_object_id(), 'crb_printing_ser
 
 $contacts_caption = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts_caption');
 $contacts_list = carbon_get_post_meta(get_queried_object_id(), 'crb_contacts');
-
-$id=get_the_ID();
-
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('page',$id, 'background');?>
-    </div>
+
+<div class="adfox-banner-background">
+	<?php render_adv('page', get_the_ID(), 'background'); ?>
+</div>
 <main class="printing">
-    <div class="container container_adv"><?php  render_adv('page',$id, 'before_main');?></div>
+	<div class="container container_adv"><?php render_adv('page', get_the_ID(), 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
 				<?php render_topic_bar(get_the_title(), false); ?>
-
-				<p class="printing-text"><?php echo $title; ?></p>
-				<div class="list-container">
-					<p class="list__caption">
-						<?php echo $services_caption; ?>
-					</p>
-					<ul class="list">
-						<?php foreach ($services_list as $item) : ?>
-							<li class="list__item">
-								<?php echo $item['crb_service']; ?>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-				<div class="list-container">
-					<p class="list__caption">
-						<?php echo $contacts_caption; ?>
-					</p>
-					<ul class="list">
-						<?php foreach ($contacts_list as $item) : ?>
-							<li class="list__item">
-								<a class="list__item-link" href="<?php echo $item['crb_link'] ?>">
-									<?php echo $item['crb_contact']; ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-				<div style="position:relative;overflow:hidden;">
-					<iframe class="printing__map" src="https://yandex.by/map-widget/v1/-/CCUBZMXz9A" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+				<div class="mob-container">
+					<p class="printing-text"><?php echo $title; ?></p>
+					<div class="list-container">
+						<p class="list__caption">
+							<?php echo $services_caption; ?>
+						</p>
+						<ul class="list">
+							<?php foreach ($services_list as $item) : ?>
+								<li class="list__item">
+									<?php echo $item['crb_service']; ?>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<div class="list-container">
+						<p class="list__caption">
+							<?php echo $contacts_caption; ?>
+						</p>
+						<ul class="list">
+							<?php foreach ($contacts_list as $item) : ?>
+								<li class="list__item">
+									<a class="list__item-link" href="<?php echo $item['crb_link'] ?>">
+										<?php echo $item['crb_contact']; ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<div style="position:relative;overflow:hidden;">
+						<iframe class="printing__map" src="https://yandex.by/map-widget/v1/-/CCUBZMXz9A" width="560" height="400" frameborder allowfullscreen style="position:relative;"></iframe>
+					</div>
 				</div>
 			</div>
 			<div class="second-content">
-				<?php render_most_read_news_template(true, 'page', $id); ?>
-				<?php render_top_three_news_template('page', $id); ?>
-				<?php render_newspapers_template('page', $id); ?>
+				<?php render_most_read_news_template(true, 'page', get_the_ID()); ?>
+				<?php render_top_three_news_template('page', get_the_ID()); ?>
+				<?php render_newspapers_template('page', get_the_ID()); ?>
 			</div>
 		</div>
 		<?php render_sidebar(); ?>

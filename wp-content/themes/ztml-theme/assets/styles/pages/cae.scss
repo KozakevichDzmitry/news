@@ -136,6 +136,30 @@
 					span {
 						display: block;
 					}
+
+					&:hover{
+						color: #101010;
+						span{
+							svg{
+								path{
+									fill: #101010;
+									fill-opacity: 1;
+								}
+							}
+						}
+					}
+					
+					&:focus{
+						color: rgba(16, 16, 16, 0.2);;
+						span{
+							svg{
+								path{
+									fill: rgba(16, 16, 16, 0.2);;
+									fill-opacity: 1;
+								}
+							}
+						}
+					}
 				}
 			}
 
@@ -186,6 +210,10 @@
 			}
 		}
 	}
+}
+
+.cae_pause_icon{
+	display: none;
 }
 
 @media (max-width: 1190px) {

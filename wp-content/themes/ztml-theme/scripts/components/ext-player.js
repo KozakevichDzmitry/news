@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
 	const erp = $(".erp-scn");
+
 	if (erp.length > 0) {
 		const playerState = {
 			isPaused: true,
@@ -10,18 +11,19 @@ jQuery(document).ready(function ($) {
 		playerState.audioSrc.addEventListener(
 			"canplaythrough",
 			() => {
-				console.log("Audio ready");
 				playerState.isLoaded = true;
 
 				if (playerState.isLoaded) {
 					erp.find(".erp-scn__player-btn").click(() => {
 						if (playerState.isPaused) {
-							console.log("click to play");
+							erp.find(".play_icon").css("display", "none");
+							erp.find(".pause_icon").css("display", "inline-block");
 							playerState.audioSrc.play();
 							playerState.isPaused = false;
 						} else {
+							erp.find(".play_icon").css("display", "inline-block");
+							erp.find(".pause_icon").css("display", "none");
 							playerState.audioSrc.pause();
-							console.log("click to pause");
 							playerState.isPaused = true;
 						}
 					});
@@ -31,3 +33,8 @@ jQuery(document).ready(function ($) {
 		);
 	}
 });
+
+function imgsrc(img) {
+	if ($(img).attr("src") == "img/plus.gif") $(img).attr("src", "img/minus.gif");
+	else $(img).attr("src", "img/plus.gif");
+}

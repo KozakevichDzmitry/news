@@ -31,7 +31,6 @@ jQuery(document).ready(function ($) {
 	});
 
 	const posts = document.querySelectorAll(".post");
-
 	for (const post of posts) {
 		observer.observe(post);
 	}

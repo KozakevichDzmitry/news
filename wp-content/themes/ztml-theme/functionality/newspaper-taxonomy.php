@@ -11,7 +11,7 @@ function newspaper_taxonomy()
 				'singular_name'       => _x('Газета', 'Post Type Singular Name'),
 				'menu_name'           => __('Издательства'),
 			),
-			'supports'            => array('title', 'author', 'thumbnail'),
+			'supports'            => array('title', 'author', 'editor', 'thumbnail'),
 			'hierarchical'        => false,
 			'public'              => true,
 			'show_ui'             => true,
@@ -22,6 +22,7 @@ function newspaper_taxonomy()
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
+			'show_in_rest' => true,
 		)
 	);
 

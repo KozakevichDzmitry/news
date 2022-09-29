@@ -41,7 +41,7 @@
 		.part {
 			display: flex;
 			gap: 10px;
-			margin-top: 30px;
+			margin-top: 20px;
 
 			img {
 				max-width: inherit !important;
@@ -67,6 +67,21 @@
 			.efirs-list-item__efir-part {
 				display: flex;
 				gap: 40px;
+
+				& > div:last-child {
+					width: 100%;
+
+					.video-preview {
+						width: 100%;
+
+						iframe,
+						video {
+							min-height: 400px;
+							height: 400px;
+							width: 100%;
+						}
+					}
+				}
 			}
 
 			&__decription {
@@ -79,6 +94,11 @@
 				margin-bottom: 10px;
 			}
 
+			&__thumb img {
+				height: 400px !important;
+				width: 400px;
+			}
+
 			&__thumb img,
 			&__video iframe {
 				height: 100%;
@@ -89,11 +109,16 @@
 	}
 
 	.aaq-question-list {
+		.slick-track {
+			display: flex;
+		}
+
 		.aaq-question-list-item {
 			background: #ffffff;
 			box-shadow: 0px 3px 4px rgba(125, 125, 125, 0.25),
 				0px -3px 4px rgba(125, 125, 125, 0.1);
 			padding: 15px 30px;
+			height: inherit;
 
 			&__name {
 				p {
@@ -107,15 +132,13 @@
 				}
 			}
 			&__ask {
-				p {
-					font-family: "Noto Sans";
-					font-style: normal;
-					font-weight: 400;
-					font-size: 12px;
-					line-height: 20px;
-					color: $black-color;
-					margin: 0px;
-				}
+				font-family: "Noto Sans";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 12px;
+				line-height: 20px;
+				color: $black-color;
+				margin: 0px;
 			}
 		}
 	}
@@ -203,5 +226,61 @@
 				}
 			}
 		}
+	}
+}
+
+.aaq .efirs-list .efirs-list-item {
+	margin-bottom: 0;
+}
+
+.aaq .efirs-list .efirs-list-item__decription {
+	margin-bottom: 0px;
+}
+
+.aaq .aqq-content .part img {
+	margin-bottom: 20px;
+}
+
+.load-moree-btn button {
+	margin-bottom: 30px;
+}
+
+@media (max-width: 1096px) {
+	.aaq .efirs-list .efirs-list-item .efirs-list-item__efir-part {
+		gap: 0px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.efirs-list-item__thumb {
+		padding: 0px 0px 20px 0px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.aaq .aqq-content .part {
+		display: flex;
+		gap: 0;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media (max-width: 768px) {
+	.video-preview {
+		padding: 0 20px;
+	}
+	.efirs-list-item__thumb {
+		padding: 0px 20px 20px 20px;
+	}
+	.aqq-content,
+	.efirs-list-item__decription {
+		padding: 0px 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.aaq .efirs-list {
+		margin-bottom: 30px;
 	}
 }

@@ -6,6 +6,8 @@ require_once(COMPONENTS_PATH . "icons/location-icon.php");
 require_once(COMPONENTS_PATH . "icons/camera-icon.php");
 require_once(COMPONENTS_PATH . "icons/video-content-icon.php");
 
+require_once(COMPONENTS_PATH . 'content-exist-markers.php');
+
 function render_line_regular_news($post_ID)
 {
 ?>
@@ -20,18 +22,7 @@ function render_line_regular_news($post_ID)
 		<div class="content">
 			<div class="content-header">
 				<div class="content-exist">
-					<?php $pg = get_post($post_ID); ?>
-					<?php $pgc = apply_filters('the_content', $pg->post_content); ?>
-					<?php $checked_content = apply_filters('the_content', get_the_content(null, null, $post_ID)); ?>
-					<?php if (check_exist_images($pgc)) : ?>
-						<?php render_camera_icon(); ?>
-					<?php endif; ?>
-					<?php if (check_exist_video($pgc)) : ?>
-						<?php render_video_content_icon(); ?>
-					<?php endif; ?>
-					<?php if (check_exist_map($checked_content)) : ?>
-						<?php render_location_icon(); ?>
-					<?php endif; ?>
+					<?php render_content_exist_markers($post_ID); ?>
 				</div>
 				<span class="news-cat">
 					<?php echo strip_tags(get_the_term_list($post_ID, 'news-list')); ?>
@@ -56,10 +47,10 @@ function render_line_regular_news($post_ID)
 						<?php endif; ?>
 					</div>
 				</div>
-                <div class="share-block--fold">
-                    <?php echo do_shortcode('[share_links]'); ?>
-                    <?php render_share_icon(); ?>
-                </div>
+				<div class="share-block--fold">
+					<?php echo do_shortcode('[share_links]'); ?>
+					<?php render_share_icon(); ?>
+				</div>
 			</div>
 		</div>
 	</div>

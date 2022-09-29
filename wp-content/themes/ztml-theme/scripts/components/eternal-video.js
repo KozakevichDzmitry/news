@@ -14,7 +14,6 @@ jQuery(document).ready(function ($) {
 			videoEl.addEventListener(
 				"pause",
 				() => {
-					console.log("paused");
 					videoEl.controls = false;
 					videoContainer.find(".controls").show();
 				},

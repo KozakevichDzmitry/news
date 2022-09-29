@@ -77,7 +77,7 @@ $districts = array(
 						)
 					);
 					?>
-					<?php render_pdf_attachments($the_query->posts); ?>
+					<?php render_pdf_attachments($the_query->posts, 'three'); ?>
 				<?php endforeach; ?>
 			</div>
 		</div>

@@ -12,21 +12,23 @@
 <?php require_once(COMPONENTS_PATH . 'news-templates/society-news-tempalte.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/urban-economy-news-template.php'); ?>
 <?php require_once(COMPONENTS_PATH . 'news-templates/top-three-news-template.php'); ?>
-<?php require_once(COMPONENTS_PATH . "adv.php");?>
+<?php require_once(COMPONENTS_PATH . 'sidebar.php'); ?>
+<?php require_once(COMPONENTS_PATH . "adv.php"); ?>
+
 <?php
 
 $districts = new WP_Query(array(
 	'post_type' => 'district',
 	'post_status' => 'publish'
 ));
-
-$page_id=get_the_ID();
+$page_id = get_the_ID();
 ?>
-    <div class="adfox-banner-background">
-        <?php  render_adv('page',$page_id, 'background');?>
-    </div>
+
+<div class="adfox-banner-background">
+	<?php render_adv('page', $page_id, 'background'); ?>
+</div>
 <main id="district" class="district">
-    <div class="container container_adv"><?php  render_adv('page',$page_id, 'before_main');?></div>
+	<div class="container container_adv"><?php render_adv('page', $page_id, 'before_main'); ?></div>
 	<div class="container main-container">
 		<div class="content-wrapper">
 			<div class="main-content">
@@ -34,7 +36,9 @@ $page_id=get_the_ID();
 				<div class="district__slider">
 					<?php foreach (carbon_get_the_post_meta('crb_district_gallery_iamges') as $id) : ?>
 						<div>
-                            <a href="<?php echo wp_get_attachment_url($id); ?>"><img src="<?php echo wp_get_attachment_url($id); ?>" /></a>
+							<a href="<?php echo wp_get_attachment_url($id); ?>">
+								<img src="<?php echo wp_get_attachment_url($id); ?>" />
+							</a>
 						</div>
 					<?php endforeach; ?>
 				</div>
@@ -48,23 +52,29 @@ $page_id=get_the_ID();
 				</div>
 			</div>
 			<div class="second-content">
-				<?php render_society_news_template(true,'page', $page_id); ?>
-				<?php render_urban_economy_news_template(true,'page', $page_id); ?>
-				<?php render_economy_news_template(true,'page', $page_id); ?>
-				<?php render_most_read_news_template(true,'page', $page_id); ?>
+				<?php render_society_news_template(true, true, get_post($id)->post_name, 'page', $page_id); ?>
+				<?php render_urban_economy_news_template(true, true, get_post($id)->post_name, 'page', $page_id); ?>
+				<?php render_economy_news_template(true, true, get_post($id)->post_name, 'page', $page_id); ?>
+				<?php render_most_read_news_template(true, 'page', $page_id); ?>
 				<?php render_top_three_news_template('page', $page_id); ?>
 				<?php render_newspapers_template('page', $page_id); ?>
 			</div>
 		</div>
-		<div class="sidebar-wrapper">
-			<div class="dynamic-sidebar">
+		<?php render_sidebar(function () {
+			$districts = new WP_Query(array(
+				'post_type' => 'district',
+				'post_status' => 'publish'
+			));
+		?>
+			<div>
 				<?php if ($districts->have_posts()) : ?>
 					<?php while ($districts->have_posts()) : $districts->the_post(); ?>
 						<?php render_topic_minibar(get_the_title(), get_post_permalink()); ?>
 					<?php endwhile; ?>
 				<?php endif; ?>
 			</div>
-		</div>
+		<?php
+		}); ?>
 	</div>
 </main>
 

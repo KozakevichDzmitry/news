@@ -18,7 +18,7 @@ const paths = {
 
 const browsersync = () => {
 	browser_sync.init({
-		proxy: "http://news/",
+		proxy: "www.minsknews.com",
 		notify: false,
 	});
 };

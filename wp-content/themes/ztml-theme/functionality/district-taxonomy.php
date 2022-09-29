@@ -11,7 +11,7 @@ function district_taxonomy()
 				'singular_name'       => _x('Район', 'Post Type Singular Name'),
 				'menu_name'           => __('Районы'),
 			),
-			'supports'            => array('title', 'author', 'editor', 'revisions'),
+			'supports'            => array('title', 'author', 'editor', 'revisions', 'thumbnail'),
 			'hierarchical'        => false,
 			'public'              => true,
 			'show_ui'             => true,
@@ -22,6 +22,7 @@ function district_taxonomy()
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
+			'show_in_rest' => true
 		)
 	);
 }

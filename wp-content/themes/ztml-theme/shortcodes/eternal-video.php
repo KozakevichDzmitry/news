@@ -6,7 +6,7 @@ function eternal_video($atts)
 	$video_file = get_attached_file($atts['attachment_id']);
 	$file_ext = pathinfo($video_file, PATHINFO_EXTENSION);
 ?>
-	<video width="320" height="240">
+	<video width="320" height="240" poster="<?php echo $atts["poster"]; ?>">
 		<source src="<?php echo $video_file_url; ?>" type="video/<?php echo $file_ext; ?>">
 		Your browser does not support the video tag.
 	</video>

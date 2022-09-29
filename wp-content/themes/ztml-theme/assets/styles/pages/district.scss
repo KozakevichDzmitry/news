@@ -1,4 +1,5 @@
-#district, #events {
+#district,
+#events {
 	.district__info {
 		font-family: "Noto Sans";
 		font-style: normal;
@@ -76,6 +77,11 @@
 			opacity: 1;
 		}
 
+		.slick-slider{
+				.slick-arrow{
+					display:block !important;
+				}
+		}
 		.slick-prev.slick-arrow:before {
 			transform: scaleX(-1);
 		}
@@ -155,6 +161,36 @@
 	}
 }
 
+.swiper-module {
+	margin-bottom: 30px;
+}
+
+.swiper-wrapper {
+	margin-bottom: 16px;
+}
+
+.swiper-pagination {
+	position: inherit !important;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.swiper-pagination-bullet {
+	width: 6px !important;
+	height: 6px !important;
+	border-radius: 0px !important;
+	background: rgba(16, 16, 16, 0.2) !important;
+	border: rgba(16, 16, 16, 0.2) !important;
+}
+.swiper-pagination-bullet-active {
+	width: 10px !important;
+	height: 10px !important;
+	background: rgba(217, 30, 35, 0.6) !important;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	margin-top: 4px;
+}
+
 @media screen and (max-width: 767px) {
 	#district .district__slider {
 		padding-top: 26px;
@@ -169,7 +205,6 @@
 	#district .district__slider .slick-slide {
 		padding-left: 10px;
 		padding-right: 10px;
-		transition: 0.2s;
 	}
 
 	#district .district__slider .slick-slide:not(.slick-current) {
@@ -185,10 +220,32 @@
 	.pdf-archive__link {
 		display: none;
 	}
-	.district__info{
+	.district__info {
 		padding: 0 20px;
 	}
-	.district__link{
+	.district__link {
 		padding: 0 20px;
+	}
+}
+
+#district .district__link {
+	transition: -webkit-transform 0.2s ease-out;
+	transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out, -webkit-transform 0.2s ease-out;
+	&:hover {
+		a {
+			text-decoration: underline;
+		}
+	}
+	&:active {
+		a {
+			color: $blue60-color;
+		}
+	}
+}
+
+@media (min-width: 577px) {
+	.swiper-pagination {
+		display: none;
 	}
 }

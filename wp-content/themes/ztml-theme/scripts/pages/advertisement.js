@@ -3,7 +3,6 @@ jQuery(document).ready(function ($) {
 
 	accardionListItems.on("click", (e) => {
 		accardionListItems.find(".acc-item").each((_, item) => {
-			console.log();
 			if (!$(item).is($(e.target).closest(".acc-item"))) {
 				const container = $(item);
 				container.find(".acc-content").hide();
@@ -12,8 +11,6 @@ jQuery(document).ready(function ($) {
 		});
 
 		const container = $(e.target).closest(".acc-item");
-
-		console.log(container.find(".acc-btn").attr("class"));
 
 		if (container.find(".acc-btn").hasClass("active")) {
 			container.find(".acc-content").hide();

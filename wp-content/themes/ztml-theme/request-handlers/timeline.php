@@ -5,14 +5,25 @@ require_once(COMPONENTS_PATH . 'news-templates/timeline-news-template.php');
 
 function timeline_news_load()
 {
-//	 $args = unserialize(stripslashes($_POST['query']));
-
 	$args = array();
 
 	$args['posts_per_page'] = $_POST['load'];
 	$args['offset'] = $_POST['offset'];
 	$args['post_status'] = 'publish';
-	$args['post_type'] = 'news';
+	$args['post_type'] = 'any';
+	$args['tax_query'] = array(
+		'relation' => 'OR',
+		array(
+			'taxonomy' => 'news-list',
+			'field' => 'slug',
+			'terms' => 'feed'
+		),
+		array(
+			'taxonomy' => 'meri-list',
+			'field' => 'slug',
+			'terms' => 'feed'
+		)
+	);
 
 	$posts = get_posts($args);
 

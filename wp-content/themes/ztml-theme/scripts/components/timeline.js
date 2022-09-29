@@ -5,10 +5,12 @@ jQuery(document).ready(function ($) {
 		"click",
 		function () {
 			if (timelineIsCollapsed) {
+				$('#open_timeline').css({'display': 'none'});
 				$(".timeline .container.news").addClass("expanded");
 				$(".timeline .container.news").removeClass("collapsed");
 				timelineIsCollapsed = false;
 			} else {
+				$('#open_timeline').css({'display': 'block'});
 				$(".timeline .container.news").addClass("collapsed");
 				$(".timeline .container.news").removeClass("expanded");
 				timelineIsCollapsed = true;

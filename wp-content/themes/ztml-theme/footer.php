@@ -31,17 +31,17 @@
 						<span>Реклама</span>
 					</h4>
 					<p class="footer__advertising">
-						Расскажи о себе и своём бизносе,<br />
-						с помощью нашего медиахолдинга<br />
+						Расскажи о себе и своем бизнесе<br />
+						с помощью медиахолдинга<br />
 						УП «Агентство «Минск-Новости»!
 					</p>
-					<a href="<?php echo get_permalink( 1063423);?>" class="footer__advertising-btn">Разместить рекламу</a>
+					<a href="<?php echo get_permalink(1063423); ?>" class="footer__advertising-btn">Разместить рекламу</a>
 				</aside>
 			</div>
 			<div class="footer__media">
 				<aside>
 					<h4 class="footer__title">
-						<span>Наши Сми</span>
+						<span>Наши СМИ</span>
 					</h4>
 					<?php render_logo_smi_icon(); ?>
 				</aside>

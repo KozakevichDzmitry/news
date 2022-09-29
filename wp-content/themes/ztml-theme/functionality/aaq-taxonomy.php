@@ -9,7 +9,7 @@ function aaq_taxonomy()
 			'labels'              => array(
 				'name'                => _x('Эфир', 'Post Type General Name'),
 				'singular_name'       => _x('Эфир', 'Post Type Singular Name'),
-				'menu_name'           => __('Задайте вопрос столичным властям'),
+				'menu_name'           => __('Эфир'),
 			),
 			'supports'            => array('title', 'author', 'editor', 'thumbnail'),
 			'hierarchical'        => false,
@@ -22,6 +22,7 @@ function aaq_taxonomy()
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'capability_type'     => 'post',
+			'show_in_rest' => true,
 		)
 	);
 }

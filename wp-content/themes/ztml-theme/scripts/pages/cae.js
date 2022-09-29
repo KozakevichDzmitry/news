@@ -53,6 +53,9 @@ jQuery(document).ready(function ($) {
 	const stopOthersAudioPlayers = (player) => {
 		activePlayers.forEach((item) => {
 			if (item.el != player.el) {
+				$(item.el).find(".cae_play_icon").css("display", "inline-block");
+				$(item.el).find(".cae_pause_icon").css("display", "none");
+				item.isPlay = false;
 				item.audio.pause();
 				clearInterval(item.audioTrackInterval);
 			}
@@ -169,6 +172,10 @@ jQuery(document).ready(function ($) {
 			if (player.isPlay) {
 				const t0 = getTime(player.audio.duration);
 				player.audio.play();
+				$(player.playBtn).find(".cae_play_icon").css("display", "none");
+				$(player.playBtn)
+					.find(".cae_pause_icon")
+					.css("display", "inline-block");
 				player.audioTrackInterval = setInterval(
 					() => tickPlayerTime(player, t0, player.audioTrackInterval),
 					1000
@@ -177,6 +184,8 @@ jQuery(document).ready(function ($) {
 
 			if (!player.isPlay) {
 				player.audio.pause();
+				$(player.playBtn).find(".cae_play_icon").css("display", "inline-block");
+				$(player.playBtn).find(".cae_pause_icon").css("display", "none");
 				clearInterval(player.audioTrackInterval);
 			}
 		}
@@ -267,6 +276,7 @@ jQuery(document).ready(function ($) {
 	$("#datepicker-take-actions-template").datepicker({
 		showOn: "both",
 		changeYear: true,
+		changeMonth: true,
 		dateFormat: "yy-mm-dd",
 		minDate: $("#datepicker-take-actions-template").data("min-date"),
 		maxDate: $("#datepicker-take-actions-template").data("max-date"),

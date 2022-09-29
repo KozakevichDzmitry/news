@@ -4,6 +4,7 @@ require_once(COMPONENTS_PATH . "icons/location-icon.php");
 require_once(COMPONENTS_PATH . "icons/camera-icon.php");
 require_once(COMPONENTS_PATH . "icons/video-content-icon.php");
 require_once(COMPONENTS_PATH . 'line-news-list-item.php');
+require_once(COMPONENTS_PATH . 'content-exist-markers.php');
 
 function render_half_post($id, $cat = NULL)
 {
@@ -14,16 +15,7 @@ function render_half_post($id, $cat = NULL)
 		<div class="post-header">
 			<div class="content-exists">
 				<div class="content">
-					<?php $checked_content = apply_filters('the_content', $single_post->post_content, $id); ?>
-					<?php if (check_exist_images($checked_content)) : ?>
-						<?php render_camera_icon(); ?>
-					<?php endif; ?>
-					<?php if (check_exist_video($checked_content)) : ?>
-						<?php render_video_content_icon(); ?>
-					<?php endif; ?>
-					<?php if (check_exist_map($checked_content)) : ?>
-						<?php render_location_icon(); ?>
-					<?php endif; ?>
+					<?php render_content_exist_markers($single_post->ID); ?>
 				</div>
 				<div class="tags">
 					<span>
@@ -61,7 +53,7 @@ function render_half_post($id, $cat = NULL)
 		</div>
 
 		<?php
-		$content = apply_filters('the_content', get_the_content(), $single_post->ID);
+		$content = apply_filters('the_content', $single_post->post_content);
 		?>
 
 		<div class="page-content">
@@ -71,7 +63,7 @@ function render_half_post($id, $cat = NULL)
 		<div class="footer-content">
 			<div class="author-info">
 				<div class="author-image">
-					<img src="<?php the_author_meta('avatar', $author_id); ?>" />
+					<?php echo get_avatar($author_id); ?>
 				</div>
 				<div class="author-details">
 					<span class="label">Автор материалов</span>
