@@ -1,0 +1,18 @@
+{
+    "name": "news/aa",
+    "description": "aaaa",
+    "require": {
+        "voryx/thruway": "^0.6.1",
+        "react/zmq": "^0.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "News\\Aa\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dima"
+        }
+    ]
+}

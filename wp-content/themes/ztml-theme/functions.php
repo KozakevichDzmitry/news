@@ -112,6 +112,9 @@ function page_scripts()
 
 	global $wp_query;
 
+    wp_register_script('autoban-lib-js', 'https://cdnjs.cloudflare.com/ajax/libs/autobahn/20.9.2/autobahn.min.js', null, null, true);
+    wp_enqueue_script('autoban-lib-js');
+    wp_enqueue_script('sockets-js', get_stylesheet_directory_uri() . '/scripts/sockets.js', array('jquery', 'autoban-lib-js'), false);
 
 	if (is_front_page()) {
 		wp_enqueue_script('index-js', get_template_directory_uri() . '/scripts/pages/index.js', array('jquery-ui', 'jquery'));
@@ -471,18 +474,16 @@ require_once(__DIR__ . "/tv-parser.php");
 
 function save_post_action($id, $post)
 {
-	if (get_page_template_slug($post) === 'tv-programme.php') {
-		$zip_url = get_attached_file(carbon_get_post_meta($id, "crb_tv_programms"));
+    if (get_page_template_slug($post) === 'tv-programme.php') {
+        $zip_url = get_attached_file(carbon_get_post_meta($id, "crb_tv_programms"));
 
-		if (strlen($zip_url)) {
-			parse_tv_programm_file($zip_url);
-		}
-	}
+        if (strlen($zip_url)) {
+            parse_tv_programm_file($zip_url);
+        }
+    }
 }
 
 add_action('post_updated', 'save_post_action', 10, 3);
-
-
 
 add_shortcode('socials', 'social_shortcode');
 function social_shortcode()

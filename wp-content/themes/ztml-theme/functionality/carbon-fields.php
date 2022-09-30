@@ -508,7 +508,7 @@ function crb_attach_theme_options()
 					->add_options('getWpadcenterPostData'),
 				Field::make("select", "crb_adv_block14", 'Реклама после блока "Газеты"')
 					->add_options('getWpadcenterPostData')
-			),
+			)
 		);
 
 	Container::make('post_meta', 'Закрепленные авторы на главной')

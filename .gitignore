@@ -1,2 +1,3 @@
 # Project exclude paths
 /wp-content/themes/ztml-theme/assembly/node_modules/
+/vendor/
